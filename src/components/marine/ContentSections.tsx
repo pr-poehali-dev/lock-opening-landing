@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
 import {
   IMG_ENGINE, IMG_CHANDLER,
@@ -102,16 +103,22 @@ export default function ContentSections({ scrollTo }: ContentSectionsProps) {
             <div className="grid lg:grid-cols-2 gap-16 items-end mb-14">
               <div>
                 <div className="section-label mb-3">01 — Агентирование</div>
-                <h2 className="section-title-lg mb-4" style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)" }}>
-                  Судовое агентирование
-                </h2>
+                <Link to="/agency" className="group inline-block">
+                  <h2 className="section-title-lg mb-2 group-hover:text-[var(--sea)] transition-colors duration-200" style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)" }}>
+                    Судовое агентирование
+                    <Icon name="ArrowUpRight" size={28} className="inline-block ml-2 mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ color: "var(--sea)" }} />
+                  </h2>
+                </Link>
                 <div className="gold-line w-20 mb-5" />
                 <p className="font-ibm leading-relaxed" style={{ color: "var(--text-muted)" }}>
                   Профессиональное представление интересов судовладельца в порту. Берём на себя все бюрократические, логистические и координационные задачи — от нотиса о прибытии до оформления отхода.
                 </p>
               </div>
-              <div className="lg:text-right">
-                <button onClick={() => scrollTo("#contacts")} className="btn-navy px-8 py-3.5 rounded text-xs">
+              <div className="lg:text-right flex lg:flex-col gap-3 items-start lg:items-end">
+                <Link to="/agency" className="btn-navy px-8 py-3.5 rounded text-xs">
+                  Подробнее
+                </Link>
+                <button onClick={() => scrollTo("#contacts")} className="btn-gold px-8 py-3.5 rounded text-xs">
                   Запросить агента
                 </button>
               </div>
@@ -150,11 +157,14 @@ export default function ContentSections({ scrollTo }: ContentSectionsProps) {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <Reveal>
               <div className="section-label mb-3">02 — Ремонт двигателей</div>
-              <h2 className="font-cormorant text-white font-semibold leading-tight mb-4"
-                style={{ fontSize: "clamp(2.2rem, 4vw, 3.8rem)" }}>
-                Ремонт судовых<br />
-                <span style={{ color: "var(--gold-light)" }}>двигателей</span>
-              </h2>
+              <Link to="/engines" className="group inline-block mb-4">
+                <h2 className="font-cormorant text-white font-semibold leading-tight group-hover:opacity-80 transition-opacity duration-200"
+                  style={{ fontSize: "clamp(2.2rem, 4vw, 3.8rem)" }}>
+                  Ремонт судовых<br />
+                  <span style={{ color: "var(--gold-light)" }}>двигателей</span>
+                  <Icon name="ArrowUpRight" size={28} className="inline-block ml-2 mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ color: "var(--gold-light)" }} />
+                </h2>
+              </Link>
               <div className="gold-line w-20 mb-6" />
               <p className="font-ibm leading-relaxed mb-8" style={{ color: "rgba(255,255,255,0.6)" }}>
                 Выездная и стационарная бригада сертифицированных механиков. Работаем с главными двигателями MAN, Wärtsilä, Caterpillar, Cummins, а также со вспомогательными механизмами любых серий.
@@ -167,9 +177,14 @@ export default function ContentSections({ scrollTo }: ContentSectionsProps) {
                   </span>
                 ))}
               </div>
-              <button onClick={() => scrollTo("#contacts")} className="btn-gold px-8 py-3.5 rounded text-xs">
-                Вызвать механика
-              </button>
+              <div className="flex flex-wrap gap-3">
+                <Link to="/engines" className="btn-outline-white px-8 py-3.5 rounded text-xs">
+                  Подробнее
+                </Link>
+                <button onClick={() => scrollTo("#contacts")} className="btn-gold px-8 py-3.5 rounded text-xs">
+                  Вызвать механика
+                </button>
+              </div>
             </Reveal>
 
             <div className="grid sm:grid-cols-2 gap-4">
@@ -193,13 +208,19 @@ export default function ContentSections({ scrollTo }: ContentSectionsProps) {
           <Reveal>
             <div className="text-center mb-14">
               <div className="section-label mb-3">03 — Ship Chandler</div>
-              <h2 className="section-title-lg mb-4" style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)" }}>
-                Судовое снабжение
-              </h2>
+              <Link to="/chandler" className="group inline-block">
+                <h2 className="section-title-lg mb-2 group-hover:text-[var(--sea)] transition-colors duration-200" style={{ fontSize: "clamp(2rem, 4vw, 3.2rem)" }}>
+                  Судовое снабжение
+                  <Icon name="ArrowUpRight" size={26} className="inline-block ml-2 mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200" style={{ color: "var(--sea)" }} />
+                </h2>
+              </Link>
               <div className="gold-line w-24 mx-auto mb-5" />
               <p className="font-ibm max-w-2xl mx-auto leading-relaxed" style={{ color: "var(--text-muted)" }}>
                 Полный цикл снабжения — от заказа до доставки на борт. Работаем напрямую с производителями и сертифицированными дистрибьюторами. Оперативная доставка в любой порт присутствия.
               </p>
+              <Link to="/chandler" className="inline-block mt-5 btn-navy px-7 py-3 rounded text-xs">
+                Перейти в каталог
+              </Link>
             </div>
           </Reveal>
 
