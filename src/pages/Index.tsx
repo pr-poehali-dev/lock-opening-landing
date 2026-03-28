@@ -171,17 +171,13 @@ export default function Index() {
           <div className="flex items-center justify-between h-16 lg:h-20 gap-6">
 
             {/* Logo */}
-            <button onClick={() => scrollTo("#hero")} className="flex items-center gap-3 shrink-0">
-              <div className="w-9 h-9 rounded flex items-center justify-center"
-                style={{ border: "1px solid rgba(212,160,23,0.4)", backgroundColor: "rgba(212,160,23,0.1)" }}>
-                <Icon name="Anchor" size={18} style={{ color: "var(--gold)" }} />
-              </div>
-              <div className="text-left">
-                <div className="font-cormorant text-white font-semibold text-xl leading-none tracking-wide">MarineGroup</div>
-                <div className="font-ibm text-[10px] uppercase tracking-[0.2em] leading-none mt-0.5" style={{ color: "var(--gold)" }}>
-                  Судовое агентство
-                </div>
-              </div>
+            <button onClick={() => scrollTo("#hero")} className="flex items-center shrink-0">
+              <img
+                src="https://thb.tildacdn.com/tild3333-3532-4765-b339-346564343465/-/resize/504x/logo_color.png"
+                alt="IDA LED"
+                className="h-10 lg:h-12 w-auto object-contain"
+                style={{ filter: "brightness(0) invert(1)" }}
+              />
             </button>
 
             {/* Desktop nav */}
@@ -642,12 +638,13 @@ export default function Index() {
           <div className="grid md:grid-cols-4 gap-10 mb-12">
 
             <div className="md:col-span-1">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-8 rounded flex items-center justify-center"
-                  style={{ border: "1px solid rgba(212,160,23,0.4)" }}>
-                  <Icon name="Anchor" size={16} style={{ color: "var(--gold)" }} />
-                </div>
-                <span className="font-cormorant text-white font-semibold text-xl">MarineGroup</span>
+              <div className="mb-4">
+                <img
+                  src="https://thb.tildacdn.com/tild3333-3532-4765-b339-346564343465/-/resize/504x/logo_color.png"
+                  alt="IDA LED"
+                  className="h-10 w-auto object-contain"
+                  style={{ filter: "brightness(0) invert(1)" }}
+                />
               </div>
               <p className="font-ibm text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.3)" }}>
                 Профессиональное судовое агентство. Полный спектр услуг для флота на черноморском побережье.
