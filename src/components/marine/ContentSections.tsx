@@ -388,19 +388,25 @@ export default function ContentSections({ scrollTo }: ContentSectionsProps) {
                 />
               </div>
               <p className="font-ibm text-sm leading-relaxed" style={{ color: "rgba(255,255,255,0.3)" }}>
-                Профессиональное судовое агентство. Полный спектр услуг для флота на черноморском побережье.
+                Профессиональное судовое агентство. Полный спектр услуг для флота.
               </p>
             </div>
 
             <div>
               <div className="font-ibm text-xs uppercase tracking-widest mb-4" style={{ color: "var(--gold)" }}>Услуги</div>
               <div className="space-y-2">
-                {["Судовое агентирование", "Ремонт двигателей", "Ship Chandler", "Смена экипажа", "Бункеровка"].map(s => (
-                  <div key={s} className="font-ibm text-sm cursor-pointer transition-colors"
-                    style={{ color: "rgba(255,255,255,0.4)" }}>
-                    {s}
-                  </div>
-                ))}
+                <Link to="/agency" className="block font-ibm text-sm transition-colors hover:text-white"
+                  style={{ color: "rgba(255,255,255,0.4)" }}>
+                  Судовое агентирование
+                </Link>
+                <Link to="/engines" className="block font-ibm text-sm transition-colors hover:text-white"
+                  style={{ color: "rgba(255,255,255,0.4)" }}>
+                  Ремонт судовых двигателей
+                </Link>
+                <Link to="/chandler" className="block font-ibm text-sm transition-colors hover:text-white"
+                  style={{ color: "rgba(255,255,255,0.4)" }}>
+                  Ship Chandler
+                </Link>
               </div>
             </div>
 
@@ -420,21 +426,16 @@ export default function ContentSections({ scrollTo }: ContentSectionsProps) {
             <div>
               <div className="font-ibm text-xs uppercase tracking-widest mb-4" style={{ color: "var(--gold)" }}>Контакты</div>
               <div className="space-y-3">
-                <a href="tel:+70000000000" className="flex items-center gap-2 font-ibm text-sm transition-colors"
+                <a href="tel:+79633027803" className="flex items-center gap-2 font-ibm text-sm transition-colors hover:text-white"
                   style={{ color: "rgba(255,255,255,0.45)" }}>
                   <Icon name="Phone" size={13} style={{ color: "var(--gold)" }} />
-                  +7 (000) 000-00-00
+                  +7 (963) 302-78-03
                 </a>
-                <a href="mailto:info@marinegroup.ru" className="flex items-center gap-2 font-ibm text-sm transition-colors"
+                <a href="mailto:order@yandex.ru" className="flex items-center gap-2 font-ibm text-sm transition-colors hover:text-white"
                   style={{ color: "rgba(255,255,255,0.45)" }}>
                   <Icon name="Mail" size={13} style={{ color: "var(--gold)" }} />
-                  info@marinegroup.ru
+                  order@yandex.ru
                 </a>
-                <div className="flex items-start gap-2 font-ibm text-sm"
-                  style={{ color: "rgba(255,255,255,0.4)" }}>
-                  <Icon name="MapPin" size={13} style={{ color: "var(--gold)", marginTop: "2px", flexShrink: 0 }} />
-                  <span>Новороссийск,<br />ул. Набережная, 1</span>
-                </div>
               </div>
             </div>
           </div>
@@ -442,11 +443,11 @@ export default function ContentSections({ scrollTo }: ContentSectionsProps) {
           <div className="pt-6 flex flex-col sm:flex-row justify-between items-center gap-3"
             style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
             <p className="font-ibm text-xs" style={{ color: "rgba(255,255,255,0.2)" }}>
-              © 2024 MarineGroup. Все права защищены.
+              © 2026 IDALED. Все права защищены.
             </p>
             <div className="flex items-center gap-4">
               <span className="font-ibm text-xs" style={{ color: "rgba(255,255,255,0.2)" }}>
-                Судовые агенты · Черноморский бассейн
+                Судовые агенты · Санкт-Петербург
               </span>
               <div className="flex items-center gap-1.5 px-3 py-1 rounded-full"
                 style={{ border: "1px solid rgba(212,160,23,0.3)" }}>
