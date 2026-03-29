@@ -92,12 +92,35 @@ export function Reveal({ children, delay = 0, className = "" }: { children: Reac
   );
 }
 
+const SEND_EMAIL_URL = "https://functions.poehali.dev/62f6a48a-9dda-415a-9090-a6e60f5b8e6a";
+
 /* ─────────────── CONTACT FORM ─────────────── */
 export function ContactForm({ compact = false }: { compact?: boolean }) {
   const [form, setForm] = useState({ name: "", phone: "", service: "", message: "" });
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm(f => ({ ...f, [k]: e.target.value }));
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+    try {
+      const res = await fetch(SEND_EMAIL_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error("Ошибка отправки");
+      setSent(true);
+    } catch {
+      setError("Не удалось отправить заявку. Позвоните нам напрямую.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
   if (sent) return (
     <div className="text-center py-6">
@@ -111,7 +134,7 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
   );
 
   return (
-    <form onSubmit={e => { e.preventDefault(); setSent(true); }} className="space-y-3">
+    <form onSubmit={handleSubmit} className="space-y-3">
       {!compact && (
         <p className="font-cormorant text-white/70 italic text-sm mb-2">
           Оставьте контакты — перезвоним в течение 30 минут
@@ -146,8 +169,11 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
           <option>Другое</option>
         </select>
       )}
-      <button type="submit" className="btn-gold w-full rounded px-4 py-3 text-xs tracking-widest">
-        Отправить заявку
+      {error && (
+        <p className="font-ibm text-xs text-red-400 text-center">{error}</p>
+      )}
+      <button type="submit" disabled={loading} className="btn-gold w-full rounded px-4 py-3 text-xs tracking-widest disabled:opacity-60">
+        {loading ? "Отправляем..." : "Отправить заявку"}
       </button>
     </form>
   );
