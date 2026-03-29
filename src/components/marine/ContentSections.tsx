@@ -431,10 +431,10 @@ export default function ContentSections({ scrollTo }: ContentSectionsProps) {
                   <Icon name="Phone" size={13} style={{ color: "var(--gold)" }} />
                   +7 (963) 302-78-03
                 </a>
-                <a href="mailto:order@yandex.ru" className="flex items-center gap-2 font-ibm text-sm transition-colors hover:text-white"
+                <a href="mailto:order@idaled.com" className="flex items-center gap-2 font-ibm text-sm transition-colors hover:text-white"
                   style={{ color: "rgba(255,255,255,0.45)" }}>
                   <Icon name="Mail" size={13} style={{ color: "var(--gold)" }} />
-                  order@yandex.ru
+                  order@idaled.com
                 </a>
               </div>
             </div>
