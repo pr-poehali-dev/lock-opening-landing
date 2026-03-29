@@ -54,13 +54,13 @@ const FAQ = [
 
 export default function Chandler() {
   useEffect(() => {
-    document.title = "Ship Chandler в СПб | Снабжение судов провизией | IDALED";
+    document.title = "Ship Chandler в СПб | Снабжение судов продуктами и материалами | IDALED";
     let meta = document.querySelector('meta[name="description"]');
     if (!meta) { meta = document.createElement("meta"); meta.setAttribute("name", "description"); document.head.appendChild(meta); }
-    meta.setAttribute("content", "Шипчандлерские услуги в Санкт‑Петербурге. Снабжение судов провизией, водой, расходными материалами. Доставка в Большой порт СПб, Бронка, Усть-Луга. Заявки 24/7!");
+    meta.setAttribute("content", "Шипчандлерские услуги в Санкт‑Петербурге. Поставка судовой провизии, питьевой воды, бытовой химии. Доставка в порты СПб 24/7. Звоните!");
     let kw = document.querySelector('meta[name="keywords"]');
     if (!kw) { kw = document.createElement("meta"); kw.setAttribute("name", "keywords"); document.head.appendChild(kw); }
-    kw.setAttribute("content", "ship chandler Санкт-Петербург, снабжение судов провизией СПб, шипчандлер СПб, судовая провизия Санкт-Петербург, доставка провизии на борт СПб, снабжение яхт СПб");
+    kw.setAttribute("content", "ship chandler Санкт‑Петербург, шипчандлерские услуги СПб, судовая провизия СПб, снабжение судов продуктами в Санкт‑Петербурге, поставка судовой провизии СПб, доставка судовой провизии в порты Санкт‑Петербурга, ship chandler с доставкой 24/7, свежие продукты для судов СПб, питьевая вода на судно СПб, бытовая химия для судов от ship chandler, санитарно‑гигиенические товары для экипажа СПб, снабжение яхт и маломерных судов в Санкт‑Петербурге");
   }, []);
 
   return (
@@ -106,7 +106,7 @@ export default function Chandler() {
             <h1 className="font-cormorant text-white font-semibold leading-tight mb-6"
               style={{ fontSize: "clamp(2rem, 4.5vw, 3.8rem)" }}>
               Ship Chandler в Санкт‑Петербурге:<br />
-              <span style={{ color: "var(--gold-light)" }}>снабжение судов провизией под ключ</span>
+              <span style={{ color: "var(--gold-light)" }}>снабжение судов под ключ от IDALED</span>
             </h1>
             <p className="font-ibm max-w-2xl leading-relaxed mb-8"
               style={{ color: "rgba(255,255,255,0.65)", fontSize: "1.05rem" }}>
