@@ -1,56 +1,66 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
-import { Reveal, ContactForm, CHANDLER_CATS, IMG_CHANDLER } from "@/components/marine/Shared";
+import { Reveal, ContactForm, IMG_CHANDLER } from "@/components/marine/Shared";
 
-const DELIVERY_PORTS = ["Новороссийск", "Туапсе", "Сочи", "Темрюк", "Тамань", "Кавказ", "Геленджик"];
-
-const ADVANTAGES = [
-  { icon: "Truck",       title: "Доставка на борт 24 ч", desc: "Принимаем заказы круглосуточно. Доставляем провизию и снабжение непосредственно на борт в любое время стоянки." },
-  { icon: "ShieldCheck", title: "Сертифицированная продукция", desc: "Работаем только с проверенными поставщиками. Вся продукция сопровождается необходимыми сертификатами и документами." },
-  { icon: "Package",     title: "2000+ позиций", desc: "Широкий ассортимент: от свежих продуктов питания до технических расходных материалов и спасательного оборудования." },
-  { icon: "Calculator",  title: "Прозрачное ценообразование", desc: "Детальный проформа-инвойс до поставки. Без скрытых наценок. Конкурентные цены за счёт прямых договоров с поставщиками." },
+const WHAT_WE_SUPPLY = [
+  { icon: "UtensilsCrossed", text: "Судовая провизия любого типа: свежие, замороженные и долгосрочно хранимые продукты" },
+  { icon: "Droplets",        text: "Питьевая вода для судов" },
+  { icon: "Sparkles",        text: "Бытовая химия и моющие средства для судовых нужд" },
+  { icon: "Heart",           text: "Санитарно‑гигиенические товары для экипажа" },
+  { icon: "ChefHat",         text: "Расходные материалы для камбуза и кают" },
+  { icon: "Package",         text: "Товары для обслуживания судна (тросы, крепёж, инвентарь)" },
 ];
 
-const PRODUCT_DETAILS = [
-  {
-    category: "Продовольственное снабжение",
-    icon: "UtensilsCrossed",
-    items: ["Свежие фрукты и овощи", "Замороженные мясо и рыба", "Молочные продукты", "Бакалея и консервация", "Напитки и вода", "Хлеб и кондитерские изделия"],
-    note: "Соответствие ГОСТ и международным стандартам HACCP"
-  },
-  {
-    category: "Техническое снабжение",
-    icon: "Package",
-    items: ["Запасные части к двигателям", "Крепёж и расходники", "Лакокрасочные материалы", "Инструмент и оснастка", "Электрооборудование", "Трубопроводная арматура"],
-    note: "Оригинальные и сертифицированные аналоги"
-  },
-  {
-    category: "Масла и химия",
-    icon: "Droplets",
-    items: ["Судовые моторные масла", "Гидравлические жидкости", "Топливные присадки", "Антикоррозионные покрытия", "Клинеры и деграйзеры", "Биоциды для балластных вод"],
-    note: "Shell, Castrol, Mobil, Total, Lukoil"
-  },
-  {
-    category: "Безопасность и СИЗ",
-    icon: "Shield",
-    items: ["Индивидуальные средства защиты", "Спасательные жилеты и костюмы", "Пиротехника и сигнальные средства", "Огнетушители и пожарное снаряжение", "Медицинские комплекты СОЛАС", "Форменная одежда экипажа"],
-    note: "Сертификация СОЛАС, МК МПОГ"
-  },
+const SERVICES = [
+  { icon: "ClipboardList",   title: "Поставка провизии",          desc: "С учётом рациона и специфики рейса" },
+  { icon: "Salad",           title: "Подбор меню для экипажа",    desc: "В т. ч. диетическое питание по требованиям" },
+  { icon: "Ship",            title: "Провизия для дальнего плавания", desc: "Комплектация с расчётом на весь маршрут" },
+  { icon: "MapPin",          title: "Доставка в порты СПб",       desc: "Большой порт СПб, порт Бронка, порт Усть‑Луга и др." },
+  { icon: "Sailboat",        title: "Снабжение яхт и катеров",    desc: "Маломерные суда любого типа и размера" },
+  { icon: "CalendarClock",   title: "Регулярные поставки",        desc: "Организация поставок по согласованному графику" },
+  { icon: "Settings",        title: "Индивидуальный подбор",      desc: "Товары под конкретные требования заказчика" },
+];
+
+const VESSEL_TYPES = [
+  { icon: "Container", label: "Грузовые суда" },
+  { icon: "Users",     label: "Пассажирские" },
+  { icon: "Fish",      label: "Рыболовецкие" },
+  { icon: "Sailboat",  label: "Яхты и катера" },
+];
+
+const WHY_US = [
+  { icon: "Warehouse",   text: "Локальные склады в Санкт‑Петербурге — быстрая комплектация и отправка" },
+  { icon: "Thermometer", text: "Соблюдение норм хранения и транспортировки продуктов" },
+  { icon: "FileCheck",   text: "Полный пакет сопроводительных документов" },
+  { icon: "Handshake",   text: "Гибкие условия для долгосрочных контрактов" },
+  { icon: "BadgeCheck",  text: "Прозрачные цены и индивидуальный подход" },
+  { icon: "Clock",       text: "Поддержка 24 часа — принимаем заявки в любое время" },
+];
+
+const STATS = [
+  { value: "24/7",  label: "приём заявок" },
+  { value: "100+",  label: "поставщиков в базе" },
+  { value: "48 ч",  label: "срочная комплектация" },
+  { value: "3",     label: "порта в СПб регионе" },
 ];
 
 const FAQ = [
-  { q: "Какой минимальный объём заказа?", a: "Минимального объёма нет. Принимаем заказы любого размера — от единичных позиций до полного снабжения судна. Для небольших заказов может применяться минимальная стоимость доставки." },
-  { q: "Как оформить заказ на снабжение?", a: "Пришлите нам список необходимых позиций (requisition list) по e-mail или через форму на сайте. В течение 2-4 часов подготовим проформа-инвойс с ценами и сроками поставки." },
-  { q: "Работаете ли с транзитными судами?", a: "Да, обслуживаем транзитные суда с коротким временем стоянки. При необходимости организуем экстренную поставку за 4-6 часов для срочных случаев." },
-  { q: "Можете ли вы поставлять алкоголь duty-free?", a: "Да, организуем поставку алкогольной продукции для судов в международных рейсах в соответствии с таможенным законодательством. Необходимо предварительное согласование." },
+  { q: "Как быстро можно получить поставку провизии?", a: "Принимаем срочные заявки круглосуточно. Стандартная комплектация — 24-48 часов. При срочных заходах согласовываем минимальные сроки индивидуально." },
+  { q: "Поставляете ли продукты для судов с особыми требованиями к питанию?", a: "Да, формируем меню с учётом диетических, религиозных и медицинских требований экипажа. Подготовим расчёт рациона на весь рейс." },
+  { q: "Работаете ли с маломерными судами и яхтами?", a: "Да, обслуживаем суда любого размера — от яхт до крупных грузовых судов. Минимальный объём заказа не ограничен." },
+  { q: "Какие документы прилагаются к поставке?", a: "Все поставки сопровождаются накладными, сертификатами качества, санитарными документами и счётами-фактурами. Обеспечиваем полный документооборот." },
 ];
 
 export default function Chandler() {
   useEffect(() => {
-    document.title = "Ship Chandler — Судовое снабжение в Новороссийске | MarineGroup";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Профессиональное судовое снабжение: провизия, техснабжение, масла, СИЗ. Доставка на борт 24 часа. Новороссийск, Туапсе, Сочи. Более 2000 позиций в каталоге.");
+    document.title = "Ship Chandler в СПб | Снабжение судов провизией | IDALED";
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) { meta = document.createElement("meta"); meta.setAttribute("name", "description"); document.head.appendChild(meta); }
+    meta.setAttribute("content", "Шипчандлерские услуги в Санкт‑Петербурге. Снабжение судов провизией, водой, расходными материалами. Доставка в Большой порт СПб, Бронка, Усть-Луга. Заявки 24/7!");
+    let kw = document.querySelector('meta[name="keywords"]');
+    if (!kw) { kw = document.createElement("meta"); kw.setAttribute("name", "keywords"); document.head.appendChild(kw); }
+    kw.setAttribute("content", "ship chandler Санкт-Петербург, снабжение судов провизией СПб, шипчандлер СПб, судовая провизия Санкт-Петербург, доставка провизии на борт СПб, снабжение яхт СПб");
   }, []);
 
   return (
@@ -62,7 +72,7 @@ export default function Chandler() {
           <Link to="/" className="flex items-center gap-2">
             <img
               src="https://thb.tildacdn.com/tild3333-3532-4765-b339-346564343465/-/resize/504x/logo_color.png"
-              alt="MarineGroup"
+              alt="IDALED"
               className="h-9 w-auto object-contain"
               style={{ filter: "brightness(0) invert(1)" }}
             />
@@ -78,9 +88,9 @@ export default function Chandler() {
       {/* ── HERO ── */}
       <section className="relative min-h-[70vh] flex items-end overflow-hidden pt-16">
         <div className="absolute inset-0">
-          <img src={IMG_CHANDLER} alt="Судовое снабжение Ship Chandler" className="w-full h-full object-cover" />
+          <img src={IMG_CHANDLER} alt="Ship Chandler в Санкт-Петербурге" className="w-full h-full object-cover" />
           <div className="absolute inset-0"
-            style={{ background: "linear-gradient(180deg, rgba(6,20,38,0.5) 0%, rgba(6,20,38,0.97) 100%)" }} />
+            style={{ background: "linear-gradient(180deg, rgba(6,20,38,0.65) 0%, rgba(6,20,38,0.97) 100%)" }} />
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8 pb-20 w-full">
           <Reveal>
@@ -94,40 +104,35 @@ export default function Chandler() {
               Поставки 24 / 7
             </div>
             <h1 className="font-cormorant text-white font-semibold leading-tight mb-6"
-              style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}>
-              Ship Chandler —<br />
-              <span style={{ color: "var(--gold-light)" }}>Судовое снабжение</span>
+              style={{ fontSize: "clamp(2rem, 4.5vw, 3.8rem)" }}>
+              Ship Chandler в Санкт‑Петербурге:<br />
+              <span style={{ color: "var(--gold-light)" }}>снабжение судов провизией под ключ</span>
             </h1>
             <p className="font-ibm max-w-2xl leading-relaxed mb-8"
-              style={{ color: "rgba(255,255,255,0.65)", fontSize: "1.1rem" }}>
-              Полный цикл снабжения судна: провизия, техническое снабжение, масла, спецодежда и медикаменты. Работаем напрямую с производителями, доставляем на борт в день заказа.
+              style={{ color: "rgba(255,255,255,0.65)", fontSize: "1.05rem" }}>
+              Наша компания предоставляет комплексные шипчандлерские услуги в Санкт‑Петербурге и портах региона. Мы обеспечиваем надёжное снабжение судов продуктами и расходными материалами — от свежих продуктов до санитарно‑гигиенических товаров.
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="#form" className="btn-gold px-8 py-3.5 rounded text-xs">
-                Оставить заявку
+                Заказать снабжение
               </a>
-              <a href="#catalog" className="btn-outline-white px-8 py-3.5 rounded text-xs">
-                Каталог товаров
+              <a href="#services" className="btn-outline-white px-8 py-3.5 rounded text-xs">
+                Наши услуги
               </a>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* ── STATS BAR ── */}
-      <section style={{ backgroundColor: "var(--navy)" }} className="py-10">
+      {/* ── STATS ── */}
+      <section style={{ backgroundColor: "var(--navy-light)" }} className="py-12">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-            {[
-              { v: "2000+", l: "позиций в каталоге" },
-              { v: "24 ч",  l: "доставка на борт" },
-              { v: "100%",  l: "сертифицированная продукция" },
-              { v: "7",     l: "портов обслуживания" },
-            ].map((s, i) => (
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            {STATS.map((s, i) => (
               <Reveal key={i} delay={i * 70}>
-                <div>
-                  <div className="font-cormorant font-bold mb-1" style={{ fontSize: "2.8rem", color: "var(--gold-light)" }}>{s.v}</div>
-                  <div className="font-ibm text-xs uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.45)" }}>{s.l}</div>
+                <div className="text-center">
+                  <div className="font-cormorant font-bold mb-1" style={{ fontSize: "2.8rem", color: "var(--gold-light)" }}>{s.value}</div>
+                  <div className="font-ibm text-xs uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.45)" }}>{s.label}</div>
                 </div>
               </Reveal>
             ))}
@@ -135,28 +140,58 @@ export default function Chandler() {
         </div>
       </section>
 
-      {/* ── ADVANTAGES ── */}
-      <section className="py-20" style={{ backgroundColor: "var(--beige)" }}>
+      {/* ── ЧТО ПОСТАВЛЯЕМ ── */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <Reveal>
-            <div className="text-center mb-14">
-              <div className="section-label mb-3">Наши преимущества</div>
+            <div className="mb-12">
+              <div className="section-label mb-3">Ассортимент</div>
               <h2 className="font-cormorant font-semibold mb-4" style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", color: "var(--navy)" }}>
-                Почему работают с нами
+                Что мы поставляем
+              </h2>
+              <div className="gold-line w-20 mb-0" />
+            </div>
+          </Reveal>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {WHAT_WE_SUPPLY.map((item, i) => (
+              <Reveal key={i} delay={i * 50}>
+                <div className="flex items-start gap-4 p-5 rounded-xl card-marine bg-white">
+                  <div className="w-11 h-11 rounded-lg shrink-0 flex items-center justify-center"
+                    style={{ backgroundColor: "var(--beige)" }}>
+                    <Icon name={item.icon as "UtensilsCrossed"} size={20} style={{ color: "var(--sea)" }} />
+                  </div>
+                  <p className="font-ibm text-sm leading-relaxed pt-2.5" style={{ color: "var(--text-muted)" }}>{item.text}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── SERVICES ── */}
+      <section id="services" className="py-20" style={{ backgroundColor: "var(--beige)" }}>
+        <div className="max-w-7xl mx-auto px-4 lg:px-8">
+          <Reveal>
+            <div className="text-center mb-12">
+              <div className="section-label mb-3">Наши услуги</div>
+              <h2 className="font-cormorant font-semibold mb-4" style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", color: "var(--navy)" }}>
+                Полный спектр шипчандлерских услуг
               </h2>
               <div className="gold-line w-20 mx-auto" />
             </div>
           </Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {ADVANTAGES.map((a, i) => (
-              <Reveal key={i} delay={i * 70}>
-                <div className="bg-white rounded-2xl p-6 text-center card-marine h-full">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4"
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {SERVICES.map((s, i) => (
+              <Reveal key={i} delay={i * 55}>
+                <div className="bg-white rounded-2xl p-6 card-marine group h-full"
+                  style={{ borderLeft: "3px solid var(--gold)" }}>
+                  <div className="w-11 h-11 rounded-lg mb-4 flex items-center justify-center transition-colors duration-300 group-hover:bg-[#0B1F3A]"
                     style={{ backgroundColor: "var(--navy)" }}>
-                    <Icon name={a.icon as "Truck"} size={22} style={{ color: "var(--gold)" }} />
+                    <Icon name={s.icon as "ClipboardList"} size={21} style={{ color: "var(--gold)" }}
+                      className="transition-colors duration-300" />
                   </div>
-                  <h3 className="font-ibm font-semibold mb-2" style={{ color: "var(--navy)" }}>{a.title}</h3>
-                  <p className="font-ibm text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>{a.desc}</p>
+                  <h3 className="font-ibm font-semibold mb-2" style={{ color: "var(--navy)" }}>{s.title}</h3>
+                  <p className="font-ibm text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>{s.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -164,65 +199,57 @@ export default function Chandler() {
         </div>
       </section>
 
-      {/* ── CATALOG ── */}
-      <section id="catalog" className="py-20 bg-white">
+      {/* ── ТИПЫ СУДОВ ── */}
+      <section className="py-14 bg-white">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <Reveal>
-            <div className="mb-14">
-              <div className="section-label mb-3">Ассортимент</div>
-              <h2 className="font-cormorant font-semibold mb-4" style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", color: "var(--navy)" }}>
-                Категории товаров
+            <div className="text-center mb-10">
+              <div className="section-label mb-3">Кого обслуживаем</div>
+              <h2 className="font-cormorant font-semibold mb-3" style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", color: "var(--navy)" }}>
+                Работаем с судами всех типов
               </h2>
-              <div className="gold-line w-20 mb-5" />
-              <p className="font-ibm max-w-2xl leading-relaxed" style={{ color: "var(--text-muted)" }}>
-                Поставляем все виды судовых товаров и расходных материалов. Каждая категория сопровождается необходимой документацией и сертификатами.
+              <div className="gold-line w-20 mx-auto mb-3" />
+              <p className="font-ibm text-sm" style={{ color: "var(--text-muted)" }}>
+                Ship chandler с доставкой 24/7 — оперативно реагируем на срочные заявки
               </p>
             </div>
-          </Reveal>
-
-          {/* Quick category overview */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-16">
-            {CHANDLER_CATS.map((c, i) => (
-              <Reveal key={i} delay={i * 60}>
-                <div className="card-marine rounded-xl p-5 group cursor-pointer bg-white h-full"
-                  style={{ borderTop: "3px solid var(--gold)" }}>
-                  <div className="w-10 h-10 rounded-lg mb-3 flex items-center justify-center transition-colors duration-300"
-                    style={{ backgroundColor: "var(--beige)" }}
-                    onMouseEnter={e => (e.currentTarget.style.backgroundColor = "var(--gold)")}
-                    onMouseLeave={e => (e.currentTarget.style.backgroundColor = "var(--beige)")}>
-                    <Icon name={c.icon as "Package"} size={20} style={{ color: "var(--sea)" }} />
-                  </div>
-                  <h4 className="font-ibm font-semibold mb-1.5" style={{ color: "var(--navy)" }}>{c.title}</h4>
-                  <p className="font-ibm text-xs leading-relaxed" style={{ color: "var(--text-muted)" }}>{c.desc}</p>
+            <div className="flex flex-wrap justify-center gap-4">
+              {VESSEL_TYPES.map((v, i) => (
+                <div key={i} className="flex items-center gap-3 px-6 py-3.5 rounded-full card-marine bg-white"
+                  style={{ border: "1px solid rgba(11,31,58,0.12)" }}>
+                  <Icon name={v.icon as "Ship"} size={18} style={{ color: "var(--sea)" }} />
+                  <span className="font-ibm text-sm font-medium" style={{ color: "var(--navy)" }}>{v.label}</span>
                 </div>
-              </Reveal>
-            ))}
-          </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
 
-          {/* Detailed product sections */}
-          <div className="grid lg:grid-cols-2 gap-6">
-            {PRODUCT_DETAILS.map((pd, i) => (
-              <Reveal key={i} delay={i * 70}>
-                <div className="rounded-2xl p-6 h-full" style={{ backgroundColor: "var(--beige)", border: "1px solid var(--beige-dark)" }}>
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 rounded-lg flex items-center justify-center"
-                      style={{ backgroundColor: "var(--navy)" }}>
-                      <Icon name={pd.icon as "Package"} size={18} style={{ color: "var(--gold)" }} />
-                    </div>
-                    <h3 className="font-ibm font-semibold" style={{ color: "var(--navy)" }}>{pd.category}</h3>
+      {/* ── ПОЧЕМУ МЫ ── */}
+      <section className="py-20 relative overflow-hidden" style={{ backgroundColor: "var(--navy)" }}>
+        <div className="absolute inset-0 sea-texture opacity-20" />
+        <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8">
+          <Reveal>
+            <div className="text-center mb-12">
+              <div className="section-label mb-3">Наши преимущества</div>
+              <h2 className="font-cormorant text-white font-semibold mb-4"
+                style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)" }}>
+                Почему выбирают нас
+              </h2>
+              <div className="gold-line w-20 mx-auto" />
+            </div>
+          </Reveal>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {WHY_US.map((item, i) => (
+              <Reveal key={i} delay={i * 60}>
+                <div className="flex items-start gap-4 p-5 rounded-xl"
+                  style={{ backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                  <div className="w-10 h-10 rounded-lg shrink-0 flex items-center justify-center"
+                    style={{ border: "1px solid rgba(212,160,23,0.35)" }}>
+                    <Icon name={item.icon as "Warehouse"} size={18} style={{ color: "var(--gold)" }} />
                   </div>
-                  <ul className="space-y-1.5 mb-4">
-                    {pd.items.map(item => (
-                      <li key={item} className="flex items-center gap-2 font-ibm text-sm" style={{ color: "var(--text-muted)" }}>
-                        <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: "var(--gold)" }} />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="font-ibm text-xs px-3 py-1.5 rounded-full inline-block"
-                    style={{ backgroundColor: "rgba(212,160,23,0.12)", color: "var(--navy)", border: "1px solid rgba(212,160,23,0.3)" }}>
-                    {pd.note}
-                  </div>
+                  <p className="font-ibm text-sm leading-relaxed pt-2" style={{ color: "rgba(255,255,255,0.65)" }}>{item.text}</p>
                 </div>
               </Reveal>
             ))}
@@ -230,33 +257,33 @@ export default function Chandler() {
         </div>
       </section>
 
-      {/* ── PORTS ── */}
-      <section className="py-16 relative overflow-hidden" style={{ backgroundColor: "var(--navy-light)" }}>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8">
+      {/* ── CTA ── */}
+      <section className="py-16" style={{ backgroundColor: "var(--gold)" }}>
+        <div className="max-w-4xl mx-auto px-4 lg:px-8 text-center">
           <Reveal>
-            <div className="flex flex-col lg:flex-row items-center gap-8 justify-between">
-              <div>
-                <div className="section-label mb-2">Доставляем в порты</div>
-                <h3 className="font-cormorant text-white font-semibold" style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)" }}>
-                  Черноморский и Азовский бассейн
-                </h3>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {DELIVERY_PORTS.map(p => (
-                  <div key={p} className="flex items-center gap-2 px-4 py-2 rounded-full"
-                    style={{ border: "1px solid rgba(212,160,23,0.35)", backgroundColor: "rgba(255,255,255,0.04)" }}>
-                    <Icon name="MapPin" size={12} style={{ color: "var(--gold)" }} />
-                    <span className="font-ibm text-sm text-white">{p}</span>
-                  </div>
-                ))}
-              </div>
+            <p className="font-cormorant font-semibold leading-snug mb-6"
+              style={{ fontSize: "clamp(1.5rem, 3vw, 2.2rem)", color: "var(--navy-deep)" }}>
+              Доверьте снабжение судна в Санкт‑Петербурге профессионалам IDALED — мы обеспечим экипаж всем необходимым для комфортного и безопасного плавания!
+            </p>
+            <p className="font-ibm mb-8" style={{ color: "rgba(6,20,38,0.7)", fontSize: "1rem" }}>
+              Оставьте заявку на сайте или позвоните нам — мы оперативно рассчитаем стоимость поставки и согласуем удобное время доставки.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a href="#form" className="btn-navy px-8 py-3.5 rounded text-xs">
+                Оставить заявку
+              </a>
+              <a href="tel:+79633027803" className="flex items-center gap-2 px-8 py-3.5 rounded text-xs font-ibm uppercase tracking-widest font-semibold transition-colors"
+                style={{ backgroundColor: "rgba(6,20,38,0.12)", color: "var(--navy-deep)" }}>
+                <Icon name="Phone" size={14} />
+                +7 (963) 302-78-03
+              </a>
             </div>
           </Reveal>
         </div>
       </section>
 
       {/* ── FAQ ── */}
-      <section className="py-20" style={{ backgroundColor: "var(--beige)" }}>
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 lg:px-8">
           <Reveal>
             <div className="text-center mb-12">
@@ -270,7 +297,7 @@ export default function Chandler() {
           <div className="space-y-4">
             {FAQ.map((item, i) => (
               <Reveal key={i} delay={i * 60}>
-                <div className="bg-white rounded-2xl p-6 card-marine">
+                <div className="rounded-2xl p-6 card-marine" style={{ backgroundColor: "var(--beige)" }}>
                   <div className="flex items-start gap-4">
                     <div className="w-7 h-7 rounded-full flex items-center justify-center shrink-0 mt-0.5"
                       style={{ backgroundColor: "var(--gold)", color: "var(--navy-deep)" }}>
@@ -311,7 +338,7 @@ export default function Chandler() {
       {/* ── FOOTER MINI ── */}
       <footer className="py-8" style={{ backgroundColor: "var(--navy-deep)", borderTop: "1px solid rgba(255,255,255,0.07)" }}>
         <div className="max-w-7xl mx-auto px-4 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3">
-          <p className="font-ibm text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>© 2024 MarineGroup. Все права защищены.</p>
+          <p className="font-ibm text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>© 2026 IDALED. Все права защищены.</p>
           <Link to="/" className="font-ibm text-xs transition-colors" style={{ color: "rgba(255,255,255,0.35)" }}>
             ← Вернуться на главную
           </Link>
