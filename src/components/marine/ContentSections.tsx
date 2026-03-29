@@ -110,8 +110,11 @@ export default function ContentSections({ scrollTo }: ContentSectionsProps) {
                   </h2>
                 </Link>
                 <div className="gold-line w-20 mb-5" />
+                <p className="font-ibm leading-relaxed mb-4" style={{ color: "var(--text-muted)" }}>
+                  Наша компания предоставляет широкий спектр услуг, направленных на оптимизацию деятельности судовладельцев и операторов флота, гарантируя при этом высокий уровень конфиденциальности.
+                </p>
                 <p className="font-ibm leading-relaxed" style={{ color: "var(--text-muted)" }}>
-                  Профессиональное представление интересов судовладельца в порту. Берём на себя все бюрократические, логистические и координационные задачи — от нотиса о прибытии до оформления отхода.
+                  Мы предлагаем оперативные решения и оптимизацию рабочих процессов, что позволяет своевременно вносить корректировки и минимизировать затраты.
                 </p>
               </div>
               <div className="lg:text-right flex lg:flex-col gap-3 items-start lg:items-end">
@@ -289,23 +292,57 @@ export default function ContentSections({ scrollTo }: ContentSectionsProps) {
               <div className="gold-line w-20 mb-8" />
 
               <div className="space-y-5 mb-10">
-                {[
-                  { icon: "Phone",  label: "Телефон", val: "+7 (000) 000-00-00" },
-                  { icon: "Mail",   label: "E-mail",  val: "info@marinegroup.ru" },
-                  { icon: "MapPin", label: "Офис",    val: "г. Новороссийск, ул. Набережная, 1" },
-                  { icon: "Clock",  label: "Режим",   val: "Судозаходы принимаем 24 / 7" },
-                ].map(c => (
-                  <div key={c.icon} className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
-                      style={{ border: "1px solid rgba(212,160,23,0.25)" }}>
-                      <Icon name={c.icon as "Phone"} size={17} style={{ color: "var(--gold)" }} />
-                    </div>
-                    <div>
-                      <div className="font-ibm text-xs uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.35)" }}>{c.label}</div>
-                      <div className="font-ibm text-white font-medium">{c.val}</div>
+                {/* Телефон — кликабельный */}
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
+                    style={{ border: "1px solid rgba(212,160,23,0.25)" }}>
+                    <Icon name="Phone" size={17} style={{ color: "var(--gold)" }} />
+                  </div>
+                  <div>
+                    <div className="font-ibm text-xs uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.35)" }}>Телефон</div>
+                    <a href="tel:+79633027803" className="font-ibm text-white font-medium hover:text-[var(--gold)] transition-colors">
+                      +7 (963) 302-78-03
+                    </a>
+                  </div>
+                </div>
+                {/* E-mail */}
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
+                    style={{ border: "1px solid rgba(212,160,23,0.25)" }}>
+                    <Icon name="Mail" size={17} style={{ color: "var(--gold)" }} />
+                  </div>
+                  <div>
+                    <div className="font-ibm text-xs uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.35)" }}>E-mail</div>
+                    <a href="mailto:order@idaled.com" className="font-ibm text-white font-medium hover:text-[var(--gold)] transition-colors">
+                      order@idaled.com
+                    </a>
+                  </div>
+                </div>
+                {/* Офис */}
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
+                    style={{ border: "1px solid rgba(212,160,23,0.25)" }}>
+                    <Icon name="MapPin" size={17} style={{ color: "var(--gold)" }} />
+                  </div>
+                  <div>
+                    <div className="font-ibm text-xs uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.35)" }}>Офис</div>
+                    <div className="font-ibm text-white font-medium leading-snug">
+                      196642, г. Санкт-Петербург, вн. тер. г. поселок Петро-Славянка,<br />
+                      Пр-т Советский, д. 19, литера А, пом. 1-н, каб. 12/1
                     </div>
                   </div>
-                ))}
+                </div>
+                {/* Режим */}
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0"
+                    style={{ border: "1px solid rgba(212,160,23,0.25)" }}>
+                    <Icon name="Clock" size={17} style={{ color: "var(--gold)" }} />
+                  </div>
+                  <div>
+                    <div className="font-ibm text-xs uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.35)" }}>Режим</div>
+                    <div className="font-ibm text-white font-medium">Судозаходы принимаем 24 / 7</div>
+                  </div>
+                </div>
               </div>
 
               <div>
@@ -313,7 +350,7 @@ export default function ContentSections({ scrollTo }: ContentSectionsProps) {
                   Порты присутствия
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  {["Новороссийск", "Туапсе", "Сочи", "Темрюк", "Тамань", "Кавказ", "Геленджик"].map(p => (
+                  {["Мурманск", "Калининград", "Санкт-Петербург"].map(p => (
                     <span key={p} className="font-ibm text-xs px-3 py-1 rounded-full"
                       style={{ border: "1px solid rgba(212,160,23,0.25)", color: "rgba(255,255,255,0.55)" }}>
                       {p}

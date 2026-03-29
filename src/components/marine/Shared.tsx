@@ -94,9 +94,9 @@ export function Reveal({ children, delay = 0, className = "" }: { children: Reac
 
 /* ─────────────── CONTACT FORM ─────────────── */
 export function ContactForm({ compact = false }: { compact?: boolean }) {
-  const [form, setForm] = useState({ name: "", phone: "", service: "" });
+  const [form, setForm] = useState({ name: "", phone: "", service: "", message: "" });
   const [sent, setSent] = useState(false);
-  const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
+  const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
     setForm(f => ({ ...f, [k]: e.target.value }));
 
   if (sent) return (
@@ -121,6 +121,21 @@ export function ContactForm({ compact = false }: { compact?: boolean }) {
         placeholder="Ваше имя / название судна" className="input-marine" />
       <input required type="tel" value={form.phone} onChange={set("phone")}
         placeholder="+7 (___) ___-__-__" className="input-marine" />
+      <div className="relative">
+        <textarea
+          value={form.message}
+          onChange={set("message")}
+          maxLength={1000}
+          rows={compact ? 3 : 4}
+          placeholder="Сообщение (необязательно)"
+          className="input-marine resize-none"
+          style={{ paddingBottom: "1.5rem" }}
+        />
+        <span className="absolute bottom-2 right-3 font-ibm text-xs pointer-events-none"
+          style={{ color: "rgba(255,255,255,0.3)" }}>
+          {form.message.length}/1000
+        </span>
+      </div>
       {!compact && (
         <select value={form.service} onChange={set("service")} className="input-marine"
           style={{ appearance: "none", cursor: "pointer" }}>

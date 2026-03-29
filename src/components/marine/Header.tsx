@@ -22,7 +22,7 @@ export default function Header({ scrolled, menuOpen, setMenuOpen, formOpen, setF
             <img
               src="https://thb.tildacdn.com/tild3333-3532-4765-b339-346564343465/-/resize/504x/logo_color.png"
               alt="IDA LED"
-              className="h-10 lg:h-12 w-auto object-contain"
+              className="h-[46px] lg:h-[55px] w-auto object-contain"
               style={{ filter: "brightness(0) invert(1)" }}
             />
           </button>
@@ -36,11 +36,11 @@ export default function Header({ scrolled, menuOpen, setMenuOpen, formOpen, setF
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center gap-4 shrink-0 relative">
-            <a href="tel:+70000000000"
+            <a href="tel:+79633027803"
               className="flex items-center gap-2 font-ibm text-sm transition-colors"
               style={{ color: "rgba(255,255,255,0.65)" }}>
               <Icon name="Phone" size={14} style={{ color: "var(--gold)" }} />
-              +7 (000) 000-00-00
+              +7 (963) 302-78-03
             </a>
             <button onClick={() => setFormOpen(v => !v)} className="btn-gold px-5 py-2.5 rounded text-xs">
               Связаться
