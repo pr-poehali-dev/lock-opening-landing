@@ -1,29 +1,62 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import Icon from "@/components/ui/icon";
-import { Reveal, ContactForm, AGENCY_SERVICES, IMG_SHIP } from "@/components/marine/Shared";
+import { Reveal, ContactForm, IMG_SHIP } from "@/components/marine/Shared";
 
-const BENEFITS = [
-  { icon: "Clock",       title: "Оперативность",      desc: "Реагируем на запрос в течение 30 минут. Агент на связи 24/7 включая выходные и праздники." },
-  { icon: "ShieldCheck", title: "Полная ответственность", desc: "Несём юридическую ответственность за результат. Страхование профессиональной ответственности." },
-  { icon: "Globe",       title: "Единое окно",         desc: "Одна точка контакта для всех портовых формальностей. Без лишней беготни и переговоров." },
-  { icon: "Star",        title: "15 лет опыта",        desc: "Более 300 судозаходов в год. Знаем все нюансы черноморских портов и требования властей." },
+const WHAT_WE_DO = [
+  { icon: "Anchor",        text: "Организация стоянки судна в порту (Большой порт Санкт‑Петербурга, порт Бронка, порт Усть‑Луга и др.)" },
+  { icon: "Navigation",    text: "Согласование лоцманской проводки и буксировки" },
+  { icon: "Building2",     text: "Взаимодействие с портовыми и таможенными органами" },
+  { icon: "FileText",      text: "Оформление судовых и грузовых документов" },
+  { icon: "Package",       text: "Организация снабжения судна (продовольствие, вода, топливо)" },
+  { icon: "Wrench",        text: "Координация ремонтных и сервисных работ" },
+  { icon: "Users",         text: "Поддержка экипажа (медицинская помощь, трансфер, визовая поддержка)" },
+  { icon: "Radio",         text: "Информирование судовладельца о статусе операций в режиме реального времени" },
 ];
 
-const PORTS = ["Новороссийск", "Туапсе", "Сочи", "Темрюк", "Тамань", "Кавказ", "Геленджик", "Анапа"];
+const SERVICES = [
+  { icon: "Ship",          title: "Портовое агентирование",        desc: "Полное сопровождение в период стоянки" },
+  { icon: "Globe",         title: "Международное агентирование",   desc: "Для иностранных судов под любым флагом" },
+  { icon: "ClipboardList", title: "Агентирование под ключ",        desc: "Комплексное решение всех задач" },
+  { icon: "Zap",           title: "Срочное агентирование",         desc: "При внеплановых заходах — оперативно" },
+  { icon: "Clock",         title: "Круглосуточная поддержка 24/7", desc: "На связи в любое время суток" },
+  { icon: "Shield",        title: "Представительство интересов",   desc: "В государственных и портовых органах" },
+];
+
+const VESSEL_TYPES = [
+  { icon: "Container",  label: "Контейнеровозы" },
+  { icon: "Ship",       label: "Сухогрузы" },
+  { icon: "Droplets",   label: "Танкеры" },
+  { icon: "Users",      label: "Пассажирские суда" },
+  { icon: "Fish",       label: "Рыболовецкие суда" },
+  { icon: "Sailboat",   label: "Яхты" },
+];
+
+const WHY_US = [
+  { icon: "Flag",          text: "Опыт работы с судами под флагами разных стран" },
+  { icon: "MapPin",        text: "Знание местных требований и регламентов портов Санкт‑Петербурга" },
+  { icon: "Handshake",     text: "Налаженные связи с портовыми службами и контролирующими органами" },
+  { icon: "BadgeCheck",    text: "Прозрачные тарифы и фиксированная стоимость услуг по договору" },
+  { icon: "Zap",           text: "Оперативное решение нестандартных ситуаций" },
+  { icon: "Languages",     text: "Многоязычная поддержка (английский, русский)" },
+];
 
 const FAQ = [
   { q: "Что входит в стоимость агентского обслуживания?", a: "Стоимость рассчитывается индивидуально и включает: портовые сборы, лоцманские и буксирные услуги, агентское вознаграждение. Предоставляем детальный дисбурсментский счёт до захода судна." },
   { q: "Как быстро вы можете организовать заход судна?", a: "При наличии предварительного уведомления — от 24 часов. В экстренных случаях работаем в ускоренном режиме. Свяжитесь с нами по телефону для оперативного решения." },
-  { q: "Работаете ли вы с иностранными судовладельцами?", a: "Да, работаем с судовладельцами из любых стран. Ведём переписку на русском и английском языках. Опыт работы с судами под флагами 40+ государств." },
+  { q: "Работаете ли вы с иностранными судовладельцами?", a: "Да, работаем с судовладельцами из любых стран. Ведём переписку на русском и английском языках. Опыт работы с судами под флагами множества государств." },
   { q: "Какие документы нужны для оформления судозахода?", a: "Свидетельство о праве плавания под флагом, судовые роли, санитарные документы, манифест груза. Полный список предоставим после получения заявки." },
 ];
 
 export default function Agency() {
   useEffect(() => {
-    document.title = "Судовое агентирование в Новороссийске | MarineGroup";
-    const meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute("content", "Профессиональное судовое агентирование в портах Черноморского бассейна. Оформление судозаходов, смена экипажа, логистика грузов. Работаем 24/7. Новороссийск, Туапсе, Сочи.");
+    document.title = "Судовое агентирование в СПб | Портовое сопровождение судов | IDALED";
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) { meta = document.createElement("meta"); meta.setAttribute("name", "description"); document.head.appendChild(meta); }
+    meta.setAttribute("content", "Профессиональное судовое агентирование в Санкт‑Петербурге. Сопровождение судов в портах СПб, оформление документов, снабжение. Круглосуточная поддержка. Звоните!");
+    let kw = document.querySelector('meta[name="keywords"]');
+    if (!kw) { kw = document.createElement("meta"); kw.setAttribute("name", "keywords"); document.head.appendChild(kw); }
+    kw.setAttribute("content", "судовое агентирование Санкт‑Петербург, услуги судового агентирования СПб, портовое агентирование СПб, судовое агентирование под ключ СПб, договор судового агентирования Санкт‑Петербург, международное судовое агентирование, сопровождение судов в портах Санкт‑Петербурга");
   }, []);
 
   return (
@@ -35,7 +68,7 @@ export default function Agency() {
           <Link to="/" className="flex items-center gap-2">
             <img
               src="https://thb.tildacdn.com/tild3333-3532-4765-b339-346564343465/-/resize/504x/logo_color.png"
-              alt="MarineGroup"
+              alt="IDALED"
               className="h-9 w-auto object-contain"
               style={{ filter: "brightness(0) invert(1)" }}
             />
@@ -51,7 +84,7 @@ export default function Agency() {
       {/* ── HERO ── */}
       <section className="relative min-h-[70vh] flex items-end overflow-hidden pt-16">
         <div className="absolute inset-0">
-          <img src={IMG_SHIP} alt="Судовое агентирование в порту" className="w-full h-full object-cover" />
+          <img src={IMG_SHIP} alt="Судовое агентирование в Санкт-Петербурге" className="w-full h-full object-cover" />
           <div className="absolute inset-0"
             style={{ background: "linear-gradient(180deg, rgba(6,20,38,0.7) 0%, rgba(6,20,38,0.95) 100%)" }} />
         </div>
@@ -67,13 +100,13 @@ export default function Agency() {
               Профессиональный судовой агент
             </div>
             <h1 className="font-cormorant text-white font-semibold leading-tight mb-6"
-              style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}>
-              Судовое агентирование<br />
-              <span style={{ color: "var(--gold-light)" }}>в Черноморских портах</span>
+              style={{ fontSize: "clamp(2rem, 4.5vw, 3.8rem)" }}>
+              Судовое агентирование в Санкт‑Петербурге:<br />
+              <span style={{ color: "var(--gold-light)" }}>профессиональное сопровождение судов от IDALED</span>
             </h1>
             <p className="font-ibm max-w-2xl leading-relaxed mb-8"
-              style={{ color: "rgba(255,255,255,0.65)", fontSize: "1.1rem" }}>
-              Полный комплекс агентских услуг для судовладельцев, операторов и фрахтователей. Берём на себя все портовые формальности — от нотиса о прибытии до оформления отхода судна.
+              style={{ color: "rgba(255,255,255,0.65)", fontSize: "1.05rem" }}>
+              Компания IDALED предоставляет услуги судового агентирования в Санкт‑Петербурге и портах региона. Мы берём на себя полное сопровождение судов — от входа в акваторию до выхода, обеспечивая соблюдение всех требований и минимизируя простои.
             </p>
             <div className="flex flex-wrap gap-4">
               <a href="#form" className="btn-gold px-8 py-3.5 rounded text-xs">
@@ -87,28 +120,27 @@ export default function Agency() {
         </div>
       </section>
 
-      {/* ── BENEFITS ── */}
-      <section className="py-20" style={{ backgroundColor: "var(--beige)" }}>
+      {/* ── ЧТО ВХОДИТ ── */}
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <Reveal>
-            <div className="text-center mb-14">
-              <div className="section-label mb-3">Почему выбирают нас</div>
+            <div className="mb-12">
+              <div className="section-label mb-3">Состав услуги</div>
               <h2 className="font-cormorant font-semibold mb-4" style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", color: "var(--navy)" }}>
-                Надёжный партнёр в порту
+                Что входит в наше судовое агентирование
               </h2>
-              <div className="gold-line w-20 mx-auto" />
+              <div className="gold-line w-20 mb-0" />
             </div>
           </Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {BENEFITS.map((b, i) => (
-              <Reveal key={i} delay={i * 70}>
-                <div className="bg-white rounded-2xl p-6 text-center card-marine">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4"
-                    style={{ backgroundColor: "var(--navy)" }}>
-                    <Icon name={b.icon as "Clock"} size={22} style={{ color: "var(--gold)" }} />
+          <div className="grid sm:grid-cols-2 gap-4">
+            {WHAT_WE_DO.map((item, i) => (
+              <Reveal key={i} delay={i * 50}>
+                <div className="flex items-start gap-4 p-5 rounded-xl card-marine bg-white">
+                  <div className="w-10 h-10 rounded-lg shrink-0 flex items-center justify-center"
+                    style={{ backgroundColor: "var(--beige)" }}>
+                    <Icon name={item.icon as "Anchor"} size={20} style={{ color: "var(--sea)" }} />
                   </div>
-                  <h3 className="font-ibm font-semibold mb-2" style={{ color: "var(--navy)" }}>{b.title}</h3>
-                  <p className="font-ibm text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>{b.desc}</p>
+                  <p className="font-ibm text-sm leading-relaxed pt-2" style={{ color: "var(--text-muted)" }}>{item.text}</p>
                 </div>
               </Reveal>
             ))}
@@ -117,30 +149,26 @@ export default function Agency() {
       </section>
 
       {/* ── SERVICES ── */}
-      <section id="services" className="py-20 bg-white">
+      <section id="services" className="py-20" style={{ backgroundColor: "var(--beige)" }}>
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <Reveal>
-            <div className="mb-14">
-              <div className="section-label mb-3">Что мы делаем</div>
+            <div className="text-center mb-12">
+              <div className="section-label mb-3">Наши услуги</div>
               <h2 className="font-cormorant font-semibold mb-4" style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", color: "var(--navy)" }}>
                 Полный спектр агентских услуг
               </h2>
-              <div className="gold-line w-20 mb-5" />
-              <p className="font-ibm max-w-2xl leading-relaxed" style={{ color: "var(--text-muted)" }}>
-                Сопровождаем судно на каждом этапе захода в порт. Наши специалисты знают все нюансы работы с портовыми властями черноморского бассейна.
-              </p>
+              <div className="gold-line w-20 mx-auto" />
             </div>
           </Reveal>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {AGENCY_SERVICES.map((s, i) => (
+            {SERVICES.map((s, i) => (
               <Reveal key={i} delay={i * 60}>
-                <div className="card-marine rounded-xl p-6 bg-white group h-full"
+                <div className="bg-white rounded-2xl p-6 card-marine group h-full"
                   style={{ borderLeft: "3px solid var(--gold)" }}>
-                  <div className="w-10 h-10 rounded-lg mb-4 flex items-center justify-center transition-colors duration-300 group-hover:bg-[#0B1F3A]"
-                    style={{ backgroundColor: "var(--beige)" }}>
-                    <Icon name={s.icon as "FileText"} size={20}
-                      className="transition-colors duration-300 group-hover:text-yellow-400"
-                      style={{ color: "var(--sea)" }} />
+                  <div className="w-11 h-11 rounded-lg mb-4 flex items-center justify-center transition-colors duration-300 group-hover:bg-[#0B1F3A]"
+                    style={{ backgroundColor: "var(--navy)" }}>
+                    <Icon name={s.icon as "Ship"} size={21} style={{ color: "var(--gold)" }}
+                      className="transition-colors duration-300" />
                   </div>
                   <h3 className="font-ibm font-semibold mb-2" style={{ color: "var(--navy)" }}>{s.title}</h3>
                   <p className="font-ibm text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>{s.desc}</p>
@@ -151,30 +179,81 @@ export default function Agency() {
         </div>
       </section>
 
-      {/* ── PORTS ── */}
+      {/* ── ТИПЫ СУДОВ ── */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 lg:px-8">
+          <Reveal>
+            <div className="text-center mb-10">
+              <div className="section-label mb-3">Типы судов</div>
+              <h2 className="font-cormorant font-semibold mb-3" style={{ fontSize: "clamp(1.6rem, 3vw, 2.4rem)", color: "var(--navy)" }}>
+                Обслуживаем все типы судов
+              </h2>
+              <div className="gold-line w-20 mx-auto" />
+            </div>
+            <div className="flex flex-wrap justify-center gap-4">
+              {VESSEL_TYPES.map((v, i) => (
+                <div key={i} className="flex items-center gap-3 px-6 py-3.5 rounded-full card-marine bg-white"
+                  style={{ border: "1px solid rgba(11,31,58,0.12)" }}>
+                  <Icon name={v.icon as "Ship"} size={18} style={{ color: "var(--sea)" }} />
+                  <span className="font-ibm text-sm font-medium" style={{ color: "var(--navy)" }}>{v.label}</span>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── ПОЧЕМУ МЫ ── */}
       <section className="py-20 relative overflow-hidden" style={{ backgroundColor: "var(--navy)" }}>
         <div className="absolute inset-0 sea-texture opacity-20" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8">
           <Reveal>
             <div className="text-center mb-12">
-              <div className="section-label mb-3">География присутствия</div>
+              <div className="section-label mb-3">Наши преимущества</div>
               <h2 className="font-cormorant text-white font-semibold mb-4"
                 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)" }}>
-                Порты обслуживания
+                Почему выбирают нас
               </h2>
-              <div className="gold-line w-20 mx-auto mb-6" />
-              <p className="font-ibm max-w-xl mx-auto" style={{ color: "rgba(255,255,255,0.55)" }}>
-                Работаем во всех ключевых портах Черноморского и Азово-Черноморского бассейна
-              </p>
+              <div className="gold-line w-20 mx-auto" />
             </div>
-            <div className="flex flex-wrap justify-center gap-3">
-              {PORTS.map(p => (
-                <div key={p} className="flex items-center gap-2 px-5 py-3 rounded-full"
-                  style={{ border: "1px solid rgba(212,160,23,0.35)", backgroundColor: "rgba(255,255,255,0.04)" }}>
-                  <Icon name="MapPin" size={14} style={{ color: "var(--gold)" }} />
-                  <span className="font-ibm text-sm text-white">{p}</span>
+          </Reveal>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {WHY_US.map((item, i) => (
+              <Reveal key={i} delay={i * 60}>
+                <div className="flex items-start gap-4 p-5 rounded-xl"
+                  style={{ backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}>
+                  <div className="w-10 h-10 rounded-lg shrink-0 flex items-center justify-center"
+                    style={{ border: "1px solid rgba(212,160,23,0.35)" }}>
+                    <Icon name={item.icon as "Flag"} size={18} style={{ color: "var(--gold)" }} />
+                  </div>
+                  <p className="font-ibm text-sm leading-relaxed pt-2" style={{ color: "rgba(255,255,255,0.65)" }}>{item.text}</p>
                 </div>
-              ))}
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="py-16" style={{ backgroundColor: "var(--gold)" }}>
+        <div className="max-w-4xl mx-auto px-4 lg:px-8 text-center">
+          <Reveal>
+            <p className="font-cormorant font-semibold leading-snug mb-6"
+              style={{ fontSize: "clamp(1.5rem, 3vw, 2.2rem)", color: "var(--navy-deep)" }}>
+              Доверьте судовое агентирование в Санкт‑Петербурге профессионалам IDALED — мы обеспечим бесперебойную работу вашего судна в акватории региона!
+            </p>
+            <p className="font-ibm mb-8" style={{ color: "rgba(6,20,38,0.7)", fontSize: "1rem" }}>
+              Оставьте заявку на сайте или позвоните нам — мы оперативно рассчитаем стоимость агентирования и подготовим индивидуальное предложение.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a href="#form" className="btn-navy px-8 py-3.5 rounded text-xs">
+                Оставить заявку
+              </a>
+              <a href="tel:+79633027803" className="flex items-center gap-2 px-8 py-3.5 rounded text-xs font-ibm uppercase tracking-widest font-semibold transition-colors"
+                style={{ backgroundColor: "rgba(6,20,38,0.12)", color: "var(--navy-deep)" }}>
+                <Icon name="Phone" size={14} />
+                +7 (963) 302-78-03
+              </a>
             </div>
           </Reveal>
         </div>
@@ -236,7 +315,7 @@ export default function Agency() {
       {/* ── FOOTER MINI ── */}
       <footer className="py-8" style={{ backgroundColor: "var(--navy-deep)", borderTop: "1px solid rgba(255,255,255,0.07)" }}>
         <div className="max-w-7xl mx-auto px-4 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3">
-          <p className="font-ibm text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>© 2024 MarineGroup. Все права защищены.</p>
+          <p className="font-ibm text-xs" style={{ color: "rgba(255,255,255,0.25)" }}>© 2026 IDALED. Все права защищены.</p>
           <Link to="/" className="font-ibm text-xs transition-colors" style={{ color: "rgba(255,255,255,0.35)" }}>
             ← Вернуться на главную
           </Link>
