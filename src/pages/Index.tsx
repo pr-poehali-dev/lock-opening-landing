@@ -11,6 +11,16 @@ export default function Index() {
   const [formOpen, setFormOpen] = useState(false);
 
   useEffect(() => {
+    document.title = "Судовое агентство IDALED в Санкт-Петербурге | Судовые агенты";
+    let meta = document.querySelector('meta[name="description"]');
+    if (!meta) { meta = document.createElement("meta"); meta.setAttribute("name", "description"); document.head.appendChild(meta); }
+    meta.setAttribute("content", "Судовые агенты IDALED в Санкт-Петербурге — профессиональное судовое агентство. Агентирование судов, ремонт двигателей, ship chandler. Работаем 24/7.");
+    let kw = document.querySelector('meta[name="keywords"]');
+    if (!kw) { kw = document.createElement("meta"); kw.setAttribute("name", "keywords"); document.head.appendChild(kw); }
+    kw.setAttribute("content", "судовой агент, судовое агентство, судовые агенты, судовое агентство в Санкт-Петербурге, судовой агент СПб, агентирование судов Санкт-Петербург");
+  }, []);
+
+  useEffect(() => {
     const t = setInterval(() => setSlide(s => (s + 1) % SLIDES.length), 6000);
     return () => clearInterval(t);
   }, []);
