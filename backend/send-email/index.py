@@ -6,7 +6,7 @@ from email.mime.multipart import MIMEMultipart
 
 
 def handler(event: dict, context) -> dict:
-    """Отправка заявки с формы на почту order@idaled.com"""
+    """Отправка обратной связи с сайта Port Mirage на почту k56858378@gmail.com"""
     cors = {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'POST, OPTIONS',
@@ -18,36 +18,33 @@ def handler(event: dict, context) -> dict:
 
     body = json.loads(event.get('body') or '{}')
     name = body.get('name', '').strip()
-    phone = body.get('phone', '').strip()
-    service = body.get('service', '').strip()
+    contact = body.get('contact', '').strip()
     message = body.get('message', '').strip()
 
-    if not name or not phone:
+    if not name or not contact or not message:
         return {
             'statusCode': 400,
             'headers': cors,
-            'body': json.dumps({'error': 'Имя и телефон обязательны'}, ensure_ascii=False)
+            'body': json.dumps({'error': 'Все поля обязательны'}, ensure_ascii=False)
         }
 
     smtp_host = os.environ.get('SMTP_HOST', 'smtp.yandex.ru')
     smtp_port = int(os.environ.get('SMTP_PORT', '465'))
     smtp_user = os.environ.get('SMTP_USER', '')
     smtp_pass = os.environ.get('SMTP_PASS', '')
-    to_email = 'order@idaled.com'
+    to_email = 'k56858378@gmail.com'
 
-    lines = [
-        f'<b>Имя / Судно:</b> {name}',
-        f'<b>Телефон:</b> {phone}',
-    ]
-    if service:
-        lines.append(f'<b>Услуга:</b> {service}')
-    if message:
-        lines.append(f'<b>Сообщение:</b><br>{message.replace(chr(10), "<br>")}')
-
-    html = '<br><br>'.join(lines)
+    html = f"""
+    <h2 style="color:#222;font-family:Arial,sans-serif;">Новое сообщение с сайта Port Mirage</h2>
+    <table style="font-family:Arial,sans-serif;font-size:15px;border-collapse:collapse;">
+      <tr><td style="padding:6px 16px 6px 0;color:#888;font-weight:bold;">Имя:</td><td>{name}</td></tr>
+      <tr><td style="padding:6px 16px 6px 0;color:#888;font-weight:bold;">Контакт:</td><td>{contact}</td></tr>
+      <tr><td style="padding:6px 16px 6px 0;color:#888;font-weight:bold;vertical-align:top;">Сообщение:</td><td>{message.replace(chr(10), '<br>')}</td></tr>
+    </table>
+    """
 
     msg = MIMEMultipart('alternative')
-    msg['Subject'] = f'Новая заявка с сайта — {name}'
+    msg['Subject'] = f'Port Mirage — новое сообщение от {name}'
     msg['From'] = smtp_user
     msg['To'] = to_email
     msg.attach(MIMEText(html, 'html', 'utf-8'))

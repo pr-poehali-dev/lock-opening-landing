@@ -10,7 +10,7 @@
       "name": "Missing required fields returns 400",
       "method": "POST",
       "path": "/",
-      "body": {"name": "", "phone": ""},
+      "body": {"name": "Тест", "contact": "", "message": ""},
       "expectedStatus": 400
     }
   ]

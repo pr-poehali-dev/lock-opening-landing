@@ -15,8 +15,20 @@ export default function ContactForm() {
     e.preventDefault();
     if (!form.name.trim() || !form.contact.trim() || !form.message.trim()) return;
     setStatus("sending");
-    await new Promise((r) => setTimeout(r, 900));
-    setStatus("ok");
+    try {
+      const res = await fetch("https://functions.poehali.dev/62f6a48a-9dda-415a-9090-a6e60f5b8e6a", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setStatus("ok");
+      } else {
+        setStatus("err");
+      }
+    } catch {
+      setStatus("err");
+    }
   };
 
   return (
@@ -92,6 +104,11 @@ export default function ContactForm() {
                 className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 font-inter text-white text-sm placeholder-gray-600 focus:outline-none focus:border-white/30 transition-colors resize-none"
               />
             </div>
+            {status === "err" && (
+              <p className="text-red-400 font-inter text-xs text-center">
+                Не удалось отправить. Напишите напрямую: k56858378@gmail.com
+              </p>
+            )}
             <button
               type="submit"
               disabled={status === "sending"}
