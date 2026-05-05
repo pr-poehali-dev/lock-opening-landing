@@ -1,3 +1,5 @@
+import Reveal from "./Reveal";
+
 const artists = [
   {
     name: "DARKWAVE",
@@ -68,21 +70,24 @@ export default function ArtistsSection() {
       <div className="absolute bottom-1/3 right-0 w-64 h-64 bg-white/3 rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span className="font-rajdhani text-xs tracking-widest uppercase text-gray-500 font-semibold">
-            Лайн-ап
-          </span>
-          <h2 className="font-orbitron text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3">
-            Наши <span className="text-gradient-silver">артисты</span>
-          </h2>
-          <p className="mt-4 font-inter text-gray-500 max-w-xl mx-auto">
-            Диджеи и продюсеры, которые создают атмосферу наших вечеринок
-          </p>
-        </div>
+        <Reveal>
+          <div className="text-center mb-16">
+            <span className="font-rajdhani text-xs tracking-widest uppercase text-gray-500 font-semibold">
+              Лайн-ап
+            </span>
+            <h2 className="font-orbitron text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3">
+              Наши <span className="text-gradient-silver">артисты</span>
+            </h2>
+            <p className="mt-4 font-inter text-gray-500 max-w-xl mx-auto">
+              Диджеи и продюсеры, которые создают атмосферу наших вечеринок
+            </p>
+          </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {artists.map((artist) => (
-            <div key={artist.nick} className="group relative overflow-hidden rounded-xl card-dark">
+          {artists.map((artist, i) => (
+            <Reveal key={artist.nick} delay={i * 80} className="h-full">
+            <div className="group relative overflow-hidden rounded-xl card-dark h-full">
               <div className="aspect-[3/4] overflow-hidden">
                 <img
                   src={artist.img}
@@ -126,6 +131,7 @@ export default function ArtistsSection() {
                 </div>
               </div>
             </div>
+            </Reveal>
           ))}
         </div>
       </div>

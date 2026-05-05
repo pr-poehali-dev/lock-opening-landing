@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 import PolygonBackground from "./PolygonBackground";
+import Reveal from "./Reveal";
 
 const mediaItems = [
   {
@@ -44,51 +45,55 @@ export default function GallerySection() {
       <PolygonBackground className="absolute inset-0 z-0" nodeCount={20} opacity={0.08} parallaxFactor={0.035} />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span className="font-rajdhani text-xs tracking-widest uppercase text-gray-500 font-semibold">
-            Наши мероприятия
-          </span>
-          <h2 className="font-orbitron text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3">
-            Гале<span className="text-gradient-silver">рея</span>
-          </h2>
-          <p className="mt-4 font-inter text-gray-500 max-w-xl mx-auto">
-            Атмосфера наших вечеринок в фотографиях и видео
-          </p>
-        </div>
+        <Reveal>
+          <div className="text-center mb-16">
+            <span className="font-rajdhani text-xs tracking-widest uppercase text-gray-500 font-semibold">
+              Наши мероприятия
+            </span>
+            <h2 className="font-orbitron text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3">
+              Гале<span className="text-gradient-silver">рея</span>
+            </h2>
+            <p className="mt-4 font-inter text-gray-500 max-w-xl mx-auto">
+              Атмосфера наших вечеринок в фотографиях и видео
+            </p>
+          </div>
+        </Reveal>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 grid-rows-3 gap-3 md:gap-4 h-[500px] md:h-[600px]">
-          {mediaItems.map((item, i) => (
-            <div
-              key={i}
-              className={`${item.span} relative group overflow-hidden rounded-xl cursor-pointer`}
-              onClick={() => setLightbox(item.src)}
-            >
-              <img
-                src={item.src}
-                alt={`Галерея ${i + 1}`}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale-[40%] group-hover:grayscale-0"
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300" />
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                {item.type === "video" ? (
-                  <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
-                    <Icon name="Play" size={22} className="text-[#141414] ml-1" />
-                  </div>
-                ) : (
-                  <div className="w-12 h-12 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center">
-                    <Icon name="ZoomIn" size={20} className="text-white" />
+        <Reveal delay={100}>
+          <div className="grid grid-cols-2 md:grid-cols-3 grid-rows-3 gap-3 md:gap-4 h-[500px] md:h-[600px]">
+            {mediaItems.map((item, i) => (
+              <div
+                key={i}
+                className={`${item.span} relative group overflow-hidden rounded-xl cursor-pointer`}
+                onClick={() => setLightbox(item.src)}
+              >
+                <img
+                  src={item.src}
+                  alt={`Галерея ${i + 1}`}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale-[40%] group-hover:grayscale-0"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300" />
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  {item.type === "video" ? (
+                    <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                      <Icon name="Play" size={22} className="text-[#141414] ml-1" />
+                    </div>
+                  ) : (
+                    <div className="w-12 h-12 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center">
+                      <Icon name="ZoomIn" size={20} className="text-white" />
+                    </div>
+                  )}
+                </div>
+                {item.type === "video" && (
+                  <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-white/15 backdrop-blur-sm px-2.5 py-1 rounded-full">
+                    <Icon name="Play" size={10} className="text-white" />
+                    <span className="font-rajdhani text-xs text-white font-semibold uppercase tracking-wide">Видео</span>
                   </div>
                 )}
               </div>
-              {item.type === "video" && (
-                <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-white/15 backdrop-blur-sm px-2.5 py-1 rounded-full">
-                  <Icon name="Play" size={10} className="text-white" />
-                  <span className="font-rajdhani text-xs text-white font-semibold uppercase tracking-wide">Видео</span>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </Reveal>
       </div>
 
       {lightbox && (

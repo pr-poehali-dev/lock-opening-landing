@@ -1,3 +1,5 @@
+import Reveal from "./Reveal";
+
 export default function TicketsSection() {
   return (
     <section id="tickets" className="relative py-20 md:py-32 overflow-hidden">
@@ -13,6 +15,7 @@ export default function TicketsSection() {
       <div className="absolute top-0 left-0 right-0 section-divider" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <Reveal>
         <span className="inline-flex items-center gap-2 mb-6 px-4 py-2 border border-white/20 rounded-full bg-white/5 backdrop-blur-sm">
           <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
           <span className="font-rajdhani text-sm tracking-widest uppercase text-gray-300 font-semibold">
@@ -61,6 +64,7 @@ export default function TicketsSection() {
         <p className="mt-6 font-inter text-xs text-gray-600">
           Безопасная оплата · Билет придёт на почту мгновенно · Без скрытых комиссий
         </p>
+        </Reveal>
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 section-divider" />

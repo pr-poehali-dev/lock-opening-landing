@@ -1,4 +1,6 @@
 import PolygonBackground from "./PolygonBackground";
+import ContactForm from "./ContactForm";
+import Reveal from "./Reveal";
 
 function VKIcon() {
   return (
@@ -74,16 +76,19 @@ export default function ContactsSection() {
       <div className="absolute top-1/2 right-0 w-72 h-72 bg-white/3 rounded-full blur-3xl -translate-y-1/2" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <span className="font-rajdhani text-xs tracking-widest uppercase text-gray-500 font-semibold">
-            Свяжись с нами
-          </span>
-          <h2 className="font-orbitron text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3">
-            Конта<span className="text-gradient-silver">кты</span>
-          </h2>
-        </div>
+        <Reveal>
+          <div className="text-center mb-16">
+            <span className="font-rajdhani text-xs tracking-widest uppercase text-gray-500 font-semibold">
+              Свяжись с нами
+            </span>
+            <h2 className="font-orbitron text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3">
+              Конта<span className="text-gradient-silver">кты</span>
+            </h2>
+          </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
+          <Reveal from="left">
           <div className="grid grid-cols-1 gap-3">
             {contacts.map((c) => (
               <a
@@ -108,7 +113,9 @@ export default function ContactsSection() {
               </a>
             ))}
           </div>
+          </Reveal>
 
+          <Reveal from="right" delay={100}>
           <div>
             <div className="card-dark rounded-xl p-1 overflow-hidden">
               <div className="font-rajdhani text-xs tracking-widest uppercase text-gray-600 font-semibold p-4 pb-2">
@@ -130,10 +137,15 @@ export default function ContactsSection() {
               </div>
             </div>
           </div>
+          </Reveal>
         </div>
       </div>
 
-      <footer className="mt-20 border-t border-white/6 pt-8 text-center">
+      <div className="mt-20 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
+        <ContactForm />
+      </div>
+
+      <footer className="mt-16 border-t border-white/6 pt-8 text-center">
         <div className="flex items-center justify-center gap-3 mb-4">
           <img
             src="https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/90f9e1d3-7a88-4d27-b781-509022061b7b.jpg"
