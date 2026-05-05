@@ -28,17 +28,17 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "nav-blur shadow-lg shadow-black/50" : "bg-transparent"
+        scrolled ? "nav-blur shadow-lg shadow-black/60" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-brand-red flex items-center justify-center shadow-lg shadow-brand-red/40">
-              <Icon name="Zap" size={20} className="text-white" />
+            <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-md">
+              <Icon name="Zap" size={18} className="text-[#141414]" />
             </div>
             <span className="font-orbitron text-white font-bold text-lg tracking-widest uppercase">
-              Prog<span className="text-brand-red">House</span>
+              Prog<span className="text-gray-400">House</span>
             </span>
           </div>
 
@@ -47,14 +47,14 @@ export default function Navbar() {
               <button
                 key={link.href}
                 onClick={() => handleNav(link.href)}
-                className="font-rajdhani text-sm font-semibold tracking-widest uppercase text-gray-300 hover:text-white hover:text-brand-red transition-colors duration-200"
+                className="font-rajdhani text-sm font-semibold tracking-widest uppercase text-gray-400 hover:text-white transition-colors duration-200"
               >
                 {link.label}
               </button>
             ))}
             <button
               onClick={() => handleNav("#tickets")}
-              className="ml-2 px-5 py-2 bg-brand-red text-white font-rajdhani font-bold text-sm tracking-widest uppercase rounded hover:bg-brand-red-dark transition-colors duration-200 animate-pulse-red"
+              className="ml-2 px-5 py-2 btn-primary rounded text-sm animate-pulse-white"
             >
               Купить билет
             </button>
@@ -76,14 +76,14 @@ export default function Navbar() {
               <button
                 key={link.href}
                 onClick={() => handleNav(link.href)}
-                className="text-left py-3 px-4 font-rajdhani font-semibold text-base tracking-widest uppercase text-gray-300 hover:text-white hover:bg-white/5 rounded transition-colors"
+                className="text-left py-3 px-4 font-rajdhani font-semibold text-base tracking-widest uppercase text-gray-400 hover:text-white hover:bg-white/5 rounded transition-colors"
               >
                 {link.label}
               </button>
             ))}
             <button
               onClick={() => handleNav("#tickets")}
-              className="mt-2 py-3 px-4 bg-brand-red text-white font-rajdhani font-bold text-base tracking-widest uppercase rounded text-center"
+              className="mt-2 py-3 px-4 btn-primary rounded text-center text-sm"
             >
               Купить билет
             </button>

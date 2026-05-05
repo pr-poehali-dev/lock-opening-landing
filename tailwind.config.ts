@@ -35,17 +35,17 @@ export default {
 				popover: { DEFAULT: 'hsl(var(--popover))', foreground: 'hsl(var(--popover-foreground))' },
 				card: { DEFAULT: 'hsl(var(--card))', foreground: 'hsl(var(--card-foreground))' },
 				brand: {
-					red: '#E8002A',
-					'red-dark': '#B8001F',
-					'red-glow': '#FF0033',
+					white: '#FFFFFF',
+					silver: '#C8C8C8',
+					'silver-dark': '#A0A0A0',
 				},
 				dark: {
-					DEFAULT: '#0A0A0A',
-					card: '#111111',
-					graphite: '#1C1C1E',
-					'graphite-light': '#2C2C2E',
-					gray: '#3A3A3C',
-					'gray-light': '#48484A',
+					DEFAULT: '#141414',
+					card: '#1A1A1A',
+					graphite: '#222224',
+					'graphite-light': '#2E2E30',
+					gray: '#404042',
+					'gray-light': '#5A5A5C',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
@@ -68,13 +68,9 @@ export default {
 				'accordion-up': { from: { height: 'var(--radix-accordion-content-height)' }, to: { height: '0' } },
 				'fade-up': { from: { opacity: '0', transform: 'translateY(32px)' }, to: { opacity: '1', transform: 'translateY(0)' } },
 				'fade-in': { from: { opacity: '0' }, to: { opacity: '1' } },
-				'pulse-red': {
-					'0%, 100%': { boxShadow: '0 0 0 0 rgba(232,0,42,0.6), 0 0 20px rgba(232,0,42,0.3)' },
-					'50%': { boxShadow: '0 0 0 12px rgba(232,0,42,0), 0 0 40px rgba(232,0,42,0.5)' },
-				},
-				'glow-red': {
-					'0%, 100%': { textShadow: '0 0 10px rgba(232,0,42,0.5)' },
-					'50%': { textShadow: '0 0 30px rgba(232,0,42,1), 0 0 60px rgba(232,0,42,0.5)' },
+				'pulse-white': {
+					'0%, 100%': { boxShadow: '0 0 0 0 rgba(255,255,255,0.25), 0 0 16px rgba(255,255,255,0.1)' },
+					'50%': { boxShadow: '0 0 0 10px rgba(255,255,255,0), 0 0 28px rgba(255,255,255,0.15)' },
 				},
 				'slide-down': {
 					from: { opacity: '0', transform: 'translateY(-20px)' },
@@ -91,8 +87,7 @@ export default {
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				'fade-up': 'fade-up 0.8s ease-out forwards',
 				'fade-in': 'fade-in 0.5s ease-out forwards',
-				'pulse-red': 'pulse-red 2s ease-in-out infinite',
-				'glow-red': 'glow-red 2s ease-in-out infinite',
+				'pulse-white': 'pulse-white 2.5s ease-in-out infinite',
 				'slide-down': 'slide-down 0.4s ease-out forwards',
 				'scale-in': 'scale-in 0.5s ease-out forwards',
 				'float': 'float 4s ease-in-out infinite',

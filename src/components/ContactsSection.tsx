@@ -28,14 +28,12 @@ const contacts = [
     label: "Telegram",
     value: "@proghouse_official",
     href: "https://t.me/proghouse_official",
-    color: "#2AABEE",
   },
   {
     icon: <VKIcon />,
     label: "ВКонтакте",
     value: "vk.com/proghouse",
     href: "https://vk.com/proghouse",
-    color: "#4C75A3",
   },
   {
     icon: (
@@ -47,7 +45,6 @@ const contacts = [
     label: "Email",
     value: "info@proghouse.ru",
     href: "mailto:info@proghouse.ru",
-    color: "#E8002A",
   },
   {
     icon: (
@@ -58,67 +55,60 @@ const contacts = [
     label: "Телефон",
     value: "+7 (999) 123-45-67",
     href: "tel:+79991234567",
-    color: "#E8002A",
   },
   {
     icon: <SoundCloudIcon />,
     label: "SoundCloud",
     value: "soundcloud.com/proghouse",
     href: "https://soundcloud.com/proghouse",
-    color: "#FF5500",
   },
 ];
 
 export default function ContactsSection() {
   return (
-    <section id="contacts" className="py-20 md:py-32 bg-dark-graphite relative overflow-hidden">
+    <section id="contacts" className="py-20 md:py-32 bg-[#1a1a1a] relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 section-divider" />
-      <div className="absolute top-1/2 right-0 w-72 h-72 bg-brand-red/5 rounded-full blur-3xl -translate-y-1/2" />
+      <div className="absolute top-1/2 right-0 w-72 h-72 bg-white/3 rounded-full blur-3xl -translate-y-1/2" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="font-rajdhani text-xs tracking-widest uppercase text-brand-red font-semibold">
+          <span className="font-rajdhani text-xs tracking-widest uppercase text-gray-500 font-semibold">
             Свяжись с нами
           </span>
           <h2 className="font-orbitron text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3">
-            Конта<span className="text-gradient-red">кты</span>
+            Конта<span className="text-gradient-silver">кты</span>
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
-          <div>
-            <div className="grid grid-cols-1 gap-4">
-              {contacts.map((c) => (
-                <a
-                  key={c.label}
-                  href={c.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-4 card-dark rounded-xl hover:border-white/15 transition-all duration-300 group"
-                >
-                  <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-all duration-300"
-                    style={{ background: `${c.color}20`, color: c.color }}
-                  >
-                    {c.icon}
-                  </div>
-                  <div>
-                    <div className="font-rajdhani text-xs tracking-widest uppercase text-gray-500 font-semibold">{c.label}</div>
-                    <div className="font-inter text-white text-sm mt-0.5 group-hover:text-brand-red transition-colors">{c.value}</div>
-                  </div>
-                  <div className="ml-auto text-gray-600 group-hover:text-white transition-colors">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                      <path d="M5 12h14M12 5l7 7-7 7"/>
-                    </svg>
-                  </div>
-                </a>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 gap-3">
+            {contacts.map((c) => (
+              <a
+                key={c.label}
+                href={c.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 p-4 card-dark rounded-xl hover:border-white/20 transition-all duration-300 group"
+              >
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 bg-white/6 text-gray-400 group-hover:bg-white/12 group-hover:text-white transition-all duration-300">
+                  {c.icon}
+                </div>
+                <div>
+                  <div className="font-rajdhani text-xs tracking-widest uppercase text-gray-600 font-semibold">{c.label}</div>
+                  <div className="font-inter text-gray-300 text-sm mt-0.5 group-hover:text-white transition-colors">{c.value}</div>
+                </div>
+                <div className="ml-auto text-gray-700 group-hover:text-gray-400 transition-colors">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </div>
+              </a>
+            ))}
           </div>
 
           <div>
             <div className="card-dark rounded-xl p-1 overflow-hidden">
-              <div className="font-rajdhani text-xs tracking-widest uppercase text-gray-500 font-semibold p-4 pb-2">
+              <div className="font-rajdhani text-xs tracking-widest uppercase text-gray-600 font-semibold p-4 pb-2">
                 SoundCloud — наши миксы
               </div>
               <iframe
@@ -127,7 +117,7 @@ export default function ContactsSection() {
                 scrolling="no"
                 frameBorder="no"
                 allow="autoplay"
-                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/1&color=%23E8002A&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+                src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/1&color=%23ffffff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
                 className="rounded-lg"
               />
               <div className="px-4 pb-4 pt-2">
@@ -140,18 +130,18 @@ export default function ContactsSection() {
         </div>
       </div>
 
-      <footer className="mt-20 border-t border-white/5 pt-8 text-center">
+      <footer className="mt-20 border-t border-white/6 pt-8 text-center">
         <div className="flex items-center justify-center gap-3 mb-4">
-          <div className="w-8 h-8 rounded-full bg-brand-red flex items-center justify-center shadow-lg shadow-brand-red/40">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
+          <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="#141414">
               <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
             </svg>
           </div>
           <span className="font-orbitron text-white font-bold tracking-widest uppercase">
-            Prog<span className="text-brand-red">House</span>
+            Prog<span className="text-gray-500">House</span>
           </span>
         </div>
-        <p className="font-rajdhani text-xs tracking-widest text-gray-600 uppercase">
+        <p className="font-rajdhani text-xs tracking-widest text-gray-700 uppercase">
           © 2026 ProgHouse. Промо-группа. Все права защищены.
         </p>
       </footer>

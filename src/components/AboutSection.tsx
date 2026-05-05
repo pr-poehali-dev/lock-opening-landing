@@ -1,25 +1,24 @@
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 md:py-32 bg-dark relative overflow-hidden">
+    <section id="about" className="py-20 md:py-32 bg-[#141414] relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 section-divider" />
-
-      <div className="absolute top-1/2 left-0 w-72 h-72 bg-brand-red/5 rounded-full blur-3xl -translate-y-1/2" />
+      <div className="absolute top-1/2 left-0 w-72 h-72 bg-white/3 rounded-full blur-3xl -translate-y-1/2" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <span className="font-rajdhani text-xs tracking-widest uppercase text-brand-red font-semibold">
+          <span className="font-rajdhani text-xs tracking-widest uppercase text-gray-500 font-semibold">
             Кто мы такие
           </span>
           <h2 className="font-orbitron text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3">
-            О <span className="text-gradient-red">нас</span>
+            О <span className="text-gradient-silver">нас</span>
           </h2>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-20">
           <div>
-            <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 border border-brand-red/30 rounded-full">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-red" />
-              <span className="font-rajdhani text-xs tracking-widest uppercase text-brand-red font-semibold">Наша миссия</span>
+            <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 border border-white/15 rounded-full">
+              <span className="w-1.5 h-1.5 rounded-full bg-gray-400" />
+              <span className="font-rajdhani text-xs tracking-widest uppercase text-gray-400 font-semibold">Наша миссия</span>
             </div>
             <h3 className="font-orbitron text-2xl md:text-3xl font-bold text-white mb-6 leading-tight">
               Музыка, которая объединяет
@@ -38,7 +37,7 @@ export default function AboutSection() {
                 { value: "15K+", label: "Гостей" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <div className="font-orbitron text-2xl md:text-3xl font-bold text-brand-red">{stat.value}</div>
+                  <div className="font-orbitron text-2xl md:text-3xl font-bold text-white">{stat.value}</div>
                   <div className="font-rajdhani text-xs tracking-widest uppercase text-gray-500 mt-1 font-semibold">{stat.label}</div>
                 </div>
               ))}
@@ -54,8 +53,8 @@ export default function AboutSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-xl" />
             </div>
-            <div className="absolute -bottom-4 -left-4 w-28 h-28 border border-brand-red/40 rounded-xl" />
-            <div className="absolute -top-4 -right-4 w-16 h-16 bg-brand-red/20 rounded-full blur-xl" />
+            <div className="absolute -bottom-4 -left-4 w-28 h-28 border border-white/15 rounded-xl" />
+            <div className="absolute -top-4 -right-4 w-16 h-16 bg-white/5 rounded-full blur-xl" />
           </div>
         </div>
 
@@ -69,13 +68,13 @@ export default function AboutSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-xl" />
             </div>
-            <div className="absolute -bottom-4 -right-4 w-28 h-28 border border-brand-red/40 rounded-xl" />
+            <div className="absolute -bottom-4 -right-4 w-28 h-28 border border-white/15 rounded-xl" />
           </div>
 
           <div className="order-1 lg:order-2">
-            <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 border border-brand-red/30 rounded-full">
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-red" />
-              <span className="font-rajdhani text-xs tracking-widest uppercase text-brand-red font-semibold">Наша история</span>
+            <div className="inline-flex items-center gap-2 mb-6 px-3 py-1.5 border border-white/15 rounded-full">
+              <span className="w-1.5 h-1.5 rounded-full bg-gray-400" />
+              <span className="font-rajdhani text-xs tracking-widest uppercase text-gray-400 font-semibold">Наша история</span>
             </div>
             <h3 className="font-orbitron text-2xl md:text-3xl font-bold text-white mb-6 leading-tight">
               Маленькая идея, которая выросла в большое сообщество
@@ -88,7 +87,7 @@ export default function AboutSection() {
                 { year: "2025", text: "Регулярные события в лучших клубах города. Наша собственная звуковая система и дружная команда." },
               ].map((item) => (
                 <div key={item.year} className="flex gap-4 items-start">
-                  <div className="flex-shrink-0 w-12 font-orbitron text-xs font-bold text-brand-red mt-1">{item.year}</div>
+                  <div className="flex-shrink-0 w-12 font-orbitron text-xs font-bold text-gray-400 mt-1">{item.year}</div>
                   <div className="flex-1 pl-4 border-l border-white/10">
                     <p className="font-inter text-gray-400 text-sm leading-relaxed">{item.text}</p>
                   </div>
