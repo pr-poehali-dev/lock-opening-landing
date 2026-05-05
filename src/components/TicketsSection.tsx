@@ -7,7 +7,7 @@ export default function TicketsSection() {
           backgroundImage: `url(https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/files/f0b6c902-0e87-4f97-89a1-e8cbfcf5ca8c.jpg)`,
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black/90" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80" />
 
       <div className="absolute top-0 left-0 right-0 section-divider" />
 
@@ -20,16 +20,16 @@ export default function TicketsSection() {
         </span>
 
         <h2 className="font-orbitron text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
-          НЕ ПРОПУСТИ <br />
-          <span className="text-gradient-red">ГЛАВНОЕ СОБЫТИЕ</span>
+          ПРИХОДИ И <br />
+          <span className="text-gradient-red">ПОЧУВСТВУЙ МУЗЫКУ</span>
         </h2>
 
         <p className="font-inter text-lg sm:text-xl text-gray-300 mb-4 max-w-2xl mx-auto leading-relaxed">
-          Это не просто вечеринка. Это ночь, о которой ты будешь вспоминать годами.
-          Лучшие артисты, мощный звук и атмосфера настоящего progressive house.
+          Вечер с любимыми треками, хорошей компанией и атмосферой, которую сложно передать словами.
+          Просто приходи — остальное мы берём на себя.
         </p>
         <p className="font-rajdhani text-base text-gray-400 mb-10 tracking-wide">
-          Количество билетов ограничено. Цена растёт с каждой волной продаж.
+          Места ограничены — успей взять билет по лучшей цене.
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -58,7 +58,7 @@ export default function TicketsSection() {
         </a>
 
         <p className="mt-6 font-inter text-xs text-gray-500">
-          Безопасная оплата · Электронный билет на почту · Без скрытых комиссий
+          Безопасная оплата · Билет придёт на почту мгновенно · Без скрытых комиссий
         </p>
       </div>
 

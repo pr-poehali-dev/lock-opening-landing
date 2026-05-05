@@ -20,16 +20,15 @@ function getTimeLeft() {
 
 function TimeUnit({ value, label }: { value: number; label: string }) {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center min-w-0">
       <div className="relative">
-        <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 bg-black/60 border border-brand-red/40 rounded-lg flex items-center justify-center glow-border-red backdrop-blur-sm">
-          <span className="font-orbitron text-2xl sm:text-3xl md:text-4xl font-bold text-white tabular-nums">
+        <div className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 bg-black/50 border border-brand-red/30 rounded-lg flex items-center justify-center backdrop-blur-sm">
+          <span className="font-orbitron text-lg sm:text-2xl md:text-3xl font-bold text-white tabular-nums">
             {String(value).padStart(2, "0")}
           </span>
         </div>
-        <div className="absolute inset-0 rounded-lg bg-brand-red/5" />
       </div>
-      <span className="mt-2 font-rajdhani text-xs sm:text-sm tracking-widest uppercase text-gray-400 font-semibold">
+      <span className="mt-1.5 font-rajdhani text-[10px] sm:text-xs tracking-wider uppercase text-gray-400 font-semibold text-center leading-tight">
         {label}
       </span>
     </div>
@@ -52,8 +51,8 @@ export default function HeroSection() {
           backgroundImage: `url(https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/files/98255fdd-8d2a-460e-bbe8-ee3266fce728.jpg)`,
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-[#171717]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30" />
 
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-red/10 rounded-full blur-3xl" />
@@ -72,23 +71,23 @@ export default function HeroSection() {
           PROG<span className="text-gradient-red">HOUSE</span>
         </h1>
         <p className="font-rajdhani text-lg sm:text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl tracking-wide">
-          Промо-группа. Создаём пространство для настоящей музыки.
+          Собираем людей, которые любят музыку так же сильно, как мы. Добро пожаловать!
         </p>
 
-        <div className="mb-8">
-          <p className="font-rajdhani text-sm sm:text-base tracking-widest uppercase text-gray-400 mb-6 font-semibold">
+        <div className="mb-8 w-full px-2">
+          <p className="font-rajdhani text-xs sm:text-sm tracking-widest uppercase text-gray-400 mb-4 font-semibold">
             До следующего мероприятия осталось
           </p>
-          <div className="flex items-start gap-3 sm:gap-4 md:gap-6">
-            <TimeUnit value={time.months} label="месяцев" />
-            <div className="text-brand-red text-2xl sm:text-3xl font-orbitron font-bold mt-5 sm:mt-6">:</div>
+          <div className="flex items-start justify-center gap-1.5 sm:gap-3 md:gap-4 flex-wrap">
+            <TimeUnit value={time.months} label="мес." />
+            <div className="text-brand-red text-lg sm:text-2xl font-orbitron font-bold mt-3 sm:mt-4">:</div>
             <TimeUnit value={time.days} label="дней" />
-            <div className="text-brand-red text-2xl sm:text-3xl font-orbitron font-bold mt-5 sm:mt-6">:</div>
+            <div className="text-brand-red text-lg sm:text-2xl font-orbitron font-bold mt-3 sm:mt-4">:</div>
             <TimeUnit value={time.hours} label="часов" />
-            <div className="text-brand-red text-2xl sm:text-3xl font-orbitron font-bold mt-5 sm:mt-6">:</div>
+            <div className="text-brand-red text-lg sm:text-2xl font-orbitron font-bold mt-3 sm:mt-4">:</div>
             <TimeUnit value={time.minutes} label="минут" />
-            <div className="text-brand-red text-2xl sm:text-3xl font-orbitron font-bold mt-5 sm:mt-6">:</div>
-            <TimeUnit value={time.seconds} label="секунд" />
+            <div className="text-brand-red text-lg sm:text-2xl font-orbitron font-bold mt-3 sm:mt-4">:</div>
+            <TimeUnit value={time.seconds} label="сек." />
           </div>
         </div>
 

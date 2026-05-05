@@ -22,13 +22,13 @@ export default function AboutSection() {
               <span className="font-rajdhani text-xs tracking-widest uppercase text-brand-red font-semibold">Наша миссия</span>
             </div>
             <h3 className="font-orbitron text-2xl md:text-3xl font-bold text-white mb-6 leading-tight">
-              Музыка без компромиссов
+              Музыка, которая объединяет
             </h3>
             <p className="font-inter text-gray-400 leading-relaxed mb-5 text-base">
-              Мы создаём пространства, где progressive house звучит так, как задумано — глубоко, честно и без лишнего шума. Каждое наше мероприятие — это тщательно выстроенное путешествие через звук.
+              Мы создаём тёплые вечеринки, где каждый чувствует себя своим. Progressive house — это не просто жанр, это особое состояние, которое мы хотим подарить вам.
             </p>
             <p className="font-inter text-gray-400 leading-relaxed text-base">
-              Мы отбираем только тех артистов, которые разделяют нашу философию: музыка прежде всего. Никакого гламура ради гламура — только настоящие эмоции и качественный звук.
+              На каждом нашем событии — продуманный звук, уютная атмосфера и артисты, которые по-настоящему вкладывают душу в своё дело.
             </p>
 
             <div className="mt-10 grid grid-cols-3 gap-6">
@@ -78,14 +78,14 @@ export default function AboutSection() {
               <span className="font-rajdhani text-xs tracking-widest uppercase text-brand-red font-semibold">Наша история</span>
             </div>
             <h3 className="font-orbitron text-2xl md:text-3xl font-bold text-white mb-6 leading-tight">
-              Начинали в подвалах — теперь заполняем клубы
+              Маленькая идея, которая выросла в большое сообщество
             </h3>
             <div className="space-y-4">
               {[
-                { year: "2019", text: "Первая вечеринка в небольшом клубе на 200 человек. Билеты разлетелись за 3 часа." },
-                { year: "2021", text: "Расширили команду артистов. Начали привозить международных диджеев." },
-                { year: "2023", text: "Провели первый open-air фестиваль. 3000 человек. Это был переломный момент." },
-                { year: "2025", text: "Регулярные вечеринки в топовых клубах города. Собственная sound-система." },
+                { year: "2019", text: "Первая вечеринка на 200 человек — билеты разошлись за несколько часов. Мы поняли, что не одни." },
+                { year: "2021", text: "Познакомились с замечательными артистами. Начали вместе создавать что-то большее." },
+                { year: "2023", text: "Первый open-air фестиваль под открытым небом. 3000 улыбающихся людей — это незабываемо." },
+                { year: "2025", text: "Регулярные события в лучших клубах города. Наша собственная звуковая система и дружная команда." },
               ].map((item) => (
                 <div key={item.year} className="flex gap-4 items-start">
                   <div className="flex-shrink-0 w-12 font-orbitron text-xs font-bold text-brand-red mt-1">{item.year}</div>
