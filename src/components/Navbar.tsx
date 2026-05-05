@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
+const LOGO = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/90f9e1d3-7a88-4d27-b781-509022061b7b.jpg";
+
 const navLinks = [
   { label: "О нас", href: "#about" },
   { label: "Галерея", href: "#gallery" },
@@ -34,11 +36,13 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 md:h-20">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-md">
-              <Icon name="Zap" size={18} className="text-[#141414]" />
-            </div>
-            <span className="font-orbitron text-white font-bold text-lg tracking-widest uppercase">
-              Prog<span className="text-gray-400">House</span>
+            <img
+              src={LOGO}
+              alt="Port Mirage"
+              className="h-9 w-9 rounded-full object-cover"
+            />
+            <span className="font-orbitron text-white font-bold text-base tracking-widest uppercase">
+              PORT <span className="text-gray-400">MIRAGE</span>
             </span>
           </div>
 

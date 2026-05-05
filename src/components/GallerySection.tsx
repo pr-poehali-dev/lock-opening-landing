@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
+import PolygonBackground from "./PolygonBackground";
 
 const mediaItems = [
   {
@@ -40,8 +41,9 @@ export default function GallerySection() {
   return (
     <section id="gallery" className="py-20 md:py-32 bg-[#1a1a1a] relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 section-divider" />
+      <PolygonBackground className="absolute inset-0 z-0" nodeCount={20} opacity={0.08} parallaxFactor={0.035} />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="font-rajdhani text-xs tracking-widest uppercase text-gray-500 font-semibold">
             Наши мероприятия

@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
+import PolygonBackground from "./PolygonBackground";
+import { useParallax } from "@/hooks/useParallax";
 
+const LOGO = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/90f9e1d3-7a88-4d27-b781-509022061b7b.jpg";
 const TARGET_DATE = new Date("2026-06-06T20:00:00");
 
 function getTimeLeft() {
@@ -35,26 +38,50 @@ function TimeUnit({ value, label }: { value: number; label: string }) {
 
 export default function HeroSection() {
   const [time, setTime] = useState(getTimeLeft());
+  const scrollY = useParallax();
 
   useEffect(() => {
     const timer = setInterval(() => setTime(getTimeLeft()), 1000);
     return () => clearInterval(timer);
   }, []);
 
+  const bgParallax = scrollY * 0.4;
+  const contentParallax = scrollY * 0.15;
+
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden">
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
         style={{
           backgroundImage: `url(https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/files/98255fdd-8d2a-460e-bbe8-ee3266fce728.jpg)`,
+          transform: `translateY(${bgParallax}px)`,
+          top: "-10%",
+          height: "120%",
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/45 to-[#141414]" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-transparent to-black/30" />
-      <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.18)" }} />
 
-      <div className="relative z-10 flex flex-col items-center justify-center flex-1 text-center px-4 pt-24 pb-16">
-        <div className="inline-flex items-center gap-2 mb-6 px-4 py-2 border border-white/20 rounded-full bg-white/5 backdrop-blur-sm">
+      <PolygonBackground
+        className="absolute inset-0 z-[1]"
+        nodeCount={30}
+        opacity={0.14}
+        parallaxFactor={0.04}
+      />
+
+      <div
+        className="relative z-10 flex flex-col items-center justify-center flex-1 text-center px-4 pt-24 pb-16 will-change-transform"
+        style={{ transform: `translateY(${contentParallax}px)` }}
+      >
+        <div className="mb-6">
+          <img
+            src={LOGO}
+            alt="Port Mirage"
+            className="w-20 h-20 rounded-full object-cover mx-auto shadow-2xl ring-2 ring-white/10"
+          />
+        </div>
+
+        <div className="inline-flex items-center gap-2 mb-5 px-4 py-2 border border-white/20 rounded-full bg-white/5 backdrop-blur-sm">
           <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
           <span className="font-rajdhani text-sm tracking-widest uppercase text-gray-300 font-semibold">
             Progressive House
@@ -62,7 +89,7 @@ export default function HeroSection() {
         </div>
 
         <h1 className="font-orbitron text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4 leading-tight glow-white">
-          PROG<span className="text-gradient-silver">HOUSE</span>
+          PORT <span className="text-gradient-silver">MIRAGE</span>
         </h1>
         <p className="font-rajdhani text-lg sm:text-xl md:text-2xl text-gray-300 mb-12 max-w-2xl tracking-wide">
           Собираем людей, которые любят музыку так же сильно, как мы. Добро пожаловать!

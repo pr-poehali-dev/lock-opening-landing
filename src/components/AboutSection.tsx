@@ -1,10 +1,22 @@
+import PolygonBackground from "./PolygonBackground";
+import { useParallax } from "@/hooks/useParallax";
+import { useRef } from "react";
+
 export default function AboutSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const scrollY = useParallax();
+  const sectionTop = sectionRef.current?.offsetTop ?? 0;
+  const relativeScroll = Math.max(0, scrollY - sectionTop + window.innerHeight);
+  const imgParallax1 = relativeScroll * 0.06;
+  const imgParallax2 = relativeScroll * 0.04;
+
   return (
-    <section id="about" className="py-20 md:py-32 bg-[#141414] relative overflow-hidden">
+    <section ref={sectionRef} id="about" className="py-20 md:py-32 bg-[#141414] relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 section-divider" />
+      <PolygonBackground className="absolute inset-0 z-0" nodeCount={18} opacity={0.07} parallaxFactor={0.03} />
       <div className="absolute top-1/2 left-0 w-72 h-72 bg-white/3 rounded-full blur-3xl -translate-y-1/2" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="font-rajdhani text-xs tracking-widest uppercase text-gray-500 font-semibold">
             Кто мы такие
@@ -44,12 +56,13 @@ export default function AboutSection() {
             </div>
           </div>
 
-          <div className="relative">
+          <div className="relative" style={{ transform: `translateY(${-imgParallax1 * 0.5}px)` }}>
             <div className="aspect-[4/3] rounded-xl overflow-hidden">
               <img
                 src="https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/files/4458b1df-698d-43d8-b51f-720bbe0a3617.jpg"
                 alt="DJ за пультом"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover will-change-transform"
+                style={{ transform: `scale(1.08) translateY(${imgParallax1 * 0.3}px)` }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-xl" />
             </div>
@@ -59,12 +72,13 @@ export default function AboutSection() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          <div className="order-2 lg:order-1 relative">
+          <div className="order-2 lg:order-1 relative" style={{ transform: `translateY(${-imgParallax2 * 0.4}px)` }}>
             <div className="aspect-[4/3] rounded-xl overflow-hidden">
               <img
                 src="https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/files/59a6e91b-8e61-415c-a799-414fa17f50d2.jpg"
                 alt="Вечеринка"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover will-change-transform"
+                style={{ transform: `scale(1.08) translateY(${imgParallax2 * 0.25}px)` }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-xl" />
             </div>

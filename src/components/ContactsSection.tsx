@@ -1,3 +1,5 @@
+import PolygonBackground from "./PolygonBackground";
+
 function VKIcon() {
   return (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
@@ -68,9 +70,10 @@ export default function ContactsSection() {
   return (
     <section id="contacts" className="py-20 md:py-32 bg-[#1a1a1a] relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 section-divider" />
+      <PolygonBackground className="absolute inset-0 z-0" nodeCount={16} opacity={0.07} parallaxFactor={0.025} />
       <div className="absolute top-1/2 right-0 w-72 h-72 bg-white/3 rounded-full blur-3xl -translate-y-1/2" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <span className="font-rajdhani text-xs tracking-widest uppercase text-gray-500 font-semibold">
             Свяжись с нами
@@ -132,17 +135,17 @@ export default function ContactsSection() {
 
       <footer className="mt-20 border-t border-white/6 pt-8 text-center">
         <div className="flex items-center justify-center gap-3 mb-4">
-          <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="#141414">
-              <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
-          </div>
+          <img
+            src="https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/90f9e1d3-7a88-4d27-b781-509022061b7b.jpg"
+            alt="Port Mirage"
+            className="w-8 h-8 rounded-full object-cover"
+          />
           <span className="font-orbitron text-white font-bold tracking-widest uppercase">
-            Prog<span className="text-gray-500">House</span>
+            PORT <span className="text-gray-500">MIRAGE</span>
           </span>
         </div>
         <p className="font-rajdhani text-xs tracking-widest text-gray-700 uppercase">
-          © 2026 ProgHouse. Промо-группа. Все права защищены.
+          © 2026 Port Mirage. Progressive House. Все права защищены.
         </p>
       </footer>
     </section>
