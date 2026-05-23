@@ -2,7 +2,7 @@ import PolygonBackground from "./PolygonBackground";
 import { useParallax } from "@/hooks/useParallax";
 
 const BG = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/480ec7a6-967d-4eff-a96d-08fc7db080a8.png";
-const LOGO_PM = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/497a9e72-0689-4279-b494-4dc15c95b0f6.png";
+const LOGO_PM = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/adf46996-1089-4362-9bff-322bd11b9a47.png";
 const LOGO_TD = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/84db42a4-3789-46cf-8cd1-7d1547066b2d.png";
 const LOGO_RITMI = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/6609fec4-37d9-463e-a1d4-dc7286af4c39.png";
 const REG_LINK = "https://spb.qtickets.events/234738-port-mirage-x-tripi-disko";
@@ -47,22 +47,22 @@ export default function HeroSection() {
         </p>
 
         {/* Коллаборация двух промо-групп */}
-        <div className="flex items-center justify-center gap-6 sm:gap-10 md:gap-16 mb-12">
+        <div className="flex items-center justify-center gap-4 sm:gap-8 md:gap-14 mb-12">
           <div className="flex flex-col items-center">
             <img
               src={LOGO_PM}
               alt="Port Mirage"
-              className="h-14 sm:h-20 md:h-24 w-auto object-contain brightness-0 invert drop-shadow-xl"
+              className="h-40 sm:h-56 md:h-64 w-auto object-contain drop-shadow-xl"
             />
           </div>
 
-          <div className="w-px h-14 sm:h-20 bg-white/25 mx-2" />
+          <div className="w-px h-28 sm:h-40 bg-white/25 mx-2" />
 
           <div className="flex flex-col items-center">
             <img
               src={LOGO_TD}
               alt="Трипи Диско"
-              className="h-14 sm:h-20 md:h-24 w-auto object-contain drop-shadow-xl"
+              className="h-40 sm:h-56 md:h-64 w-auto object-contain drop-shadow-xl"
             />
           </div>
         </div>
@@ -87,14 +87,11 @@ export default function HeroSection() {
       </div>
 
       {/* Логотип площадки внизу */}
-      <div className="relative z-10 flex flex-col items-center pb-8 gap-2">
-        <span className="font-rajdhani text-[10px] tracking-[0.35em] uppercase text-gray-600 font-semibold">
-          Площадка
-        </span>
+      <div className="relative z-10 flex flex-col items-center pb-8">
         <img
           src={LOGO_RITMI}
           alt="Ритми"
-          className="h-10 sm:h-12 w-auto object-contain opacity-60 hover:opacity-90 transition-opacity"
+          className="h-32 sm:h-40 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
         />
       </div>
 

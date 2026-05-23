@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
-const LOGO = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/497a9e72-0689-4279-b494-4dc15c95b0f6.png";
+const LOGO = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/adf46996-1089-4362-9bff-322bd11b9a47.png";
 const PHONE = "+79881546389";
 const TG_LINK = "https://t.me/+79064925692";
 const WA_LINK = "https://wa.me/79064925692";
