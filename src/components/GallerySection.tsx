@@ -3,28 +3,34 @@ import Icon from "@/components/ui/icon";
 import PolygonBackground from "./PolygonBackground";
 import Reveal from "./Reveal";
 
-const mediaItems = [
-  {
-    src: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/e5ba2f8d-47da-4e67-a787-9cdbdb6864e2.jpg",
-    span: "col-span-1 row-span-2",
-  },
-  {
-    src: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/e05d9374-018b-49da-afa6-af355de0e824.jpg",
-    span: "col-span-2 row-span-1",
-  },
-  {
-    src: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/04e42c3f-6cc2-42af-8e76-4a2c1130c5bb.jpg",
-    span: "col-span-1 row-span-1",
-  },
-  {
-    src: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/a952389c-d1c5-45fd-b4ef-f03bcad10efe.jpg",
-    span: "col-span-1 row-span-1",
-  },
-  {
-    src: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/77548b72-11e4-4cc5-9278-e4ee20e06e5d.jpg",
-    span: "col-span-1 row-span-1",
-  },
+const photos = [
+  "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/e5ba2f8d-47da-4e67-a787-9cdbdb6864e2.jpg",
+  "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/e05d9374-018b-49da-afa6-af355de0e824.jpg",
+  "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/04e42c3f-6cc2-42af-8e76-4a2c1130c5bb.jpg",
+  "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/a952389c-d1c5-45fd-b4ef-f03bcad10efe.jpg",
+  "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/77548b72-11e4-4cc5-9278-e4ee20e06e5d.jpg",
 ];
+
+function GalleryPhoto({ src, index, onClick }: { src: string; index: number; onClick: (s: string) => void }) {
+  return (
+    <div
+      className="relative group overflow-hidden rounded-xl cursor-pointer"
+      onClick={() => onClick(src)}
+    >
+      <img
+        src={src}
+        alt={`Галерея ${index + 1}`}
+        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale-[30%] group-hover:grayscale-0"
+      />
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-all duration-300" />
+      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center">
+          <Icon name="ZoomIn" size={18} className="text-white" />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function GallerySection() {
   const [lightbox, setLightbox] = useState<string | null>(null);
@@ -50,26 +56,19 @@ export default function GallerySection() {
         </Reveal>
 
         <Reveal delay={100}>
-          <div className="grid grid-cols-3 grid-rows-2 gap-3 md:gap-4 h-[480px] md:h-[580px]">
-            {mediaItems.map((item, i) => (
-              <div
-                key={i}
-                className={`${item.span} relative group overflow-hidden rounded-xl cursor-pointer`}
-                onClick={() => setLightbox(item.src)}
-              >
-                <img
-                  src={item.src}
-                  alt={`Галерея ${i + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale-[30%] group-hover:grayscale-0"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-all duration-300" />
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="w-12 h-12 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center">
-                    <Icon name="ZoomIn" size={20} className="text-white" />
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="flex flex-col gap-3 md:gap-4">
+            {/* Верхний ряд — 3 фото */}
+            <div className="grid grid-cols-3 gap-3 md:gap-4 h-52 sm:h-64 md:h-72">
+              {photos.slice(0, 3).map((src, i) => (
+                <GalleryPhoto key={i} src={src} index={i} onClick={setLightbox} />
+              ))}
+            </div>
+            {/* Нижний ряд — 2 фото по центру */}
+            <div className="grid grid-cols-2 gap-3 md:gap-4 h-52 sm:h-64 md:h-72 max-w-2xl mx-auto w-full">
+              {photos.slice(3).map((src, i) => (
+                <GalleryPhoto key={i + 3} src={src} index={i + 3} onClick={setLightbox} />
+              ))}
+            </div>
           </div>
         </Reveal>
       </div>
