@@ -1,5 +1,4 @@
 import PolygonBackground from "./PolygonBackground";
-import HistoryCarousel from "./HistoryCarousel";
 import Reveal from "./Reveal";
 import { useParallax } from "@/hooks/useParallax";
 import { useRef } from "react";
@@ -76,29 +75,31 @@ export default function AboutSection() {
                 <span className="w-1.5 h-1.5 rounded-full bg-gray-400" />
                 <span className="font-rajdhani text-xs tracking-widest uppercase text-gray-400 font-semibold">Наша история</span>
               </div>
-              <h3 className="font-orbitron text-2xl md:text-3xl font-bold text-white mb-6 leading-tight">
-                Маленькая идея, которая выросла в большое сообщество
-              </h3>
-              <div className="space-y-4 mb-8">
-                {[
-                  { year: "2019", text: "Первая вечеринка на 200 человек — билеты разошлись за несколько часов. Мы поняли, что не одни." },
-                  { year: "2021", text: "Познакомились с замечательными артистами. Начали вместе создавать что-то большее." },
-                  { year: "2023", text: "Первый open-air фестиваль под открытым небом. 3000 улыбающихся людей — это незабываемо." },
-                  { year: "2025", text: "Регулярные события в лучших клубах города. Наша собственная звуковая система и дружная команда." },
-                ].map((item) => (
-                  <div key={item.year} className="flex gap-4 items-start">
-                    <div className="flex-shrink-0 w-12 font-orbitron text-xs font-bold text-gray-400 mt-1">{item.year}</div>
-                    <div className="flex-1 pl-4 border-l border-white/10">
-                      <p className="font-inter text-gray-400 text-sm leading-relaxed">{item.text}</p>
-                    </div>
-                  </div>
-                ))}
+              <div className="space-y-4">
+                <p className="font-inter text-gray-400 leading-relaxed text-base">
+                  Port Mirage появился благодаря друзьям, объединённым одной страстью — электронной музыкой.
+                </p>
+                <p className="font-inter text-gray-400 leading-relaxed text-base">
+                  Нам хотелось создавать события, которые вдохновляли бы нас самих, где звучание выходит за рамки привычного — более глубокое, атмосферное и эмоциональное.
+                </p>
+                <p className="font-inter text-gray-400 leading-relaxed text-base">
+                  Проект постепенно обрёл новые форматы и появились привозы артистов, живые перформансы, новые элементы внутри событий.
+                </p>
+                <p className="font-inter text-gray-400 leading-relaxed text-base">
+                  Однако главное осталось неизменным: музыка, её эстетика и внимание к деталям как основа каждого события.
+                </p>
               </div>
             </div>
           </Reveal>
 
           <Reveal from="right" delay={150}>
-            <HistoryCarousel />
+            <div className="aspect-[3/4] rounded-xl overflow-hidden">
+              <img
+                src="https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/63203eb1-be8c-4246-8447-be063759f540.jpg"
+                alt="История Port Mirage"
+                className="w-full h-full object-cover"
+              />
+            </div>
           </Reveal>
         </div>
       </div>
