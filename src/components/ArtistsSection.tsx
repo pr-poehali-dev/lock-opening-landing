@@ -2,42 +2,50 @@ import Reveal from "./Reveal";
 
 const artists = [
   {
-    name: "DARKWAVE",
-    nick: "darkwave",
-    desc: "Мастер глубокого progressive. Резидент с 2019 года.",
-    img: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/files/23ec51bd-c041-40ae-88ae-04a92bca62ed.jpg",
-    soundcloud: "#",
-    telegram: "#",
-    vk: "#",
+    name: "Jomoss",
+    desc: "Со-основатель и резидент Port Mirage",
+    genres: "Progressive house / Deep house / Hypnotic house",
+    img: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/34f6fbf0-8277-48ae-943c-b38536d29727.png",
+    telegram: "https://t.me/+knfmOhr7twFiNmMy",
+    soundcloud: "https://soundcloud.com/jomossmusic",
+    instagram: "https://www.instagram.com/jomossmusic",
   },
   {
-    name: "NOVA",
-    nick: "dj_nova",
-    desc: "Электронный минимализм и атмосферные сеты. Играет с 2020.",
-    img: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/files/1d88546a-de69-4654-961d-01df8cb06274.jpg",
-    soundcloud: "#",
-    telegram: "#",
-    vk: "#",
+    name: "Melaniya",
+    desc: "Со-основатель и резидент Port Mirage",
+    genres: "Progressive house / Deep house / Classic house",
+    img: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/90d920a6-5b51-4d66-9d16-319bbe5597d4.JPG",
+    telegram: "https://t.me/melaniyaviolin",
+    soundcloud: "https://on.soundcloud.com/sPPgsBt66oaytPkPv4",
+    instagram: "https://instagram.com/milenamelaniya",
   },
   {
-    name: "APEX",
-    nick: "apex_dj",
-    desc: "Энергичные сеты на грани techno и progressive house.",
-    img: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/files/e5ae94a0-5f6c-40dc-8dcb-08ef1011fabb.jpg",
-    soundcloud: "#",
-    telegram: "#",
-    vk: "#",
+    name: "Altayef",
+    desc: "Со-основатель и резидент Port Mirage",
+    genres: "Organic House / Eclectic Organic / Desert Downtempo",
+    img: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/f0462185-e500-4cc7-8e76-9c7d9f2fb890.JPG",
+    telegram: "https://t.me/Di_altayef",
+    soundcloud: "https://soundcloud.com/altayef-music",
+    instagram: "https://instagram.com/altayef_music",
   },
   {
-    name: "SOLARIS",
-    nick: "solaris_live",
-    desc: "Live-сеты и оригинальные треки. Продюсер и диджей.",
-    img: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/files/4458b1df-698d-43d8-b51f-720bbe0a3617.jpg",
-    soundcloud: "#",
-    telegram: "#",
-    vk: "#",
+    name: "SAZONOVA",
+    desc: "Резидент Port Mirage",
+    genres: "Progressive House / Deep House / Organic House",
+    img: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/79bd34b6-7660-4533-b4a4-5064d6d2eb30.jpg",
+    telegram: "https://t.me/SAZONOVA_Dj",
+    soundcloud: "https://soundcloud.com/sazonova_dj",
+    instagram: "https://instagram.com/sazonova.dj",
   },
 ];
+
+function TelegramIcon() {
+  return (
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+    </svg>
+  );
+}
 
 function SoundCloudIcon() {
   return (
@@ -47,18 +55,10 @@ function SoundCloudIcon() {
   );
 }
 
-function VKIcon() {
+function InstagramIcon() {
   return (
     <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M15.684 0H8.316C1.592 0 0 1.592 0 8.316v7.368C0 22.408 1.592 24 8.316 24h7.368C22.408 24 24 22.408 24 15.684V8.316C24 1.592 22.408 0 15.684 0zm3.692 17.123h-1.744c-.66 0-.864-.525-2.05-1.727-1.033-1-1.49-.113-1.49.979v1.248c0 .29-.08.452-.797.452-1.217 0-2.57-.073-3.827-1.279C7.97 14.824 6.804 12.453 6.73 12.295c-.071-.155-.009-.3.17-.3h1.748c.222 0 .302.111.402.346.496 1.18 1.337 2.219 1.678 2.219.129 0 .188-.06.188-.39v-2.034c-.044-.79-.462-.855-.462-1.135 0-.155.122-.31.32-.31h2.75c.19 0 .258.1.258.322v2.744c0 .19.085.258.138.258.128 0 .236-.068.472-.305 .727-.814 1.244-2.066 1.244-2.066.069-.155.199-.3.422-.3h1.748c.524 0 .64.27.524.524-.219.504-1.474 2.525-1.474 2.525-.115.19-.155.276 0 .488.112.155.48.476.726.765.45.513.796 .944.887 1.24.096.296-.05.447-.347.447z"/>
-    </svg>
-  );
-}
-
-function TelegramIcon() {
-  return (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+      <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
     </svg>
   );
 }
@@ -78,59 +78,62 @@ export default function ArtistsSection() {
             <h2 className="font-orbitron text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3">
               Наши <span className="text-gradient-silver">артисты</span>
             </h2>
-            <p className="mt-4 font-inter text-gray-500 max-w-xl mx-auto">
-              Диджеи и продюсеры, которые создают атмосферу наших вечеринок
-            </p>
           </div>
         </Reveal>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {artists.map((artist, i) => (
-            <Reveal key={artist.nick} delay={i * 80} className="h-full">
-            <div className="group relative overflow-hidden rounded-xl card-dark h-full">
-              <div className="aspect-[3/4] overflow-hidden">
-                <img
-                  src={artist.img}
-                  alt={artist.name}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
-                />
-              </div>
-
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
-
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <div className="font-orbitron text-white font-bold text-lg tracking-wider">{artist.name}</div>
-                <div className="font-rajdhani text-gray-400 text-xs tracking-widest uppercase font-semibold mb-2">
-                  @{artist.nick}
+            <Reveal key={artist.name} delay={i * 80} className="h-full">
+              <div className="group relative overflow-hidden rounded-xl card-dark h-full">
+                <div className="aspect-[3/4] overflow-hidden">
+                  <img
+                    src={artist.img}
+                    alt={artist.name}
+                    className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+                  />
                 </div>
-                <p className="font-inter text-gray-400 text-xs leading-relaxed mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {artist.desc}
-                </p>
-                <div className="flex gap-3">
-                  <a
-                    href={artist.soundcloud}
-                    className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200"
-                    title="SoundCloud"
-                  >
-                    <SoundCloudIcon />
-                  </a>
-                  <a
-                    href={artist.telegram}
-                    className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200"
-                    title="Telegram"
-                  >
-                    <TelegramIcon />
-                  </a>
-                  <a
-                    href={artist.vk}
-                    className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200"
-                    title="VK"
-                  >
-                    <VKIcon />
-                  </a>
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <div className="font-orbitron text-white font-bold text-lg tracking-wider">{artist.name}</div>
+                  <div className="font-rajdhani text-gray-400 text-xs tracking-wide font-semibold mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {artist.desc}
+                  </div>
+                  <div className="font-rajdhani text-gray-500 text-[10px] leading-tight mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {artist.genres}
+                  </div>
+                  <div className="flex gap-2">
+                    <a
+                      href={artist.telegram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200"
+                      title="Telegram"
+                    >
+                      <TelegramIcon />
+                    </a>
+                    <a
+                      href={artist.soundcloud}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200"
+                      title="SoundCloud"
+                    >
+                      <SoundCloudIcon />
+                    </a>
+                    <a
+                      href={artist.instagram}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center text-gray-400 hover:text-white transition-all duration-200"
+                      title="Instagram"
+                    >
+                      <InstagramIcon />
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
             </Reveal>
           ))}
         </div>
