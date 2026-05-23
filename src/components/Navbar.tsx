@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 
-const LOGO = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/90f9e1d3-7a88-4d27-b781-509022061b7b.jpg";
+const LOGO = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/497a9e72-0689-4279-b494-4dc15c95b0f6.png";
 const PHONE = "+79881546389";
 const TG_LINK = "https://t.me/+79064925692";
 const WA_LINK = "https://wa.me/79064925692";
 const MAX_LINK = "https://max.ru/u/f9LHodD0cOJMD9-lbnglPbDpKx7VE5dGdC-nxKEeo-oDu1DgncZYC6casKg";
+const REG_LINK = "https://spb.qtickets.events/234738-port-mirage-x-tripi-disko";
 
 const navLinks = [
   { label: "О нас", href: "#about" },
   { label: "Галерея", href: "#gallery" },
   { label: "Артисты", href: "#artists" },
-  { label: "Билеты", href: "#tickets" },
   { label: "Контакты", href: "#contacts" },
 ];
 
@@ -64,17 +64,22 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
+
+            {/* Лого + слоган */}
             <div className="flex items-center gap-3">
               <img
                 src={LOGO}
                 alt="Port Mirage"
-                className="h-9 w-9 rounded-full object-cover"
+                className="h-14 w-auto object-contain"
               />
-              <span className="font-orbitron text-white font-bold text-base tracking-widest uppercase">
-                PORT <span className="text-gray-400">MIRAGE</span>
-              </span>
+              <div className="hidden sm:flex flex-col justify-center">
+                <span className="font-rajdhani text-[10px] tracking-[0.25em] uppercase text-gray-400 leading-tight">
+                  Atmosphere. Sincerity. Freedom.
+                </span>
+              </div>
             </div>
 
+            {/* Десктоп навигация */}
             <nav className="hidden md:flex items-center gap-8">
               {navLinks.map((link) => (
                 <button
@@ -92,12 +97,14 @@ export default function Navbar() {
                 <Icon name="Phone" size={15} />
                 <span className="font-rajdhani text-sm font-semibold">{PHONE}</span>
               </a>
-              <button
-                onClick={() => handleNav("#tickets")}
+              <a
+                href={REG_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="ml-2 px-5 py-2 btn-primary rounded text-sm animate-pulse-white"
               >
-                Купить билет
-              </button>
+                Регистрация
+              </a>
             </nav>
 
             <button
@@ -121,18 +128,20 @@ export default function Navbar() {
                   {link.label}
                 </button>
               ))}
-              <button
-                onClick={() => handleNav("#tickets")}
+              <a
+                href={REG_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-2 py-3 px-4 btn-primary rounded text-center text-sm"
               >
-                Купить билет
-              </button>
+                Регистрация
+              </a>
             </div>
           </div>
         )}
       </header>
 
-      {/* Мобильная нижняя панель с контактами */}
+      {/* Мобильная нижняя панель */}
       <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden nav-blur border-t border-white/10">
         <div className="flex items-center justify-around px-2 py-2">
           <a
@@ -179,7 +188,6 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Отступ снизу для мобильного контента чтобы панель не перекрывала */}
       <div className="md:hidden h-[62px]" />
     </>
   );
