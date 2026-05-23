@@ -47,12 +47,12 @@ export default function HeroSection() {
         </p>
 
         {/* Коллаборация двух промо-групп */}
-        <div className="flex items-center justify-center gap-4 sm:gap-8 md:gap-14 mb-12">
+        <div className="flex items-center justify-center gap-4 sm:gap-8 md:gap-14 mb-6">
           <div className="flex flex-col items-center">
             <img
               src={LOGO_PM}
               alt="Port Mirage"
-              className="h-40 sm:h-56 md:h-64 w-auto object-contain drop-shadow-xl"
+              className="h-40 sm:h-56 md:h-64 w-auto object-contain"
             />
           </div>
 
@@ -62,9 +62,23 @@ export default function HeroSection() {
             <img
               src={LOGO_TD}
               alt="Трипи Диско"
-              className="h-40 sm:h-56 md:h-64 w-auto object-contain drop-shadow-xl"
+              className="h-40 sm:h-56 md:h-64 w-auto object-contain"
             />
           </div>
+        </div>
+
+        {/* Дата */}
+        <p className="font-orbitron text-white/60 text-sm sm:text-base tracking-[0.3em] uppercase mb-8">
+          06.06.2026
+        </p>
+
+        {/* Лого Ritmi */}
+        <div className="mb-8">
+          <img
+            src={LOGO_RITMI}
+            alt="Ритми"
+            className="h-32 sm:h-40 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity mx-auto"
+          />
         </div>
 
         {/* Кнопки */}
@@ -84,15 +98,6 @@ export default function HeroSection() {
             О нас
           </button>
         </div>
-      </div>
-
-      {/* Логотип площадки внизу */}
-      <div className="relative z-10 flex flex-col items-center pb-8">
-        <img
-          src={LOGO_RITMI}
-          alt="Ритми"
-          className="h-32 sm:h-40 w-auto object-contain opacity-70 hover:opacity-100 transition-opacity"
-        />
       </div>
 
       {/* Стрелка вниз */}
