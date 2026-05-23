@@ -71,6 +71,7 @@ export default function Navbar() {
                 src={LOGO}
                 alt="Port Mirage"
                 className="h-14 w-auto object-contain"
+                style={{ mixBlendMode: "screen" }}
               />
               <div className="hidden sm:flex flex-col justify-center">
                 <span className="font-rajdhani text-[10px] tracking-[0.25em] uppercase text-gray-400 leading-tight">
