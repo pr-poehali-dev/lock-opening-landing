@@ -37,30 +37,18 @@ export default function AboutSection() {
                 <span className="w-1.5 h-1.5 rounded-full bg-gray-400" />
                 <span className="font-rajdhani text-xs tracking-widest uppercase text-gray-400 font-semibold">Наша миссия</span>
               </div>
-              <h3 className="font-orbitron text-2xl md:text-3xl font-bold text-white mb-6 leading-tight">
-                Музыка, которая объединяет
-              </h3>
-              <p className="font-inter text-gray-400 leading-relaxed mb-5 text-base">
-                Мы создаём тёплые вечеринки, где каждый чувствует себя своим. Progressive house — это не просто жанр, это особое состояние, которое мы хотим подарить вам.
+              <p className="font-inter text-gray-400 leading-relaxed mb-4 text-base">
+                Port Mirage — комьюнити, создающее мультижанровые вечеринки с фокусом на progressive house и близкие по духу направления.
+              </p>
+              <p className="font-inter text-gray-400 leading-relaxed mb-4 text-base">
+                Живые перформансы — одна из ключевых частей формата.
+              </p>
+              <p className="font-inter text-gray-400 leading-relaxed mb-4 text-base">
+                Музыка, атмосфера и ощущение единства между людьми лежат в основе каждого события.
               </p>
               <p className="font-inter text-gray-400 leading-relaxed text-base">
-                На каждом нашем событии — продуманный звук, уютная атмосфера и артисты, которые по-настоящему вкладывают душу в своё дело.
+                Открывать новую музыку, привозить актуальных артистов и делиться этим с людьми является одной из главных идей проекта.
               </p>
-
-              <div className="mt-10 grid grid-cols-3 gap-6">
-                {[
-                  { value: "50+", label: "Мероприятий" },
-                  { value: "12", label: "Артистов" },
-                  { value: "15K+", label: "Гостей" },
-                ].map((stat, i) => (
-                  <Reveal key={stat.label} delay={i * 100}>
-                    <div className="text-center">
-                      <div className="font-orbitron text-2xl md:text-3xl font-bold text-white">{stat.value}</div>
-                      <div className="font-rajdhani text-xs tracking-widest uppercase text-gray-500 mt-1 font-semibold">{stat.label}</div>
-                    </div>
-                  </Reveal>
-                ))}
-              </div>
             </div>
           </Reveal>
 
