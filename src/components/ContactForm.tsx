@@ -106,7 +106,7 @@ export default function ContactForm() {
             </div>
             {status === "err" && (
               <p className="text-red-400 font-inter text-xs text-center">
-                Не удалось отправить. Напишите напрямую: k56858378@gmail.com
+                Не удалось отправить. Напишите напрямую: portmirage@gmail.com
               </p>
             )}
             <button

@@ -3,7 +3,6 @@ import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import GallerySection from "@/components/GallerySection";
 import ArtistsSection from "@/components/ArtistsSection";
-import TicketsSection from "@/components/TicketsSection";
 import ContactsSection from "@/components/ContactsSection";
 
 export default function Index() {
@@ -14,7 +13,6 @@ export default function Index() {
       <AboutSection />
       <GallerySection />
       <ArtistsSection />
-      <TicketsSection />
       <ContactsSection />
     </div>
   );

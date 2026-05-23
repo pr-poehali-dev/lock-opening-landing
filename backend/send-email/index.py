@@ -32,7 +32,7 @@ def handler(event: dict, context) -> dict:
     smtp_port = int(os.environ.get('SMTP_PORT', '465'))
     smtp_user = os.environ.get('SMTP_USER', '')
     smtp_pass = os.environ.get('SMTP_PASS', '')
-    to_email = 'k56858378@gmail.com'
+    to_email = 'portmirage@gmail.com'
 
     html = f"""
     <h2 style="color:#222;font-family:Arial,sans-serif;">Новое сообщение с сайта Port Mirage</h2>
