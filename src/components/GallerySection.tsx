@@ -5,33 +5,23 @@ import Reveal from "./Reveal";
 
 const mediaItems = [
   {
-    type: "photo",
-    src: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/files/98255fdd-8d2a-460e-bbe8-ee3266fce728.jpg",
-    span: "col-span-2 row-span-2",
-  },
-  {
-    type: "photo",
-    src: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/files/23ec51bd-c041-40ae-88ae-04a92bca62ed.jpg",
-    span: "col-span-1 row-span-1",
-  },
-  {
-    type: "photo",
-    src: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/files/f0b6c902-0e87-4f97-89a1-e8cbfcf5ca8c.jpg",
-    span: "col-span-1 row-span-1",
-  },
-  {
-    type: "video",
-    src: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/files/59a6e91b-8e61-415c-a799-414fa17f50d2.jpg",
+    src: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/e5ba2f8d-47da-4e67-a787-9cdbdb6864e2.jpg",
     span: "col-span-1 row-span-2",
   },
   {
-    type: "photo",
-    src: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/files/4458b1df-698d-43d8-b51f-720bbe0a3617.jpg",
+    src: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/e05d9374-018b-49da-afa6-af355de0e824.jpg",
+    span: "col-span-2 row-span-1",
+  },
+  {
+    src: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/04e42c3f-6cc2-42af-8e76-4a2c1130c5bb.jpg",
     span: "col-span-1 row-span-1",
   },
   {
-    type: "photo",
-    src: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/files/1d88546a-de69-4654-961d-01df8cb06274.jpg",
+    src: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/a952389c-d1c5-45fd-b4ef-f03bcad10efe.jpg",
+    span: "col-span-1 row-span-1",
+  },
+  {
+    src: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/77548b72-11e4-4cc5-9278-e4ee20e06e5d.jpg",
     span: "col-span-1 row-span-1",
   },
 ];
@@ -54,13 +44,13 @@ export default function GallerySection() {
               Гале<span className="text-gradient-silver">рея</span>
             </h2>
             <p className="mt-4 font-inter text-gray-500 max-w-xl mx-auto">
-              Атмосфера наших вечеринок в фотографиях и видео
+              Атмосфера наших вечеринок в фотографиях
             </p>
           </div>
         </Reveal>
 
         <Reveal delay={100}>
-          <div className="grid grid-cols-2 md:grid-cols-3 grid-rows-3 gap-3 md:gap-4 h-[500px] md:h-[600px]">
+          <div className="grid grid-cols-3 grid-rows-2 gap-3 md:gap-4 h-[480px] md:h-[580px]">
             {mediaItems.map((item, i) => (
               <div
                 key={i}
@@ -70,26 +60,14 @@ export default function GallerySection() {
                 <img
                   src={item.src}
                   alt={`Галерея ${i + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale-[40%] group-hover:grayscale-0"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 grayscale-[30%] group-hover:grayscale-0"
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300" />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/25 transition-all duration-300" />
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {item.type === "video" ? (
-                    <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
-                      <Icon name="Play" size={22} className="text-[#141414] ml-1" />
-                    </div>
-                  ) : (
-                    <div className="w-12 h-12 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center">
-                      <Icon name="ZoomIn" size={20} className="text-white" />
-                    </div>
-                  )}
-                </div>
-                {item.type === "video" && (
-                  <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-white/15 backdrop-blur-sm px-2.5 py-1 rounded-full">
-                    <Icon name="Play" size={10} className="text-white" />
-                    <span className="font-rajdhani text-xs text-white font-semibold uppercase tracking-wide">Видео</span>
+                  <div className="w-12 h-12 rounded-full bg-white/15 backdrop-blur-sm flex items-center justify-center">
+                    <Icon name="ZoomIn" size={20} className="text-white" />
                   </div>
-                )}
+                </div>
               </div>
             ))}
           </div>
