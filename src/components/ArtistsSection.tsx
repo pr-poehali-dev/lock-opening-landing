@@ -72,7 +72,7 @@ export default function ArtistsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Reveal>
           <div className="text-center mb-16">
-            <span className="font-rajdhani text-xs tracking-widest uppercase text-gray-500 font-semibold">
+            <span className="font-rajdhani text-xs tracking-widest uppercase font-semibold" style={{ color: "#D4AF37" }}>
               Лайн-ап
             </span>
             <h2 className="font-orbitron text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3">

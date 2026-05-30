@@ -20,7 +20,7 @@ export default function AboutSection() {
 
         <Reveal>
           <div className="text-center mb-16">
-            <span className="font-rajdhani text-xs tracking-widest uppercase text-gray-500 font-semibold">
+            <span className="font-rajdhani text-xs tracking-widest uppercase font-semibold" style={{ color: "#D4AF37" }}>
               Кто мы такие
             </span>
             <h2 className="font-orbitron text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-3">
