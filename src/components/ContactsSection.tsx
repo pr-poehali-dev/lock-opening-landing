@@ -160,7 +160,7 @@ export default function ContactsSection() {
           />
         </div>
         <p className="font-rajdhani text-xs tracking-widest text-gray-700 uppercase mb-2">
-          © 2026 Port Mirage. Progressive House. Все права защищены.
+          © 2026 Port Mirage. Все права защищены.
         </p>
         <p className="font-inter text-[11px] text-gray-700">
           Бабич Милена Игоревна · ИНН 613405123270

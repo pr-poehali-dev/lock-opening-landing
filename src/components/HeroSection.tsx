@@ -34,48 +34,48 @@ export default function HeroSection() {
       />
 
       {/* Весь контент — строго в один экран */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 pt-16 pb-4 gap-3">
+      <div className="relative z-10 flex flex-col items-center justify-between h-full text-center px-4 pt-20 pb-8 gap-0">
 
-        {/* Заголовок */}
-        <h1 className="font-orbitron text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight tracking-wide drop-shadow-lg">
-          Port Mirage × Трипи Диско
-        </h1>
+        {/* Верхний блок: текст */}
+        <div className="flex flex-col items-center gap-2 mt-4">
+          <h1 className="font-orbitron text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight tracking-wide drop-shadow-lg">
+            Port Mirage × Трипи Диско
+          </h1>
+          <p className="font-rajdhani text-sm sm:text-base md:text-lg text-gray-300 tracking-[0.18em] uppercase font-semibold">
+            Открытие летнего сезона!
+          </p>
+          <p className="font-orbitron text-white/50 text-xs sm:text-sm tracking-[0.35em] uppercase">
+            06.06.2026
+          </p>
+        </div>
 
-        {/* Подзаголовок */}
-        <p className="font-rajdhani text-sm sm:text-base md:text-lg text-gray-300 tracking-[0.18em] uppercase font-semibold">
-          Открытие летнего сезона!
-        </p>
+        {/* Центральный блок: два лого */}
+        <div className="flex flex-col items-center gap-4 flex-1 justify-center">
+          <div className="flex items-center justify-center gap-6 sm:gap-12 md:gap-16">
+            <img
+              src={LOGO_PM}
+              alt="Port Mirage"
+              className="h-36 sm:h-52 md:h-64 w-auto object-contain"
+              style={{ filter: "brightness(0) invert(1)" }}
+            />
+            <div className="w-px h-28 sm:h-44 md:h-56 bg-white/20" />
+            <img
+              src={LOGO_TD}
+              alt="Трипи Диско"
+              className="h-36 sm:h-52 md:h-64 w-auto object-contain"
+            />
+          </div>
 
-        {/* Дата */}
-        <p className="font-orbitron text-white/50 text-xs sm:text-sm tracking-[0.35em] uppercase">
-          06.06.2026
-        </p>
-
-        {/* Два лого промо-групп */}
-        <div className="flex items-center justify-center gap-4 sm:gap-8 md:gap-12 py-2">
+          {/* Лого Ritmi */}
           <img
-            src={LOGO_PM}
-            alt="Port Mirage"
-            className="h-20 sm:h-28 md:h-36 w-auto object-contain"
-            style={{ filter: "brightness(0) invert(1)" }}
-          />
-          <div className="w-px h-16 sm:h-24 bg-white/20" />
-          <img
-            src={LOGO_TD}
-            alt="Трипи Диско"
-            className="h-20 sm:h-28 md:h-36 w-auto object-contain"
+            src={LOGO_RITMI}
+            alt="Ритми"
+            className="h-16 sm:h-20 md:h-24 w-auto object-contain opacity-65 hover:opacity-90 transition-opacity"
           />
         </div>
 
-        {/* Лого Ritmi */}
-        <img
-          src={LOGO_RITMI}
-          alt="Ритми"
-          className="h-16 sm:h-20 md:h-24 w-auto object-contain opacity-65 hover:opacity-90 transition-opacity"
-        />
-
-        {/* Кнопки */}
-        <div className="flex flex-col sm:flex-row gap-3 mt-1">
+        {/* Нижний блок: кнопки */}
+        <div className="flex flex-col sm:flex-row gap-3">
           <a
             href={REG_LINK}
             target="_blank"
