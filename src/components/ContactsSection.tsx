@@ -128,11 +128,11 @@ export default function ContactsSection() {
                 </div>
                 <iframe
                   width="100%"
-                  height="300"
+                  height="450"
                   scrolling="no"
                   frameBorder="no"
                   allow="autoplay"
-                  src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/port-mirage&color=%23ffffff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+                  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/port-mirage&color=%23ffffff&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false"
                   className="rounded-lg"
                 />
                 <div className="px-4 pb-4 pt-2">
