@@ -2,7 +2,7 @@ import PolygonBackground from "./PolygonBackground";
 import { useParallax } from "@/hooks/useParallax";
 
 const BG = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/480ec7a6-967d-4eff-a96d-08fc7db080a8.png";
-const LOGO_PM = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/497a9e72-0689-4279-b494-4dc15c95b0f6.png";
+const LOGO_PM = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/16d25f4b-b740-4b2a-80a7-7e0ea62bca8c.png";
 const LOGO_TD = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/84db42a4-3789-46cf-8cd1-7d1547066b2d.png";
 const LOGO_RITMI = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/6609fec4-37d9-463e-a1d4-dc7286af4c39.png";
 const REG_LINK = "https://spb.qtickets.events/234738-port-mirage-x-tripi-disko";
@@ -57,6 +57,7 @@ export default function HeroSection() {
             src={LOGO_PM}
             alt="Port Mirage"
             className="h-20 sm:h-28 md:h-36 w-auto object-contain"
+            style={{ filter: "brightness(0) invert(1)" }}
           />
           <div className="w-px h-16 sm:h-24 bg-white/20" />
           <img
