@@ -121,25 +121,51 @@ export default function ContactsSection() {
           </Reveal>
 
           <Reveal from="right" delay={100}>
-            <div>
-              <div className="card-dark rounded-xl p-1 overflow-hidden">
-                <div className="font-rajdhani text-xs tracking-widest uppercase text-gray-600 font-semibold p-4 pb-2">
-                  SoundCloud — наши миксы
-                </div>
-                <iframe
-                  width="100%"
-                  height="450"
-                  scrolling="no"
-                  frameBorder="no"
-                  allow="autoplay"
-                  src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/port-mirage&color=%23D4AF37&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false"
-                  className="rounded-lg"
-                />
-                <div className="px-4 pb-4 pt-2">
-                  <p className="font-inter text-xs text-gray-600">
-                    Подписывайтесь на наш SoundCloud — регулярные миксы и треки от наших артистов
-                  </p>
-                </div>
+            <div className="card-dark rounded-xl overflow-hidden">
+              <div className="font-rajdhani text-xs tracking-widest uppercase text-gray-600 font-semibold px-5 pt-5 pb-3">
+                SoundCloud — наши миксы
+              </div>
+
+              {/* Треки — ссылки на конкретные миксы */}
+              <div className="flex flex-col divide-y divide-white/5">
+                {[
+                  { title: "Port Mirage Opening Set", url: "https://soundcloud.com/port-mirage" },
+                  { title: "Progressive Journeys Vol.1", url: "https://soundcloud.com/port-mirage" },
+                  { title: "Deep Horizon Mix", url: "https://soundcloud.com/port-mirage" },
+                  { title: "Organic Nights", url: "https://soundcloud.com/port-mirage" },
+                ].map((track) => (
+                  <a
+                    key={track.title}
+                    href={track.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-4 px-5 py-4 hover:bg-white/5 transition-colors group"
+                  >
+                    <div className="w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 border border-white/10 group-hover:border-[#D4AF37]/50 transition-colors">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" className="text-gray-500 group-hover:text-[#D4AF37] transition-colors ml-0.5">
+                        <path d="M8 5v14l11-7z"/>
+                      </svg>
+                    </div>
+                    <span className="font-inter text-sm text-gray-400 group-hover:text-white transition-colors">{track.title}</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="ml-auto text-gray-700 group-hover:text-gray-400 transition-colors flex-shrink-0">
+                      <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                  </a>
+                ))}
+              </div>
+
+              <div className="px-5 py-4 border-t border-white/5">
+                <a
+                  href="https://soundcloud.com/port-mirage"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg border border-[#D4AF37]/30 hover:border-[#D4AF37]/70 hover:bg-[#D4AF37]/5 transition-all group"
+                >
+                  <SoundCloudIcon />
+                  <span className="font-rajdhani text-sm font-semibold tracking-widest uppercase text-gray-400 group-hover:text-[#D4AF37] transition-colors">
+                    Открыть профиль
+                  </span>
+                </a>
               </div>
             </div>
           </Reveal>
@@ -155,7 +181,7 @@ export default function ContactsSection() {
           <img
             src="https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/16d25f4b-b740-4b2a-80a7-7e0ea62bca8c.png"
             alt="Port Mirage"
-            className="h-7 w-auto object-contain"
+            className="h-20 w-auto object-contain"
             style={{ filter: "brightness(0) invert(1)" }}
           />
         </div>

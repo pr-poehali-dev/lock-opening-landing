@@ -51,7 +51,7 @@ export default function Navbar() {
               <img
                 src={LOGO}
                 alt="Port Mirage"
-                className="h-9 md:h-11 w-auto object-contain"
+                className="h-14 md:h-16 w-auto object-contain"
                 style={{ filter: "brightness(0) invert(1)" }}
               />
             </div>
