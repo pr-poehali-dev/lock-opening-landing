@@ -33,48 +33,45 @@ export default function HeroSection() {
         parallaxFactor={0.03}
       />
 
-      {/* Весь контент — строго в один экран */}
-      <div className="relative z-10 flex flex-col items-center justify-between h-full text-center px-4 pt-20 pb-8 gap-0">
+      <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4 gap-4 sm:gap-6" style={{ paddingTop: "72px", paddingBottom: "80px" }}>
 
-        {/* Верхний блок: текст */}
-        <div className="flex flex-col items-center gap-2 mt-4">
-          <h1 className="font-orbitron text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight tracking-wide drop-shadow-lg">
+        {/* Текст мероприятия */}
+        <div className="flex flex-col items-center gap-1.5">
+          <h1 className="font-orbitron text-xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight tracking-wide drop-shadow-lg">
             Port Mirage × Трипи Диско
           </h1>
-          <p className="font-rajdhani text-sm sm:text-base md:text-lg text-gray-300 tracking-[0.18em] uppercase font-semibold">
+          <p className="font-rajdhani text-xs sm:text-base md:text-lg text-gray-300 tracking-[0.18em] uppercase font-semibold">
             Открытие летнего сезона!
           </p>
-          <p className="font-orbitron text-white/50 text-xs sm:text-sm tracking-[0.35em] uppercase">
+          <p className="font-orbitron text-white/50 text-[10px] sm:text-sm tracking-[0.3em] uppercase">
             06.06.2026
           </p>
         </div>
 
-        {/* Центральный блок: два лого */}
-        <div className="flex flex-col items-center gap-4 flex-1 justify-center">
-          <div className="flex items-center justify-center gap-6 sm:gap-12 md:gap-16">
-            <img
-              src={LOGO_PM}
-              alt="Port Mirage"
-              className="h-36 sm:h-52 md:h-64 w-auto object-contain"
-              style={{ filter: "brightness(0) invert(1)" }}
-            />
-            <div className="w-px h-28 sm:h-44 md:h-56 bg-white/20" />
-            <img
-              src={LOGO_TD}
-              alt="Трипи Диско"
-              className="h-36 sm:h-52 md:h-64 w-auto object-contain"
-            />
-          </div>
-
-          {/* Лого Ritmi */}
+        {/* Два лого */}
+        <div className="flex items-center justify-center gap-4 sm:gap-10 md:gap-14">
           <img
-            src={LOGO_RITMI}
-            alt="Ритми"
-            className="h-16 sm:h-20 md:h-24 w-auto object-contain opacity-65 hover:opacity-90 transition-opacity"
+            src={LOGO_PM}
+            alt="Port Mirage"
+            className="h-20 sm:h-36 md:h-48 w-auto object-contain max-w-[38vw]"
+            style={{ filter: "brightness(0) invert(1)" }}
+          />
+          <div className="w-px bg-white/20 self-stretch" style={{ minHeight: "60px" }} />
+          <img
+            src={LOGO_TD}
+            alt="Трипи Диско"
+            className="h-20 sm:h-36 md:h-48 w-auto object-contain max-w-[38vw]"
           />
         </div>
 
-        {/* Нижний блок: кнопки */}
+        {/* Лого Ritmi */}
+        <img
+          src={LOGO_RITMI}
+          alt="Ритми"
+          className="h-8 sm:h-12 md:h-16 w-auto object-contain opacity-60 hover:opacity-90 transition-opacity"
+        />
+
+        {/* Кнопки */}
         <div className="flex flex-col sm:flex-row gap-3">
           <a
             href={REG_LINK}
@@ -94,7 +91,7 @@ export default function HeroSection() {
       </div>
 
       {/* Стрелка вниз */}
-      <div className="absolute bottom-4 left-0 right-0 z-10 flex justify-center animate-float">
+      <div className="absolute bottom-24 sm:bottom-4 left-0 right-0 z-10 flex justify-center animate-float">
         <button
           onClick={() => document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" })}
           className="text-white/25 hover:text-white/60 transition-colors"

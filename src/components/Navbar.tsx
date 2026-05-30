@@ -51,14 +51,9 @@ export default function Navbar() {
               <img
                 src={LOGO}
                 alt="Port Mirage"
-                className="h-28 md:h-32 w-auto object-contain"
+                className="h-9 md:h-11 w-auto object-contain"
                 style={{ filter: "brightness(0) invert(1)" }}
               />
-              <div className="hidden sm:flex flex-col justify-center">
-                <span className="font-rajdhani text-[10px] tracking-[0.25em] uppercase text-gray-400 leading-tight">
-                  Atmosphere. Sincerity. Freedom.
-                </span>
-              </div>
             </div>
 
             {/* Десктоп навигация */}

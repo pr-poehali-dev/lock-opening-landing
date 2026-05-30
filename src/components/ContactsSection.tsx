@@ -132,7 +132,7 @@ export default function ContactsSection() {
                   scrolling="no"
                   frameBorder="no"
                   allow="autoplay"
-                  src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/port-mirage&color=%23D4AF37&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false"
+                  src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/port-mirage&color=%23D4AF37&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false"
                   className="rounded-lg"
                 />
                 <div className="px-4 pb-4 pt-2">
