@@ -97,10 +97,10 @@ export default function ArtistsSection() {
 
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <div className="font-orbitron text-white font-bold text-lg tracking-wider">{artist.name}</div>
-                  <div className="font-rajdhani text-gray-400 text-xs tracking-wide font-semibold mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="font-rajdhani text-xs tracking-wide font-semibold mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ color: "#D4AF37" }}>
                     {artist.desc}
                   </div>
-                  <div className="font-rajdhani text-gray-500 text-[10px] leading-tight mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="font-rajdhani text-[10px] leading-tight mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ color: "#D4AF3799" }}>
                     {artist.genres}
                   </div>
                   <div className="flex gap-2">
