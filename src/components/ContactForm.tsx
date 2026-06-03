@@ -35,14 +35,14 @@ export default function ContactForm() {
     <Reveal>
       <div className="card-dark rounded-2xl p-6 md:p-8 border border-white/8">
         <div className="mb-6">
-          <span className="font-rajdhani text-xs tracking-widest uppercase text-gray-500 font-semibold">
+          <span className="font-rajdhani text-xs tracking-wide uppercase text-gray-500 font-semibold">
             Напиши нам
           </span>
           <h3 className="font-orbitron text-xl md:text-2xl font-bold text-white mt-2">
             Обратная <span className="text-gradient-silver">связь</span>
           </h3>
           <p className="font-inter text-gray-500 text-sm mt-2">
-            Вопрос, предложение или хочешь стать партнёром — пиши, мы отвечаем быстро.
+            Вопрос, предложение или хочешь стать партнером - пиши, мы отвечаем быстро.
           </p>
         </div>
 
@@ -57,7 +57,7 @@ export default function ContactForm() {
             <p className="font-inter text-gray-500 text-sm">Мы свяжемся с тобой в ближайшее время.</p>
             <button
               onClick={() => { setStatus("idle"); setForm({ name: "", contact: "", message: "" }); }}
-              className="mt-2 font-rajdhani text-xs tracking-widest uppercase text-gray-500 hover:text-white transition-colors underline"
+              className="mt-2 font-rajdhani text-xs tracking-wide uppercase text-gray-500 hover:text-white transition-colors underline"
             >
               Отправить ещё
             </button>
@@ -65,7 +65,7 @@ export default function ContactForm() {
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block font-rajdhani text-xs tracking-widest uppercase text-gray-500 font-semibold mb-1.5">
+              <label className="block font-rajdhani text-xs tracking-wide uppercase text-gray-500 font-semibold mb-1.5">
                 Имя
               </label>
               <input
@@ -78,7 +78,7 @@ export default function ContactForm() {
               />
             </div>
             <div>
-              <label className="block font-rajdhani text-xs tracking-widest uppercase text-gray-500 font-semibold mb-1.5">
+              <label className="block font-rajdhani text-xs tracking-wide uppercase text-gray-500 font-semibold mb-1.5">
                 Telegram / Email / Телефон
               </label>
               <input
@@ -91,7 +91,7 @@ export default function ContactForm() {
               />
             </div>
             <div>
-              <label className="block font-rajdhani text-xs tracking-widest uppercase text-gray-500 font-semibold mb-1.5">
+              <label className="block font-rajdhani text-xs tracking-wide uppercase text-gray-500 font-semibold mb-1.5">
                 Сообщение
               </label>
               <textarea

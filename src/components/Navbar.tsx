@@ -62,7 +62,7 @@ export default function Navbar() {
                 <button
                   key={link.href}
                   onClick={() => handleNav(link.href)}
-                  className="font-rajdhani text-sm font-semibold tracking-widest uppercase text-gray-400 hover:text-white transition-colors duration-200"
+                  className="font-rajdhani text-sm font-semibold tracking-wide uppercase text-gray-400 hover:text-white transition-colors duration-200"
                 >
                   {link.label}
                 </button>
@@ -93,7 +93,7 @@ export default function Navbar() {
                 <button
                   key={link.href}
                   onClick={() => handleNav(link.href)}
-                  className="text-left py-3 px-4 font-rajdhani font-semibold text-base tracking-widest uppercase text-gray-400 hover:text-white hover:bg-white/5 rounded transition-colors"
+                  className="text-left py-3 px-4 font-rajdhani font-semibold text-base tracking-wide uppercase text-gray-400 hover:text-white hover:bg-white/5 rounded transition-colors"
                 >
                   {link.label}
                 </button>
@@ -127,7 +127,7 @@ export default function Navbar() {
             href={REG_LINK}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 mx-4 py-2 btn-primary rounded text-center text-sm font-rajdhani font-bold tracking-widest uppercase animate-pulse-white"
+            className="flex-1 mx-4 py-2 btn-primary rounded text-center animate-pulse-white"
           >
             Регистрация
           </a>
