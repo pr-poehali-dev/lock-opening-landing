@@ -6,7 +6,7 @@ from email.mime.multipart import MIMEMultipart
 
 
 def handler(event: dict, context) -> dict:
-    """Отправка обратной связи с сайта Port Mirage на почту k56858378@gmail.com"""
+    """Отправка обратной связи с сайта Port Mirage на почту portmirage@gmail.com"""
     cors = {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'POST, OPTIONS',
