@@ -41,27 +41,23 @@ const contacts = [
   { icon: <EmailIcon />, label: "Email", value: "portmirage@gmail.com", href: "mailto:portmirage@gmail.com" },
 ];
 
-// Реальные миксы с реальными ссылками
 const mixes = [
   {
     url: "https://on.soundcloud.com/i3rjS45EbfzZBiEfnj",
-    title: "Port Mirage Mix 01",
-    genre: "Progressive House",
-    duration: "1:02:14",
+    title: "Altayef \u22c6 Passing Fancies \u22c6 Dark Disco / Electroclash / Indie Dance",
+    desc: "Very energetic, sensual and enveloping! Enjoy the journey ;)",
     waveform: [0.3,0.5,0.8,0.6,0.9,0.4,0.7,1.0,0.5,0.8,0.3,0.6,0.9,0.7,0.4,0.8,0.5,0.7,0.6,0.9,0.4,0.5,0.8,0.6,0.3,0.7,1.0,0.5,0.8,0.4],
   },
   {
     url: "https://on.soundcloud.com/rcd0v88CrIn2fQB0tg",
-    title: "Port Mirage Mix 02",
-    genre: "Melodic Techno",
-    duration: "58:40",
+    title: "INSOMNIA RADIOSHOW - SAZONOVA Guest Mix",
+    desc: "Progressive House",
     waveform: [0.6,0.8,0.4,0.9,0.5,0.7,0.3,0.8,0.6,0.4,0.9,0.5,0.7,1.0,0.4,0.6,0.8,0.5,0.7,0.3,0.9,0.6,0.4,0.8,0.5,0.7,0.6,0.9,0.3,0.7],
   },
   {
     url: "https://on.soundcloud.com/GoAZ09MfVOgSrzwjfT",
-    title: "Port Mirage Mix 03",
-    genre: "Deep House",
-    duration: "1:10:05",
+    title: "Melaniya - Live @ SD, Saint-Petersburg @ [16.05.2026]",
+    desc: "By Melaniya is licensed under a Creative Commons License.",
     waveform: [0.7,0.4,0.9,0.5,0.8,0.6,0.3,0.7,0.9,0.5,0.4,0.8,0.6,0.3,0.9,0.7,0.5,0.8,0.4,0.6,0.9,0.3,0.7,0.5,0.8,0.6,0.4,0.9,0.7,0.5],
   },
 ];
@@ -132,19 +128,9 @@ export default function ContactsSection() {
           {/* Правая колонка: миксы */}
           <Reveal from="right" delay={100}>
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <div>
-                  <div className="font-inter text-[10px] tracking-widest uppercase text-gray-600 font-medium">SoundCloud</div>
-                  <div className="font-orbitron text-sm font-bold text-white mt-0.5">Наши миксы</div>
-                </div>
-                <a
-                  href="https://soundcloud.com/port-mirage"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-inter text-[11px] text-gray-600 hover:text-[#D4AF37] tracking-wider uppercase transition-colors"
-                >
-                  Профиль
-                </a>
+              <div className="mb-4">
+                <div className="font-inter text-[10px] tracking-wide uppercase text-gray-600 font-medium">SoundCloud</div>
+                <div className="font-orbitron text-sm font-bold text-white mt-0.5">Наши миксы</div>
               </div>
 
               <div className="flex flex-col gap-3">
@@ -168,12 +154,11 @@ export default function ContactsSection() {
 
                     {/* Инфо + waveform */}
                     <div className="flex-1 min-w-0">
-                      <div className="font-inter text-sm font-medium text-gray-300 group-hover:text-white transition-colors truncate">
+                      <div className="font-inter text-sm font-medium text-gray-300 group-hover:text-white transition-colors leading-snug">
                         {mix.title}
                       </div>
-                      <div className="flex items-center gap-3 mt-1">
-                        <span className="font-inter text-[10px] text-gray-600 tracking-wider uppercase">{mix.genre}</span>
-                        <span className="font-inter text-[10px] text-gray-700">{mix.duration}</span>
+                      <div className="font-inter text-[11px] text-gray-600 mt-1 leading-relaxed line-clamp-2">
+                        {mix.desc}
                       </div>
                       <div className="mt-2">
                         <WaveformBar heights={mix.waveform} />
@@ -191,9 +176,29 @@ export default function ContactsSection() {
               </div>
 
               <div className="mt-4 pt-4 border-t border-white/5">
-                <p className="font-inter text-[11px] text-gray-700 leading-relaxed">
-                  Подписывайтесь - регулярные миксы и треки от наших артистов
-                </p>
+                <a
+                  href="https://soundcloud.com/port-mirage"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 p-3 rounded-xl border border-white/8 hover:border-white/20 hover:bg-white/3 transition-all duration-300 group"
+                >
+                  <img
+                    src="https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/16d25f4b-b740-4b2a-80a7-7e0ea62bca8c.png"
+                    alt="Port Mirage"
+                    className="h-6 w-auto object-contain opacity-60 group-hover:opacity-90 transition-opacity"
+                    style={{ filter: "brightness(0) invert(1)" }}
+                  />
+                  <div className="w-px h-4 bg-white/10" />
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" className="text-gray-600 group-hover:text-[#ff5500] transition-colors flex-shrink-0">
+                    <path d="M1.175 12.225c-.051 0-.094.046-.101.1l-.233 2.154.233 2.105c.007.058.05.098.101.098.05 0 .09-.04.099-.098l.255-2.105-.27-2.154c-.009-.06-.05-.1-.1-.1m-.899.828c-.06 0-.091.037-.104.094L0 15.303l.172 2.073c.013.06.045.094.104.094.06 0 .091-.034.104-.094L.557 15.303.38 13.147c-.013-.057-.044-.094-.104-.094m1.81-.7c-.07 0-.12.05-.127.118L1.7 15.303l.259 2.232c.007.07.057.118.127.118.069 0 .12-.048.127-.118l.293-2.232-.293-2.832c-.007-.068-.058-.118-.127-.118m.912-.199c-.08 0-.14.062-.145.142l-.248 2.007.248 2.244c.005.08.065.142.145.142.079 0 .14-.062.145-.142L3.29 15.303l-.236-2.007c-.005-.08-.066-.142-.145-.142m.918-.066c-.09 0-.159.072-.163.16l-.222 2.073.222 2.255c.004.088.073.16.163.16.09 0 .158-.072.163-.16l.25-2.255-.25-2.073c-.005-.088-.073-.16-.163-.16m.921.073c-.1 0-.177.08-.18.179l-.198 2 .198 2.238c.003.1.08.179.18.179.1 0 .177-.08.18-.179l.224-2.238-.224-2c-.003-.1-.08-.179-.18-.179m.923-.154c-.109 0-.194.088-.197.196l-.175 1.978.175 2.22c.003.11.088.196.197.196.11 0 .195-.086.197-.196l.199-2.22-.199-1.978c-.002-.11-.087-.196-.197-.196m.925.226c-.118 0-.211.096-.213.214l-.15 1.752.15 2.202c.002.118.095.214.213.214.12 0 .212-.096.214-.214l.17-2.202-.17-1.752c-.002-.118-.094-.214-.214-.214m.927-.127c-.128 0-.228.103-.23.23l-.126 1.625.126 2.18c.002.127.102.23.23.23.127 0 .227-.103.23-.23l.143-2.18-.143-1.625c-.003-.127-.103-.23-.23-.23m.93-.035c-.137 0-.244.11-.246.246L8.5 15.303l.128 2.16c.002.137.11.246.246.246.137 0 .244-.11.246-.246l.145-2.16-.145-2.052c-.002-.136-.11-.246-.246-.246m.932.141c-.147 0-.261.118-.263.264l-.103 1.847.103 2.137c.002.146.116.264.263.264.147 0 .261-.118.263-.264l.116-2.137-.116-1.847c-.002-.146-.116-.264-.263-.264m2.543-3.87c-.178-.062-.37-.095-.569-.095-.36 0-.697.1-.986.273-.185-2.09-1.943-3.728-4.088-3.728-.556 0-1.086.116-1.566.324-.185.076-.234.154-.236.227v7.564c.002.078.062.14.14.148h7.246c.076-.008.136-.07.14-.148.004-.027.004-5.47.004-5.47a2.57 2.57 0 0 0-.085-.095z"/>
+                  </svg>
+                  <span className="font-inter text-xs text-gray-500 group-hover:text-gray-300 transition-colors">
+                    Перейти в профиль
+                  </span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="ml-auto text-gray-700 group-hover:text-gray-500 transition-colors flex-shrink-0">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </a>
               </div>
             </div>
           </Reveal>
