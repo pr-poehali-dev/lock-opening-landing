@@ -13,20 +13,19 @@ const ARTISTS = [
 ];
 
 export default function HeroSection() {
-  const scrollY = useParallax();
-  const bgParallax = scrollY * 0.3;
+  useParallax();
 
   return (
     <section className="relative flex flex-col overflow-hidden" style={{ height: "100svh", minHeight: "600px" }}>
       {/* Фон */}
       <div
-        className="absolute inset-0 bg-cover bg-no-repeat will-change-transform"
+        className="absolute inset-0 bg-no-repeat will-change-transform"
         style={{
           backgroundImage: `url(${BG})`,
           backgroundPosition: "center top",
-          transform: `translateY(${bgParallax}px)`,
-          top: "-8%",
-          height: "116%",
+          backgroundSize: "auto 110%",
+          top: 0,
+          bottom: 0,
         }}
       />
       <div className="absolute inset-0 bg-black/40" />
