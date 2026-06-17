@@ -1,9 +1,16 @@
 import PolygonBackground from "./PolygonBackground";
 import { useParallax } from "@/hooks/useParallax";
 
-const BG = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/99e50c8d-ba8b-48ec-b64d-ea4ed8c66ec2.jpg";
+const BG = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/74c52e6b-e2b2-4830-8ec4-bd93485127ce.png";
 const LOGO_RITMI = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/6609fec4-37d9-463e-a1d4-dc7286af4c39.png";
 const REG_LINK = "https://spb.qtickets.events/241213-port-mirage-jomoss-b-day";
+
+const ARTISTS = [
+  "JOMOSS (BIRTHDAY SET)",
+  "K LOVESKI",
+  "MELANIYA",
+  "VANCOO",
+];
 
 export default function HeroSection() {
   const scrollY = useParallax();
@@ -33,12 +40,31 @@ export default function HeroSection() {
       />
 
       {/* Основной контент — снизу над лого */}
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-end text-center px-4" style={{ paddingBottom: "110px" }}>
-        <h1 className="font-orbitron text-2xl sm:text-4xl md:text-5xl font-black text-white leading-tight tracking-wide mb-4 drop-shadow-lg">
+      <div
+        className="absolute inset-0 z-10 flex flex-col items-center justify-end text-center px-4"
+        style={{ paddingBottom: "110px" }}
+      >
+        <h1 className="font-orbitron text-2xl sm:text-4xl md:text-5xl font-black text-white leading-tight tracking-wide mb-2 drop-shadow-lg">
           Port Mirage • Jomoss B-Day
         </h1>
 
-        <div className="flex flex-row gap-3">
+        <p className="font-rajdhani text-white/60 text-sm sm:text-base tracking-widest uppercase mb-4">
+          4 июля&nbsp;&nbsp;|&nbsp;&nbsp;22:00–3:00
+        </p>
+
+        <ul className="mb-5 flex flex-col items-center gap-1">
+          {ARTISTS.map((artist) => (
+            <li
+              key={artist}
+              className="font-rajdhani font-semibold text-white/80 text-xs sm:text-sm tracking-widest uppercase"
+            >
+              {artist}
+            </li>
+          ))}
+        </ul>
+
+        {/* Кнопки — скрыты на мобильных (дублируются в нижней панели Navbar) */}
+        <div className="hidden sm:flex flex-row gap-3">
           <a
             href={REG_LINK}
             target="_blank"
