@@ -1,9 +1,9 @@
 import PolygonBackground from "./PolygonBackground";
 import { useParallax } from "@/hooks/useParallax";
 
-const BG = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/480ec7a6-967d-4eff-a96d-08fc7db080a8.png";
+const BG = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/99e50c8d-ba8b-48ec-b64d-ea4ed8c66ec2.jpg";
 const LOGO_RITMI = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/6609fec4-37d9-463e-a1d4-dc7286af4c39.png";
-const REG_LINK = "https://spb.qtickets.events/234738-port-mirage-x-tripi-disko";
+const REG_LINK = "https://spb.qtickets.events/241213-port-mirage-jomoss-b-day";
 
 export default function HeroSection() {
   const scrollY = useParallax();
@@ -13,38 +13,30 @@ export default function HeroSection() {
     <section className="relative flex flex-col overflow-hidden" style={{ height: "100svh", minHeight: "600px" }}>
       {/* Фон */}
       <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat will-change-transform"
+        className="absolute inset-0 bg-cover bg-no-repeat will-change-transform"
         style={{
           backgroundImage: `url(${BG})`,
+          backgroundPosition: "center top",
           transform: `translateY(${bgParallax}px)`,
           top: "-8%",
           height: "116%",
         }}
       />
-      <div className="absolute inset-0 bg-black/55" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-[#141414]" />
+      <div className="absolute inset-0 bg-black/40" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[#141414]" />
 
       <PolygonBackground
         className="absolute inset-0 z-[1]"
         nodeCount={22}
-        opacity={0.1}
+        opacity={0.08}
         parallaxFactor={0.03}
       />
 
-      {/* Основной контент — строго по центру */}
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-center px-4" style={{ paddingTop: "64px", paddingBottom: "80px" }}>
-        <h1 className="font-orbitron text-xl sm:text-3xl md:text-4xl font-black text-white leading-tight tracking-normal mb-2">
-          Port Mirage x Трипи Диско
+      {/* Основной контент — снизу над лого */}
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-end text-center px-4" style={{ paddingBottom: "110px" }}>
+        <h1 className="font-orbitron text-2xl sm:text-4xl md:text-5xl font-black text-white leading-tight tracking-wide mb-4 drop-shadow-lg">
+          Port Mirage • Jomoss B-Day
         </h1>
-        <p className="font-rajdhani text-sm sm:text-base text-gray-300 tracking-wide uppercase font-medium mb-1">
-          Открытие летнего сезона в клубе Ритмы
-        </p>
-        <p className="font-inter text-white/45 text-xs tracking-wider uppercase mb-1">
-          06.06.2026
-        </p>
-        <p className="font-inter text-white/30 text-[11px] tracking-wide mb-8">
-          Санкт-Петербург, Кожевенная линия, 34
-        </p>
 
         <div className="flex flex-row gap-3">
           <a
