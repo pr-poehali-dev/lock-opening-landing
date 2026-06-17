@@ -44,8 +44,6 @@ export default function HeroSection() {
         style={{ paddingBottom: "110px" }}
       >
         <h1 className="font-orbitron font-black text-white leading-tight tracking-wide mb-2 drop-shadow-lg flex flex-col items-center">
-          <span className="text-2xl sm:text-4xl md:text-5xl">Port Mirage</span>
-          <span className="text-lg sm:text-2xl md:text-3xl opacity-80">•</span>
           <span className="text-2xl sm:text-4xl md:text-5xl">Jomoss B-Day</span>
         </h1>
 
