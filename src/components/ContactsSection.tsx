@@ -60,6 +60,12 @@ const mixes = [
     desc: "By Melaniya is licensed under a Creative Commons License.",
     waveform: [0.7,0.4,0.9,0.5,0.8,0.6,0.3,0.7,0.9,0.5,0.4,0.8,0.6,0.3,0.9,0.7,0.5,0.8,0.4,0.6,0.9,0.3,0.7,0.5,0.8,0.6,0.4,0.9,0.7,0.5],
   },
+  {
+    url: "https://on.soundcloud.com/cTX5XOSTGZGBp4SC6w",
+    title: "Port Mirage 001 - Mixed by Jomoss",
+    desc: "Music community from Saint-Petersburg, Russia",
+    waveform: [0.5,0.7,0.3,0.8,0.6,0.9,0.4,0.7,0.5,0.9,0.3,0.6,0.8,0.5,0.7,0.4,0.9,0.6,0.8,0.3,0.7,0.5,0.9,0.4,0.6,0.8,0.3,0.7,0.5,0.9],
+  },
 ];
 
 function WaveformBar({ heights }: { heights: number[] }) {
