@@ -62,13 +62,13 @@ export default function AboutSection() {
               className="relative"
               style={{ transform: `translateY(${-imgParallax1 * 0.5}px)` }}
             >
-              <div className="aspect-[3/2] rounded-xl overflow-hidden">
+              <div className="rounded-xl overflow-hidden">
                 <img
-                  src="https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/b951ee06-a305-45d9-a342-61aa9ad9c9be.jpg"
+                  src="https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/c941246b-84c4-461e-b831-28d870b8f688.jpg"
                   alt="Команда Port Mirage"
-                  className="w-full h-full object-cover object-center will-change-transform"
+                  className="w-full h-auto will-change-transform"
                   style={{
-                    transform: `scale(1.02) translateY(${imgParallax1 * 0.3}px)`,
+                    transform: `translateY(${imgParallax1 * 0.3}px)`,
                   }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />

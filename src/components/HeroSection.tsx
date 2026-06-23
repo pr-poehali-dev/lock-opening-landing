@@ -2,6 +2,7 @@ import PolygonBackground from "./PolygonBackground";
 import { useParallax } from "@/hooks/useParallax";
 
 const BG = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/74c52e6b-e2b2-4830-8ec4-bd93485127ce.png";
+const BG_DESKTOP = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/9134ed67-cf22-4078-96ae-05928cf0d4d6.PNG";
 const LOGO_RITMI = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/6609fec4-37d9-463e-a1d4-dc7286af4c39.png";
 const REG_LINK = "https://spb.qtickets.events/241213-port-mirage-jomoss-b-day";
 
@@ -17,13 +18,24 @@ export default function HeroSection() {
 
   return (
     <section className="relative flex flex-col overflow-hidden" style={{ height: "100svh", minHeight: "600px" }}>
-      {/* Фон */}
+      {/* Фон мобильный */}
       <div
-        className="absolute inset-0 bg-no-repeat will-change-transform"
+        className="absolute inset-0 bg-no-repeat will-change-transform md:hidden"
         style={{
           backgroundImage: `url(${BG})`,
           backgroundPosition: "center top",
           backgroundSize: "auto 110%",
+          top: 0,
+          bottom: 0,
+        }}
+      />
+      {/* Фон десктоп */}
+      <div
+        className="absolute inset-0 hidden md:block will-change-transform"
+        style={{
+          backgroundImage: `url(${BG_DESKTOP})`,
+          backgroundPosition: "center center",
+          backgroundSize: "cover",
           top: 0,
           bottom: 0,
         }}
