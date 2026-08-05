@@ -49,12 +49,11 @@ export default function HeroSection() {
       />
 
       {/* Основной контент — снизу над лого */}
-      <div
-        className="absolute inset-0 z-10 flex flex-col items-center justify-end text-center px-4"
-        style={{ paddingBottom: "110px" }}
-      >
-        <h1 className="font-orbitron font-black text-white leading-tight tracking-wide mb-2 drop-shadow-lg flex flex-col items-center">
-          <span className="text-2xl sm:text-4xl md:text-5xl">Port Mirage B-Day × Groove Kitchen</span>
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-end text-center px-4 pb-[150px] sm:pb-[110px]">
+        <h1 className="font-orbitron font-black text-white leading-none tracking-wide mb-2 drop-shadow-lg flex flex-col items-center gap-1">
+          <span className="text-2xl sm:text-4xl md:text-5xl leading-tight">Port Mirage B-Day</span>
+          <span className="text-sm sm:text-lg md:text-xl text-white/60">×</span>
+          <span className="text-2xl sm:text-4xl md:text-5xl leading-tight">Groove Kitchen</span>
         </h1>
 
         <p className="font-rajdhani text-white/60 text-sm sm:text-base tracking-widest uppercase mb-4">
@@ -109,14 +108,17 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Лого Ритмы — у нижнего края */}
-      <div className="absolute left-0 right-0 z-10 flex justify-center" style={{ bottom: "30px" }}>
+      {/* Лого Ритмы + адрес — у нижнего края */}
+      <div className="absolute left-0 right-0 z-10 flex flex-col items-center gap-1 bottom-[64px] sm:bottom-[30px]">
         <img
           src={LOGO_RITMI}
           alt="Ритмы"
           className="w-auto object-contain opacity-55 hover:opacity-85 transition-opacity"
           style={{ height: "clamp(40px, 7vw, 72px)" }}
         />
+        <span className="font-rajdhani text-white/35 text-[11px] sm:text-xs tracking-widest uppercase">
+          Кожевенная линия, 34
+        </span>
       </div>
     </section>
   );
