@@ -3,7 +3,7 @@ import Icon from "@/components/ui/icon";
 
 const LOGO = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/16d25f4b-b740-4b2a-80a7-7e0ea62bca8c.png";
 const TG_LINK = "https://t.me/portmirage";
-const REG_LINK = "https://spb.qtickets.events/241213-port-mirage-jomoss-b-day";
+const REG_LINK = "https://spb.qtickets.events/249544-port-mirage-b-day-x-groove-kitchen";
 
 const navLinks = [
   { label: "О нас", href: "#about" },

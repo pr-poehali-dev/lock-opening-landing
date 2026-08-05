@@ -1,17 +1,15 @@
 import PolygonBackground from "./PolygonBackground";
 import { useParallax } from "@/hooks/useParallax";
 
-const BG = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/74c52e6b-e2b2-4830-8ec4-bd93485127ce.png";
-const BG_DESKTOP = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/9134ed67-cf22-4078-96ae-05928cf0d4d6.PNG";
+const BG = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/e49d5503-80e4-4e69-a43d-c3ad2e21f86b.png";
+const BG_DESKTOP = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/550db09e-15ef-434f-87d0-d76247d36fe0.png";
 const LOGO_RITMI = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/6609fec4-37d9-463e-a1d4-dc7286af4c39.png";
-const REG_LINK = "https://spb.qtickets.events/241213-port-mirage-jomoss-b-day";
+const REG_LINK = "https://spb.qtickets.events/249544-port-mirage-b-day-x-groove-kitchen";
 
-const ARTISTS = [
-  "JOMOSS (BIRTHDAY SET)",
-  "K LOVESKI",
-  "MELANIYA",
-  "VANCOO",
-];
+const LINEUP = {
+  terrace: ["K LOVESKI", "NASTYA MAMITA", "MELANIYA", "JOMOSS", "SAZONOVA", "EIDOFEY × NICKEL (DRUMS)"],
+  main: ["KAYA", "MORRICONE", "A.D.E.N.A", "KIRILL KARNELL"],
+};
 
 export default function HeroSection() {
   useParallax();
@@ -34,7 +32,7 @@ export default function HeroSection() {
         className="absolute inset-0 hidden md:block will-change-transform"
         style={{
           backgroundImage: `url(${BG_DESKTOP})`,
-          backgroundPosition: "center center",
+          backgroundPosition: "center top",
           backgroundSize: "cover",
           top: 0,
           bottom: 0,
@@ -56,23 +54,41 @@ export default function HeroSection() {
         style={{ paddingBottom: "110px" }}
       >
         <h1 className="font-orbitron font-black text-white leading-tight tracking-wide mb-2 drop-shadow-lg flex flex-col items-center">
-          <span className="text-2xl sm:text-4xl md:text-5xl">Jomoss B-Day</span>
+          <span className="text-2xl sm:text-4xl md:text-5xl">Port Mirage B-Day × Groove Kitchen</span>
         </h1>
 
         <p className="font-rajdhani text-white/60 text-sm sm:text-base tracking-widest uppercase mb-4">
-          4 июля&nbsp;&nbsp;|&nbsp;&nbsp;22:00–3:00
+          15 августа&nbsp;&nbsp;|&nbsp;&nbsp;23:00–5:00
         </p>
 
-        <ul className="mb-5 flex flex-col items-center gap-1">
-          {ARTISTS.map((artist) => (
-            <li
-              key={artist}
-              className="font-rajdhani font-semibold text-white/80 text-xs sm:text-sm tracking-widest uppercase"
-            >
-              {artist}
-            </li>
-          ))}
-        </ul>
+        <div className="mb-5 flex flex-row gap-8 sm:gap-14">
+          <div className="flex flex-col items-center gap-1">
+            <span className="font-orbitron text-[10px] sm:text-xs font-bold text-white/40 tracking-widest uppercase mb-1">
+              Terrace
+            </span>
+            {LINEUP.terrace.map((artist) => (
+              <span
+                key={artist}
+                className="font-rajdhani font-semibold text-white/80 text-xs sm:text-sm tracking-widest uppercase"
+              >
+                {artist}
+              </span>
+            ))}
+          </div>
+          <div className="flex flex-col items-center gap-1">
+            <span className="font-orbitron text-[10px] sm:text-xs font-bold text-white/40 tracking-widest uppercase mb-1">
+              Main
+            </span>
+            {LINEUP.main.map((artist) => (
+              <span
+                key={artist}
+                className="font-rajdhani font-semibold text-white/80 text-xs sm:text-sm tracking-widest uppercase"
+              >
+                {artist}
+              </span>
+            ))}
+          </div>
+        </div>
 
         {/* Кнопки — скрыты на мобильных (дублируются в нижней панели Navbar) */}
         <div className="hidden sm:flex flex-row gap-3">

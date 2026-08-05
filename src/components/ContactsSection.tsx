@@ -66,6 +66,12 @@ const mixes = [
     desc: "Music community from Saint-Petersburg, Russia",
     waveform: [0.5,0.7,0.3,0.8,0.6,0.9,0.4,0.7,0.5,0.9,0.3,0.6,0.8,0.5,0.7,0.4,0.9,0.6,0.8,0.3,0.7,0.5,0.9,0.4,0.6,0.8,0.3,0.7,0.5,0.9],
   },
+  {
+    url: "https://on.soundcloud.com/hcIGpqLKLute4zrM6v",
+    title: "Port Mirage 002",
+    desc: "Mixed by Melaniya",
+    waveform: [0.4,0.6,0.9,0.5,0.7,0.3,0.8,0.6,0.9,0.4,0.7,0.5,0.8,0.3,0.6,0.9,0.5,0.7,0.4,0.8,0.6,0.3,0.9,0.5,0.7,0.8,0.4,0.6,0.9,0.3],
+  },
 ];
 
 function WaveformBar({ heights }: { heights: number[] }) {
