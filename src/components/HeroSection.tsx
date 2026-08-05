@@ -1,8 +1,8 @@
 import PolygonBackground from "./PolygonBackground";
 import { useParallax } from "@/hooks/useParallax";
 
-const BG = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/e49d5503-80e4-4e69-a43d-c3ad2e21f86b.png";
-const BG_DESKTOP = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/550db09e-15ef-434f-87d0-d76247d36fe0.png";
+const BG = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/570e70c9-a5f5-4722-93f3-e568c250c67a.png";
+const BG_DESKTOP = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/7d769323-dc74-4cea-9e48-20856e0502ac.png";
 const LOGO_RITMI = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/6609fec4-37d9-463e-a1d4-dc7286af4c39.png";
 const REG_LINK = "https://spb.qtickets.events/249544-port-mirage-b-day-x-groove-kitchen";
 
