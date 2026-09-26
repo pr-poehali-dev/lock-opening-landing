@@ -1,15 +1,12 @@
 import PolygonBackground from "./PolygonBackground";
 import { useParallax } from "@/hooks/useParallax";
 
-const BG = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/570e70c9-a5f5-4722-93f3-e568c250c67a.png";
-const BG_DESKTOP = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/7d769323-dc74-4cea-9e48-20856e0502ac.png";
+const BG = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/c5b18a32-7484-4de4-9a5b-0ad013c2ce72.png";
+const BG_DESKTOP = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/1c955390-c949-4cbd-ad38-7465164f61fc.png";
 const LOGO_RITMI = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/6609fec4-37d9-463e-a1d4-dc7286af4c39.png";
-const REG_LINK = "https://spb.qtickets.events/249544-port-mirage-b-day-x-groove-kitchen";
+const REG_LINK = "https://spb.qtickets.events/261521-port-mirage-x-progressia-eichenbaum-argentina";
 
-const LINEUP = {
-  terrace: ["K LOVESKI", "NASTYA MAMITA", "MELANIYA", "JOMOSS", "SAZONOVA", "EIDOFEY × NICKEL (DRUMS)"],
-  main: ["KAYA", "MORRICONE", "A.D.E.N.A", "KIRILL KARNELL"],
-};
+const SUPPORT = ["K LOVESKI", "JOMOSS", "SAZONOVA", "AKIN K", "CHELAKHOV", "AGWA", "ROMAN LISOV"];
 
 export default function HeroSection() {
   useParallax();
@@ -50,40 +47,38 @@ export default function HeroSection() {
 
       {/* Основной контент — снизу над лого */}
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-end text-center px-4 pb-[150px] sm:pb-[110px]">
-        <h1 className="font-orbitron font-black text-white leading-none tracking-wide mb-2 drop-shadow-lg flex flex-col items-center gap-1">
-          <span className="text-2xl sm:text-4xl md:text-5xl leading-tight">Port Mirage B-Day</span>
-          <span className="text-sm sm:text-lg md:text-xl text-white/60">×</span>
-          <span className="text-2xl sm:text-4xl md:text-5xl leading-tight">Groove Kitchen</span>
+        <span className="font-rajdhani text-white/50 text-[11px] sm:text-sm tracking-[0.3em] uppercase mb-2">
+          Headliner
+        </span>
+        <h1 className="font-orbitron font-black text-white leading-none tracking-wide mb-1 drop-shadow-lg">
+          <span className="text-4xl sm:text-6xl md:text-7xl leading-tight">Eichenbaum</span>
         </h1>
+        <span className="font-rajdhani text-white/70 text-sm sm:text-lg tracking-[0.3em] uppercase mb-4">
+          [ Argentina ]
+        </span>
 
+        <p className="font-rajdhani text-white/60 text-sm sm:text-base tracking-widest uppercase mb-1">
+          10 октября, суббота
+        </p>
         <p className="font-rajdhani text-white/60 text-sm sm:text-base tracking-widest uppercase mb-4">
-          15 августа&nbsp;&nbsp;|&nbsp;&nbsp;23:00–5:00
+          23:00–06:00
         </p>
 
-        <div className="mb-5 flex flex-row gap-8 sm:gap-14">
-          <div className="flex flex-col items-center gap-1">
-            <span className="font-orbitron text-[10px] sm:text-xs font-bold text-white/40 tracking-widest uppercase mb-1">
-              Terrace
-            </span>
-            {LINEUP.terrace.map((artist) => (
+        <span className="font-rajdhani text-white/40 text-[10px] sm:text-xs tracking-[0.2em] uppercase mb-1">
+          Port Mirage × Progressia
+        </span>
+
+        <div className="mb-5 flex flex-col items-center gap-1">
+          <span className="font-orbitron text-[10px] sm:text-xs font-bold text-white/40 tracking-widest uppercase mb-1">
+            Support
+          </span>
+          <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5 max-w-xs sm:max-w-md">
+            {SUPPORT.map((artist, i) => (
               <span
                 key={artist}
                 className="font-rajdhani font-semibold text-white/80 text-xs sm:text-sm tracking-widest uppercase"
               >
-                {artist}
-              </span>
-            ))}
-          </div>
-          <div className="flex flex-col items-center gap-1">
-            <span className="font-orbitron text-[10px] sm:text-xs font-bold text-white/40 tracking-widest uppercase mb-1">
-              Main
-            </span>
-            {LINEUP.main.map((artist) => (
-              <span
-                key={artist}
-                className="font-rajdhani font-semibold text-white/80 text-xs sm:text-sm tracking-widest uppercase"
-              >
-                {artist}
+                {artist}{i < SUPPORT.length - 1 && <span className="text-white/30 mx-1">/</span>}
               </span>
             ))}
           </div>
@@ -117,7 +112,7 @@ export default function HeroSection() {
           style={{ height: "clamp(40px, 7vw, 72px)" }}
         />
         <span className="font-rajdhani text-white/35 text-[11px] sm:text-xs tracking-widest uppercase">
-          Кожевенная линия, 34
+          Ул. Кожевенная, 34
         </span>
       </div>
     </section>
