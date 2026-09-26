@@ -73,7 +73,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 className="ml-2 px-5 py-2 btn-primary rounded text-sm animate-pulse-white"
               >
-                Регистрация
+                Купить билет
               </a>
             </nav>
 
@@ -104,7 +104,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 className="mt-2 py-3 px-4 btn-primary rounded text-center text-sm"
               >
-                Регистрация
+                Купить билет
               </a>
             </div>
           </div>
@@ -129,7 +129,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
             className="flex-1 mx-4 py-2 btn-primary rounded text-center animate-pulse-white"
           >
-            Регистрация
+            Купить билет
           </a>
         </div>
       </div>

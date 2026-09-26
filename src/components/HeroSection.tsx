@@ -95,7 +95,7 @@ export default function HeroSection() {
             rel="noopener noreferrer"
             className="px-8 py-3 btn-primary rounded animate-pulse-white"
           >
-            Регистрация
+            Купить билет
           </a>
           <button
             onClick={() => document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" })}
