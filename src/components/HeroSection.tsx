@@ -45,8 +45,8 @@ export default function HeroSection() {
         parallaxFactor={0.03}
       />
 
-      {/* Основной контент — на мобильных сверху над фото, на десктопе снизу над лого */}
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-start text-center px-4 pt-20 sm:justify-end sm:pt-0 sm:pb-[110px] pb-0">
+      {/* Хедлайнер — вверху, над лицом артиста */}
+      <div className="absolute inset-x-0 top-0 z-10 flex flex-col items-center text-center px-4 pt-20 sm:pt-24">
         <span className="font-rajdhani text-white/50 text-[11px] sm:text-sm tracking-[0.3em] uppercase mb-2">
           Headliner
         </span>
@@ -60,10 +60,13 @@ export default function HeroSection() {
         <p className="font-rajdhani text-white/60 text-sm sm:text-base tracking-widest uppercase mb-1">
           10 октября, суббота
         </p>
-        <p className="font-rajdhani text-white/60 text-sm sm:text-base tracking-widest uppercase mb-4">
+        <p className="font-rajdhani text-white/60 text-sm sm:text-base tracking-widest uppercase">
           23:00–06:00
         </p>
+      </div>
 
+      {/* Партнёры + Support + кнопки — внизу, над лого Ритмы */}
+      <div className="absolute inset-x-0 bottom-[150px] sm:bottom-[110px] z-10 flex flex-col items-center text-center px-4">
         <span className="font-rajdhani text-white/40 text-[10px] sm:text-xs tracking-[0.2em] uppercase mb-1">
           Port Mirage × Progressia
         </span>
