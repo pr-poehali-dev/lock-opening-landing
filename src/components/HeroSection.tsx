@@ -45,8 +45,8 @@ export default function HeroSection() {
         parallaxFactor={0.03}
       />
 
-      {/* Основной контент — снизу над лого */}
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-end text-center px-4 pb-[150px] sm:pb-[110px]">
+      {/* Основной контент — на мобильных сверху над фото, на десктопе снизу над лого */}
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-start text-center px-4 pt-20 sm:justify-end sm:pt-0 sm:pb-[110px] pb-0">
         <span className="font-rajdhani text-white/50 text-[11px] sm:text-sm tracking-[0.3em] uppercase mb-2">
           Headliner
         </span>
