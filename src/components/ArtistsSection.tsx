@@ -1,43 +1,6 @@
 import Reveal from "./Reveal";
 
-const artists = [
-  {
-    name: "Jomoss",
-    desc: "Со-основатель и резидент Port Mirage",
-    genres: "Progressive house / Deep house / Hypnotic house",
-    img: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/34f6fbf0-8277-48ae-943c-b38536d29727.png",
-    telegram: "https://t.me/+knfmOhr7twFiNmMy",
-    soundcloud: "https://soundcloud.com/jomossmusic",
-    instagram: "https://www.instagram.com/jomossmusic",
-  },
-  {
-    name: "Melaniya",
-    desc: "Со-основатель и резидент Port Mirage",
-    genres: "Progressive house / Deep house / Classic house",
-    img: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/90d920a6-5b51-4d66-9d16-319bbe5597d4.JPG",
-    telegram: "https://t.me/melaniyaviolin",
-    soundcloud: "https://on.soundcloud.com/sPPgsBt66oaytPkPv4",
-    instagram: "https://instagram.com/milenamelaniya",
-  },
-  {
-    name: "Altayef",
-    desc: "Со-основатель и резидент Port Mirage",
-    genres: "Organic House / Eclectic Organic / Desert Downtempo",
-    img: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/f0462185-e500-4cc7-8e76-9c7d9f2fb890.JPG",
-    telegram: "https://t.me/Di_altayef",
-    soundcloud: "https://soundcloud.com/altayef-music",
-    instagram: "https://instagram.com/altayef_music",
-  },
-  {
-    name: "SAZONOVA",
-    desc: "Резидент Port Mirage",
-    genres: "Progressive House / Deep House / Organic House",
-    img: "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/79bd34b6-7660-4533-b4a4-5064d6d2eb30.jpg",
-    telegram: "https://t.me/SAZONOVA_Dj",
-    soundcloud: "https://soundcloud.com/sazonova_dj",
-    instagram: "https://instagram.com/sazonova.dj",
-  },
-];
+import { useSiteContent } from "@/hooks/useSiteContent";
 
 function TelegramIcon() {
   return (
@@ -64,6 +27,7 @@ function InstagramIcon() {
 }
 
 export default function ArtistsSection() {
+  const artists = useSiteContent().artists;
   return (
     <section id="artists" className="py-20 md:py-32 bg-[#141414] relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 section-divider" />

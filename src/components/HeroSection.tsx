@@ -4,12 +4,13 @@ import { useParallax } from "@/hooks/useParallax";
 const BG = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/c5b18a32-7484-4de4-9a5b-0ad013c2ce72.png";
 const BG_DESKTOP = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/1c955390-c949-4cbd-ad38-7465164f61fc.png";
 const LOGO_RITMI = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/6609fec4-37d9-463e-a1d4-dc7286af4c39.png";
-const REG_LINK = "https://spb.qtickets.events/261521-port-mirage-x-progressia-eichenbaum-argentina";
-
-const SUPPORT = ["K LOVESKI", "JOMOSS", "SAZONOVA", "AKIN K", "CHELAKHOV", "AGWA", "ROMAN LISOV"];
+import { useSiteContent } from "@/hooks/useSiteContent";
 
 export default function HeroSection() {
   useParallax();
+  const { hero } = useSiteContent();
+  const REG_LINK = hero.ticketLink;
+  const SUPPORT = hero.support;
 
   return (
     <section className="relative flex flex-col overflow-hidden" style={{ height: "100svh", minHeight: "600px" }}>
@@ -51,24 +52,24 @@ export default function HeroSection() {
           Headliner
         </span>
         <h1 className="font-orbitron font-black text-white leading-none tracking-wide mb-1 drop-shadow-lg">
-          <span className="text-4xl sm:text-6xl md:text-7xl leading-tight">Eichenbaum</span>
+          <span className="text-4xl sm:text-6xl md:text-7xl leading-tight">{hero.headliner}</span>
         </h1>
         <span className="font-rajdhani text-white/70 text-sm sm:text-lg tracking-[0.3em] uppercase mb-4">
-          [ Argentina ]
+          [ {hero.country} ]
         </span>
 
         <p className="font-rajdhani text-white/60 text-sm sm:text-base tracking-widest uppercase mb-1">
-          10 октября, суббота
+          {hero.date}
         </p>
         <p className="font-rajdhani text-white/60 text-sm sm:text-base tracking-widest uppercase">
-          23:00–06:00
+          {hero.time}
         </p>
       </div>
 
       {/* Партнёры + Support + кнопки — внизу, над лого Ритмы */}
       <div className="absolute inset-x-0 bottom-[150px] sm:bottom-[110px] z-10 flex flex-col items-center text-center px-4">
         <span className="font-rajdhani text-white/40 text-[10px] sm:text-xs tracking-[0.2em] uppercase mb-1">
-          Port Mirage × Progressia
+          {hero.partners}
         </span>
 
         <div className="mb-5 flex flex-col items-center gap-1">

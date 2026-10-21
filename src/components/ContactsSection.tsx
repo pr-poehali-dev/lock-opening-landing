@@ -1,5 +1,6 @@
 import PolygonBackground from "./PolygonBackground";
 import Reveal from "./Reveal";
+import { useSiteContent } from "@/hooks/useSiteContent";
 
 function TelegramIcon() {
   return (
@@ -41,38 +42,14 @@ const contacts = [
   { icon: <EmailIcon />, label: "Email", value: "portmirage@gmail.com", href: "mailto:portmirage@gmail.com" },
 ];
 
-const mixes = [
-  {
-    url: "https://on.soundcloud.com/i3rjS45EbfzZBiEfnj",
-    title: "Altayef \u22c6 Passing Fancies \u22c6 Dark Disco / Electroclash / Indie Dance",
-    desc: "Very energetic, sensual and enveloping! Enjoy the journey ;)",
-    waveform: [0.3,0.5,0.8,0.6,0.9,0.4,0.7,1.0,0.5,0.8,0.3,0.6,0.9,0.7,0.4,0.8,0.5,0.7,0.6,0.9,0.4,0.5,0.8,0.6,0.3,0.7,1.0,0.5,0.8,0.4],
-  },
-  {
-    url: "https://on.soundcloud.com/rcd0v88CrIn2fQB0tg",
-    title: "INSOMNIA RADIOSHOW - SAZONOVA Guest Mix",
-    desc: "Progressive House",
-    waveform: [0.6,0.8,0.4,0.9,0.5,0.7,0.3,0.8,0.6,0.4,0.9,0.5,0.7,1.0,0.4,0.6,0.8,0.5,0.7,0.3,0.9,0.6,0.4,0.8,0.5,0.7,0.6,0.9,0.3,0.7],
-  },
-  {
-    url: "https://on.soundcloud.com/GoAZ09MfVOgSrzwjfT",
-    title: "Melaniya - Live @ SD, Saint-Petersburg @ [16.05.2026]",
-    desc: "By Melaniya is licensed under a Creative Commons License.",
-    waveform: [0.7,0.4,0.9,0.5,0.8,0.6,0.3,0.7,0.9,0.5,0.4,0.8,0.6,0.3,0.9,0.7,0.5,0.8,0.4,0.6,0.9,0.3,0.7,0.5,0.8,0.6,0.4,0.9,0.7,0.5],
-  },
-  {
-    url: "https://on.soundcloud.com/cTX5XOSTGZGBp4SC6w",
-    title: "Port Mirage 001 - Mixed by Jomoss",
-    desc: "Music community from Saint-Petersburg, Russia",
-    waveform: [0.5,0.7,0.3,0.8,0.6,0.9,0.4,0.7,0.5,0.9,0.3,0.6,0.8,0.5,0.7,0.4,0.9,0.6,0.8,0.3,0.7,0.5,0.9,0.4,0.6,0.8,0.3,0.7,0.5,0.9],
-  },
-  {
-    url: "https://on.soundcloud.com/hcIGpqLKLute4zrM6v",
-    title: "Port Mirage 002 - Mixed by Melaniya",
-    desc: "Music community from Saint-Petersburg, Russia",
-    waveform: [0.4,0.6,0.9,0.5,0.7,0.3,0.8,0.6,0.9,0.4,0.7,0.5,0.8,0.3,0.6,0.9,0.5,0.7,0.4,0.8,0.6,0.3,0.9,0.5,0.7,0.8,0.4,0.6,0.9,0.3],
-  },
-];
+function makeWaveform(seed: string): number[] {
+  let h = 0;
+  for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) >>> 0;
+  return Array.from({ length: 30 }, () => {
+    h = (h * 1664525 + 1013904223) >>> 0;
+    return 0.3 + (h % 70) / 100;
+  });
+}
 
 function WaveformBar({ heights }: { heights: number[] }) {
   return (
@@ -89,6 +66,7 @@ function WaveformBar({ heights }: { heights: number[] }) {
 }
 
 export default function ContactsSection() {
+  const mixes = useSiteContent().mixes;
   return (
     <section id="contacts" className="py-20 md:py-32 bg-[#1a1a1a] relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 section-divider" />
@@ -173,7 +151,7 @@ export default function ContactsSection() {
                         {mix.desc}
                       </div>
                       <div className="mt-2">
-                        <WaveformBar heights={mix.waveform} />
+                        <WaveformBar heights={makeWaveform(mix.title + mix.url)} />
                       </div>
                     </div>
 
