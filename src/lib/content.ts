@@ -28,7 +28,27 @@ export interface Mix {
   url: string;
 }
 
+export interface About {
+  intro: string[];
+  historyTitle: string;
+  history: string[];
+}
+
+export interface ContactItem {
+  label: string;
+  value: string;
+  href: string;
+}
+
+export interface Contacts {
+  items: ContactItem[];
+  copyright: string;
+  legal: string;
+}
+
 export interface SiteContent {
+  about: About;
+  contacts: Contacts;
   hero: Hero;
   gallery: string[];
   artists: Artist[];
@@ -36,6 +56,31 @@ export interface SiteContent {
 }
 
 export const DEFAULT_CONTENT: SiteContent = {
+  about: {
+    intro: [
+      "Port Mirage - комьюнити, создающее мультижанровые вечеринки с фокусом на progressive house и близкие по духу направления.",
+      "Живые перформансы - одна из ключевых частей формата.",
+      "Музыка, атмосфера и ощущение единства между людьми лежат в основе каждого события.",
+      "Открывать новую музыку, привозить актуальных артистов и делиться этим с людьми - одна из главных идей проекта.",
+    ],
+    historyTitle: "Наша история",
+    history: [
+      "Port Mirage появился благодаря друзьям, объединённым одной страстью - электронной музыкой.",
+      "Нам хотелось создавать события, которые вдохновляли бы нас самих, где звучание выходит за рамки привычного - более глубокое, атмосферное и эмоциональное.",
+      "Проект постепенно обрёл новые форматы: появились привозы артистов, живые перформансы, новые элементы внутри событий.",
+      "Главное осталось неизменным: музыка, её эстетика и внимание к деталям.",
+    ],
+  },
+  contacts: {
+    items: [
+      { label: "Telegram", value: "t.me/portmirage", href: "https://t.me/portmirage" },
+      { label: "Instagram", value: "instagram.com/portmirage", href: "https://www.instagram.com/portmirage" },
+      { label: "YouTube", value: "youtube.com/@portmirage", href: "https://youtube.com/@portmirage" },
+      { label: "Email", value: "portmirage@gmail.com", href: "mailto:portmirage@gmail.com" },
+    ],
+    copyright: "2026 Port Mirage. Все права защищены.",
+    legal: "Бабич Милена Игоревна · ИНН 613405123270",
+  },
   hero: {
     headliner: "Eichenbaum",
     country: "Argentina",

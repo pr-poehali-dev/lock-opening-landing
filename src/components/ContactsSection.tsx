@@ -35,12 +35,7 @@ function EmailIcon() {
   );
 }
 
-const contacts = [
-  { icon: <TelegramIcon />, label: "Telegram", value: "t.me/portmirage", href: "https://t.me/portmirage" },
-  { icon: <InstagramIcon />, label: "Instagram", value: "instagram.com/portmirage", href: "https://www.instagram.com/portmirage" },
-  { icon: <YouTubeIcon />, label: "YouTube", value: "youtube.com/@portmirage", href: "https://youtube.com/@portmirage" },
-  { icon: <EmailIcon />, label: "Email", value: "portmirage@gmail.com", href: "mailto:portmirage@gmail.com" },
-];
+const ICONS = [<TelegramIcon />, <InstagramIcon />, <YouTubeIcon />, <EmailIcon />];
 
 function makeWaveform(seed: string): number[] {
   let h = 0;
@@ -66,7 +61,8 @@ function WaveformBar({ heights }: { heights: number[] }) {
 }
 
 export default function ContactsSection() {
-  const mixes = useSiteContent().mixes;
+  const { mixes, contacts: contactsData } = useSiteContent();
+  const contacts = contactsData.items.map((c, i) => ({ ...c, icon: ICONS[i] ?? <EmailIcon /> }));
   return (
     <section id="contacts" className="py-20 md:py-32 bg-[#1a1a1a] relative overflow-hidden">
       <div className="absolute top-0 left-0 right-0 section-divider" />
@@ -206,10 +202,10 @@ export default function ContactsSection() {
           />
         </div>
         <p className="font-inter text-[11px] tracking-wider text-gray-700 uppercase mb-2">
-          2026 Port Mirage. Все права защищены.
+          {contactsData.copyright}
         </p>
         <p className="font-inter text-[11px] text-gray-700">
-          Бабич Милена Игоревна · ИНН 613405123270
+          {contactsData.legal}
         </p>
       </footer>
     </section>

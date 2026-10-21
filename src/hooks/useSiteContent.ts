@@ -10,6 +10,8 @@ function load(): Promise<SiteContent> {
       .then((r) => r.json())
       .then((data) => {
         cache = {
+          about: { ...DEFAULT_CONTENT.about, ...(data.about || {}) },
+          contacts: { ...DEFAULT_CONTENT.contacts, ...(data.contacts || {}) },
           hero: { ...DEFAULT_CONTENT.hero, ...(data.hero || {}) },
           gallery: Array.isArray(data.gallery) ? data.gallery : DEFAULT_CONTENT.gallery,
           artists: Array.isArray(data.artists) ? data.artists : DEFAULT_CONTENT.artists,

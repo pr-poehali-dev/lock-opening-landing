@@ -8,7 +8,7 @@ import boto3
 import psycopg2
 
 SCHEMA = os.environ.get('MAIN_DB_SCHEMA', 't_p76039885_lock_opening_landing')
-KEYS = {'hero', 'gallery', 'artists', 'mixes'}
+KEYS = {'hero', 'gallery', 'artists', 'mixes', 'about', 'contacts'}
 
 CORS = {
     'Access-Control-Allow-Origin': '*',

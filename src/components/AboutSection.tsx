@@ -2,8 +2,10 @@ import PolygonBackground from "./PolygonBackground";
 import Reveal from "./Reveal";
 import { useParallax } from "@/hooks/useParallax";
 import { useRef } from "react";
+import { useSiteContent } from "@/hooks/useSiteContent";
 
 export default function AboutSection() {
+  const { about } = useSiteContent();
   const sectionRef = useRef<HTMLElement>(null);
   const scrollY = useParallax();
   const sectionTop = sectionRef.current?.offsetTop ?? 0;
@@ -39,21 +41,9 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
           <Reveal from="left">
             <div className="space-y-4">
-              <p className="font-inter text-gray-400 leading-relaxed text-[15px]">
-                Port Mirage - комьюнити, создающее мультижанровые вечеринки с
-                фокусом на progressive house и близкие по духу направления.
-              </p>
-              <p className="font-inter text-gray-400 leading-relaxed text-[15px]">
-                Живые перформансы - одна из ключевых частей формата.
-              </p>
-              <p className="font-inter text-gray-400 leading-relaxed text-[15px]">
-                Музыка, атмосфера и ощущение единства между людьми лежат в
-                основе каждого события.
-              </p>
-              <p className="font-inter text-gray-400 leading-relaxed text-[15px]">
-                Открывать новую музыку, привозить актуальных артистов и делиться
-                этим с людьми - одна из главных идей проекта.
-              </p>
+              {about.intro.map((t, i) => (
+                <p key={i} className="font-inter text-gray-400 leading-relaxed text-[15px]">{t}</p>
+              ))}
             </div>
           </Reveal>
 
@@ -83,25 +73,11 @@ export default function AboutSection() {
           <Reveal from="left" delay={100}>
             <div className="space-y-4">
               <h3 className="font-orbitron text-lg font-bold text-white mb-5 tracking-normal">
-                Наша история
+                {about.historyTitle}
               </h3>
-              <p className="font-inter text-gray-400 leading-relaxed text-[15px]">
-                Port Mirage появился благодаря друзьям, объединённым одной
-                страстью - электронной музыкой.
-              </p>
-              <p className="font-inter text-gray-400 leading-relaxed text-[15px]">
-                Нам хотелось создавать события, которые вдохновляли бы нас
-                самих, где звучание выходит за рамки привычного - более
-                глубокое, атмосферное и эмоциональное.
-              </p>
-              <p className="font-inter text-gray-400 leading-relaxed text-[15px]">
-                Проект постепенно обрёл новые форматы: появились привозы
-                артистов, живые перформансы, новые элементы внутри событий.
-              </p>
-              <p className="font-inter text-gray-400 leading-relaxed text-[15px]">
-                Главное осталось неизменным: музыка, её эстетика и внимание к
-                деталям.
-              </p>
+              {about.history.map((t, i) => (
+                <p key={i} className="font-inter text-gray-400 leading-relaxed text-[15px]">{t}</p>
+              ))}
             </div>
           </Reveal>
 

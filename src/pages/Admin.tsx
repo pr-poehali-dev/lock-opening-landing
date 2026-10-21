@@ -8,13 +8,15 @@ import { useToast } from "@/hooks/use-toast";
 import { CONTENT_URL, DEFAULT_CONTENT, SiteContent, Artist, Mix } from "@/lib/content";
 import ImageUpload from "@/components/admin/ImageUpload";
 
-type Tab = "hero" | "gallery" | "artists" | "mixes";
+type Tab = "hero" | "gallery" | "artists" | "mixes" | "about" | "contacts";
 
 const TABS: { id: Tab; label: string; icon: string }[] = [
   { id: "hero", label: "Главный экран", icon: "Home" },
   { id: "gallery", label: "Галерея", icon: "Images" },
   { id: "artists", label: "Артисты", icon: "Users" },
   { id: "mixes", label: "Наши миксы", icon: "Music" },
+  { id: "about", label: "О нас", icon: "FileText" },
+  { id: "contacts", label: "Контакты", icon: "Phone" },
 ];
 
 const EMPTY_ARTIST: Artist = { name: "", desc: "", genres: "", img: "", telegram: "", soundcloud: "", instagram: "" };
@@ -60,6 +62,8 @@ export default function Admin() {
   const loadContent = async () => {
     const data = await fetch(CONTENT_URL).then((r) => r.json());
     setContent({
+      about: { ...DEFAULT_CONTENT.about, ...(data.about || {}) },
+      contacts: { ...DEFAULT_CONTENT.contacts, ...(data.contacts || {}) },
       hero: { ...DEFAULT_CONTENT.hero, ...(data.hero || {}) },
       gallery: Array.isArray(data.gallery) ? data.gallery : DEFAULT_CONTENT.gallery,
       artists: Array.isArray(data.artists) ? data.artists : DEFAULT_CONTENT.artists,
@@ -113,6 +117,17 @@ export default function Admin() {
 
   const updateMix = (i: number, patch: Partial<Mix>) =>
     setContent((c) => ({ ...c, mixes: c.mixes.map((m, k) => (k === i ? { ...m, ...patch } : m)) }));
+
+  const setAbout = (patch: Partial<SiteContent["about"]>) =>
+    setContent((c) => ({ ...c, about: { ...c.about, ...patch } }));
+
+  const setContacts = (patch: Partial<SiteContent["contacts"]>) =>
+    setContent((c) => ({ ...c, contacts: { ...c.contacts, ...patch } }));
+
+  const updateContact = (i: number, patch: Partial<SiteContent["contacts"]["items"][number]>) =>
+    setContacts({ items: content.contacts.items.map((it, k) => (k === i ? { ...it, ...patch } : it)) });
+
+  const paragraphs = (v: string) => v.split(/\n\s*\n/).map((t) => t.trim()).filter(Boolean);
 
   if (!authed) {
     return (
@@ -309,6 +324,50 @@ export default function Admin() {
               <Icon name="Plus" size={16} className="mr-2" />
               Добавить микс
             </Button>
+          </div>
+        )}
+
+        {tab === "about" && (
+          <div className="space-y-4">
+            <Field label="Текст «О нас» (абзацы разделяйте пустой строкой)">
+              <Textarea
+                rows={12}
+                className={inputCls}
+                defaultValue={content.about.intro.join("\n\n")}
+                onChange={(e) => setAbout({ intro: paragraphs(e.target.value) })}
+              />
+            </Field>
+            <Field label="Заголовок второго блока">
+              <Input className={inputCls} value={content.about.historyTitle} onChange={(e) => setAbout({ historyTitle: e.target.value })} />
+            </Field>
+            <Field label="Текст истории (абзацы разделяйте пустой строкой)">
+              <Textarea
+                rows={12}
+                className={inputCls}
+                defaultValue={content.about.history.join("\n\n")}
+                onChange={(e) => setAbout({ history: paragraphs(e.target.value) })}
+              />
+            </Field>
+          </div>
+        )}
+
+        {tab === "contacts" && (
+          <div className="space-y-4">
+            {content.contacts.items.map((it, i) => (
+              <div key={i} className="bg-[#1a1a1a] border border-white/10 rounded-xl p-4 space-y-3">
+                <span className="font-orbitron text-sm">{it.label}</span>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  <Field label="Текст на сайте"><Input className={inputCls} value={it.value} onChange={(e) => updateContact(i, { value: e.target.value })} /></Field>
+                  <Field label="Ссылка"><Input className={inputCls} value={it.href} onChange={(e) => updateContact(i, { href: e.target.value })} /></Field>
+                </div>
+              </div>
+            ))}
+            <Field label="Копирайт в подвале">
+              <Input className={inputCls} value={content.contacts.copyright} onChange={(e) => setContacts({ copyright: e.target.value })} />
+            </Field>
+            <Field label="Реквизиты в подвале">
+              <Input className={inputCls} value={content.contacts.legal} onChange={(e) => setContacts({ legal: e.target.value })} />
+            </Field>
           </div>
         )}
 
