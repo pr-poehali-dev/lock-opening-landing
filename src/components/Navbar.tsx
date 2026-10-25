@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import Icon from "@/components/ui/icon";
 import { useSiteContent } from "@/hooks/useSiteContent";
 
-const LOGO = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/16d25f4b-b740-4b2a-80a7-7e0ea62bca8c.png";
 const TG_LINK = "https://t.me/portmirage";
 
 const navLinks = [
@@ -23,7 +22,9 @@ function TelegramIcon() {
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const REG_LINK = useSiteContent().hero.ticketLink;
+  const { hero } = useSiteContent();
+  const REG_LINK = hero.ticketLink;
+  const LOGO = hero.logo;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);

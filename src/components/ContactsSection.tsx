@@ -61,7 +61,8 @@ function WaveformBar({ heights }: { heights: number[] }) {
 }
 
 export default function ContactsSection() {
-  const { mixes, contacts: contactsData } = useSiteContent();
+  const { mixes, contacts: contactsData, hero } = useSiteContent();
+  const logo = hero.logo;
   const contacts = contactsData.items.map((c, i) => ({ ...c, icon: ICONS[i] ?? <EmailIcon /> }));
   return (
     <section id="contacts" className="py-20 md:py-32 bg-[#1a1a1a] relative overflow-hidden">
@@ -169,7 +170,7 @@ export default function ContactsSection() {
                   className="flex items-center gap-3 p-3 rounded-xl border border-white/8 hover:border-white/20 hover:bg-white/3 transition-all duration-300 group"
                 >
                   <img
-                    src="https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/16d25f4b-b740-4b2a-80a7-7e0ea62bca8c.png"
+                    src={logo}
                     alt="Port Mirage"
                     className="h-6 w-auto object-contain opacity-60 group-hover:opacity-90 transition-opacity"
                     style={{ filter: "brightness(0) invert(1)" }}
@@ -195,7 +196,7 @@ export default function ContactsSection() {
       <footer className="relative z-10 mt-20 pt-8 border-t border-white/5 text-center">
         <div className="flex justify-center mb-4">
           <img
-            src="https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/16d25f4b-b740-4b2a-80a7-7e0ea62bca8c.png"
+            src={logo}
             alt="Port Mirage"
             className="h-20 w-auto object-contain"
             style={{ filter: "brightness(0) invert(1)" }}

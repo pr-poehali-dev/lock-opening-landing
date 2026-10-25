@@ -208,6 +208,12 @@ export default function Admin() {
                 <ImageUpload label="Загрузить фон" onUpload={upload} onDone={(url) => setHero({ bgMobile: url })} />
               </div>
             </div>
+            <div className="bg-[#1a1a1a] border border-white/10 rounded-xl p-4 space-y-3">
+              <span className="block text-sm font-semibold">Логотип сайта</span>
+              <p className="text-xs text-gray-400">PNG с прозрачным фоном, шириной от 600 px. На сайте логотип отображается белым цветом.</p>
+              {content.hero.logo && <img src={content.hero.logo} alt="" className="h-16 w-auto object-contain bg-black rounded p-2" style={{ filter: "brightness(0) invert(1)" }} />}
+              <ImageUpload label="Загрузить логотип" onUpload={upload} onDone={(url) => setHero({ logo: url })} />
+            </div>
             <Field label="Ссылка на кнопку «Купить билет»">
               <Input className={inputCls} value={content.hero.ticketLink} onChange={(e) => setHero({ ticketLink: e.target.value })} />
             </Field>
