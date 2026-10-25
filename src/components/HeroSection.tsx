@@ -1,8 +1,6 @@
 import PolygonBackground from "./PolygonBackground";
 import { useParallax } from "@/hooks/useParallax";
 
-const BG = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/c5b18a32-7484-4de4-9a5b-0ad013c2ce72.png";
-const BG_DESKTOP = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/1c955390-c949-4cbd-ad38-7465164f61fc.png";
 const LOGO_RITMI = "https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/6609fec4-37d9-463e-a1d4-dc7286af4c39.png";
 import { useSiteContent } from "@/hooks/useSiteContent";
 
@@ -11,6 +9,8 @@ export default function HeroSection() {
   const { hero } = useSiteContent();
   const REG_LINK = hero.ticketLink;
   const SUPPORT = hero.support;
+  const BG = hero.bgMobile;
+  const BG_DESKTOP = hero.bgDesktop;
 
   return (
     <section className="relative flex flex-col overflow-hidden" style={{ height: "100svh", minHeight: "600px" }}>

@@ -194,6 +194,20 @@ export default function Admin() {
       <main className="max-w-4xl mx-auto px-4 py-6 space-y-6">
         {tab === "hero" && (
           <div className="space-y-4">
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="bg-[#1a1a1a] border border-white/10 rounded-xl p-4 space-y-3">
+                <span className="block text-sm font-semibold">Фон для компьютера</span>
+                <p className="text-xs text-gray-400">Горизонтальная картинка 1920 × 1080 px (формат 16:9), JPG или PNG. Главное — в центре, остальное может обрезаться.</p>
+                {content.hero.bgDesktop && <img src={content.hero.bgDesktop} alt="" className="w-full aspect-video object-cover rounded" />}
+                <ImageUpload label="Загрузить фон" onUpload={upload} onDone={(url) => setHero({ bgDesktop: url })} />
+              </div>
+              <div className="bg-[#1a1a1a] border border-white/10 rounded-xl p-4 space-y-3">
+                <span className="block text-sm font-semibold">Фон для телефона</span>
+                <p className="text-xs text-gray-400">Вертикальная картинка 1080 × 1920 px (формат 9:16), JPG или PNG. Лицо или главный объект держите в верхней части.</p>
+                {content.hero.bgMobile && <img src={content.hero.bgMobile} alt="" className="h-48 aspect-[9/16] object-cover rounded" />}
+                <ImageUpload label="Загрузить фон" onUpload={upload} onDone={(url) => setHero({ bgMobile: url })} />
+              </div>
+            </div>
             <Field label="Ссылка на кнопку «Купить билет»">
               <Input className={inputCls} value={content.hero.ticketLink} onChange={(e) => setHero({ ticketLink: e.target.value })} />
             </Field>

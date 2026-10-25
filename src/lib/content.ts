@@ -10,6 +10,8 @@ export interface Hero {
   partners: string;
   support: string[];
   ticketLink: string;
+  bgDesktop: string;
+  bgMobile: string;
 }
 
 export interface Artist {
@@ -89,6 +91,8 @@ export const DEFAULT_CONTENT: SiteContent = {
     partners: "Port Mirage × Progressia",
     support: ["K LOVESKI", "JOMOSS", "SAZONOVA", "AKIN K", "CHELAKHOV", "AGWA", "ROMAN LISOV"],
     ticketLink: "https://spb.qtickets.events/261521-port-mirage-x-progressia-eichenbaum-argentina",
+    bgDesktop: B + "1c955390-c949-4cbd-ad38-7465164f61fc.png",
+    bgMobile: B + "c5b18a32-7484-4de4-9a5b-0ad013c2ce72.png",
   },
   gallery: [
     "7ca6771f-58af-4ada-b4b1-00308ed9622a.jpg",
