@@ -34,6 +34,8 @@ export interface About {
   intro: string[];
   historyTitle: string;
   history: string[];
+  imgTeam: string;
+  imgHistory: string;
 }
 
 export interface ContactItem {
@@ -65,6 +67,8 @@ export const DEFAULT_CONTENT: SiteContent = {
       "Музыка, атмосфера и ощущение единства между людьми лежат в основе каждого события.",
       "Открывать новую музыку, привозить актуальных артистов и делиться этим с людьми - одна из главных идей проекта.",
     ],
+    imgTeam: B + "c941246b-84c4-461e-b831-28d870b8f688.jpg",
+    imgHistory: B + "63203eb1-be8c-4246-8447-be063759f540.jpg",
     historyTitle: "Наша история",
     history: [
       "Port Mirage появился благодаря друзьям, объединённым одной страстью - электронной музыкой.",

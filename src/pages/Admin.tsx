@@ -343,6 +343,20 @@ export default function Admin() {
 
         {tab === "about" && (
           <div className="space-y-4">
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="bg-[#1a1a1a] border border-white/10 rounded-xl p-4 space-y-3">
+                <span className="block text-sm font-semibold">Фото рядом с текстом «О нас»</span>
+                <p className="text-xs text-gray-400">Горизонтальное фото от 1200 px по ширине, JPG или PNG.</p>
+                {content.about.imgTeam && <img src={content.about.imgTeam} alt="" className="w-full max-h-48 object-cover rounded" />}
+                <ImageUpload label="Загрузить фото" onUpload={upload} onDone={(url) => setAbout({ imgTeam: url })} />
+              </div>
+              <div className="bg-[#1a1a1a] border border-white/10 rounded-xl p-4 space-y-3">
+                <span className="block text-sm font-semibold">Фото рядом с историей</span>
+                <p className="text-xs text-gray-400">Вертикальное фото 3:4, например 1200 × 1600 px, JPG или PNG.</p>
+                {content.about.imgHistory && <img src={content.about.imgHistory} alt="" className="h-48 aspect-[3/4] object-cover rounded" />}
+                <ImageUpload label="Загрузить фото" onUpload={upload} onDone={(url) => setAbout({ imgHistory: url })} />
+              </div>
+            </div>
             <Field label="Текст «О нас» (абзацы разделяйте пустой строкой)">
               <Textarea
                 rows={12}

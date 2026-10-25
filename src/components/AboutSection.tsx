@@ -54,7 +54,7 @@ export default function AboutSection() {
             >
               <div className="rounded-xl overflow-hidden">
                 <img
-                  src="https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/c941246b-84c4-461e-b831-28d870b8f688.jpg"
+                  src={about.imgTeam}
                   alt="Команда Port Mirage"
                   className="w-full h-auto will-change-transform"
                   style={{
@@ -84,7 +84,7 @@ export default function AboutSection() {
           <Reveal from="right" delay={150}>
             <div className="aspect-[3/4] rounded-xl overflow-hidden">
               <img
-                src="https://cdn.poehali.dev/projects/998b3fcd-e06e-44c1-928c-697384025963/bucket/63203eb1-be8c-4246-8447-be063759f540.jpg"
+                src={about.imgHistory}
                 alt="История Port Mirage"
                 className="w-full h-full object-cover"
               />
